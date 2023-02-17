@@ -9,3 +9,5 @@
 - How to import and export large datasets
 - Over 20 of the basic SQL Commands including SQL SELECT, WHERE, ORDER BY, JOIN and many more! 
 - How to create a new database and tables from scratch
+ * While hoarding data is a good thing to do, you would never actually learn anything if you don't practice
+ 
