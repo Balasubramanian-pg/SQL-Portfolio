@@ -10,6 +10,15 @@ Data Source and Preparation:
 The dataset, obtained from Kaggle, underwent meticulous preparation through the Extract, Transform, Load (ETL) process using Excel Power Query. 
 This ensured data consistency and uniformity before importing it into a SQL database, setting the stage for rigorous exploratory data analysis.
 
+About the data:
+The data dictionary will help you understand about the data, the dataset contains over 2400 universities that are being observed over the years on the basis of various
+variables such as index citations, international research, academic reputation etc, which contributes to the overall score. I have tried to connect these scores to 
+provide an holisitic view into how these universities help mold a computer science student who would enroll into the college in perspective of science, technology and 
+research.
+The uncleaned data has been given for you to follow along, you are  free to copy every query in the file, but I would suggest to make a few changes and brainstorm a couple
+of unique business problems that you would want to search the answers for.
+
+
 Exploration Process:
 
     1. Data Familiarization: A comprehensive understanding of the dataset's structure and variables paved the way for relevant questions and hypotheses.
