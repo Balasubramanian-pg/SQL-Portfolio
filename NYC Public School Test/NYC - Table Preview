@@ -1,0 +1,8 @@
+column 	type 	description
+school_name 	varchar 	Name of school
+borough 	varchar 	Borough that the school is located in
+building_code 	varchar 	Code for the building
+average_math 	int 	Average math score for SATs
+average_reading 	int 	Average reading score for SATs
+average_writing 	int 	Average writing score for SATs
+percent_tested 	numeric 	Percentage of students completing SATs
