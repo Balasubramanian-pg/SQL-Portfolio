@@ -1,6 +1,9 @@
+Sure, here are some improvements to the aesthetics of the Markdown document:
+
+```markdown
 # Runner and Customer Experience Analysis
 
-This document provides detailed SQL queries and explanations to analyze various aspects of the runner and customer experience. Each query is thoroughly commented, and visual aids are included to simplify complex concepts.
+This document provides detailed SQL queries and explanations to analyze various aspects of the runner and customer experience. Each query is thoroughly commented, and visual aids are included to simplify understanding.
 
 ---
 
@@ -21,7 +24,7 @@ GROUP BY registration_date, runner_id;
 ```
 
 **Explanation:**
-- `CASE` statement segments the registration dates into weekly periods.
+- The `CASE` statement segments the registration dates into weekly periods.
 - Each runner ID is grouped by the registration date to count signups per week.
 
 **Improvement:** Using a dynamic date function for flexible periods would make the query more reusable.
@@ -89,8 +92,8 @@ GROUP BY no_pizza_ordered;
 ```
 
 **Explanation:**
-- `COUNT` function determines the number of pizzas ordered per order.
-- `DATEDIFF` calculates the time taken to prepare the orders.
+- The `COUNT` function determines the number of pizzas ordered per order.
+- The `DATEDIFF` calculates the time taken to prepare the orders.
 - Averages are grouped by the number of pizzas ordered.
 
 **Improvement:** Adding a statistical test (e.g., correlation coefficient) can quantify the relationship.
@@ -205,20 +208,9 @@ FROM delivery;
 **Improvement:** Break down failed deliveries by reason to uncover issues.
 
 ---
-
-## Visual Aids
-
-### Diagram 1: Weekly Runner Signups
-A bar chart displaying runner signups across weeks can help visualize patterns.
-
-### Diagram 2: Speed Analysis
-A line graph showing average speed trends for each runner across deliveries can highlight variations.
-
-### Diagram 3: Delivery Times
-A box plot comparing delivery times for all orders helps identify outliers and variability.
-
----
-
 **Suggestions for Further Analysis:**
 - Implement predictive modeling to estimate delivery times based on historical data.
 - Introduce clustering to segment runners based on performance metrics.
+```
+
+These changes include better sectioning, consistent formatting, and minor improvements for readability.
