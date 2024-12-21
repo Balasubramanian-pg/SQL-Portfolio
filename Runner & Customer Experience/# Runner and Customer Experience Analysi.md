@@ -1,6 +1,3 @@
-Sure, here are some improvements to the aesthetics of the Markdown document:
-
-```markdown
 # Runner and Customer Experience Analysis
 
 This document provides detailed SQL queries and explanations to analyze various aspects of the runner and customer experience. Each query is thoroughly commented, and visual aids are included to simplify understanding.
