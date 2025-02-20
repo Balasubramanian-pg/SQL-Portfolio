@@ -484,4 +484,132 @@ GROUP BY department WITH ROLLUP;
 
 ---
 
-These advanced features extend the power of SQL, allowing you to handle complex data scenarios, improve performance, and produce more insightful reports. Happy querying!
+Below is a further advanced SQL cheat sheet highlighting additional powerful SQL techniques and features:
+
+---
+
+## 9. Advanced Window Functions  
+**Purpose:** Retrieve values from rows before or after the current row without collapsing the result set.
+
+- **LEAD() and LAG()**  
+  **Example:**
+  ```sql
+  SELECT
+      employee_name,
+      salary,
+      LAG(salary, 1) OVER (ORDER BY salary) AS previous_salary,
+      LEAD(salary, 1) OVER (ORDER BY salary) AS next_salary
+  FROM employees;
+  ```
+  *This returns the previous and next salary relative to each employee's salary.*
+
+- **FIRST_VALUE() and LAST_VALUE()**  
+  **Example:**
+  ```sql
+  SELECT
+      employee_name,
+      salary,
+      FIRST_VALUE(salary) OVER (ORDER BY salary DESC) AS highest_salary,
+      LAST_VALUE(salary) OVER (ORDER BY salary DESC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS lowest_salary
+  FROM employees;
+  ```
+  *These functions fetch the first and last values in a window, respectively.*
+
+---
+
+## 10. Full-Text Search  
+**Purpose:** Perform efficient text searches on large text columns.
+
+- **Example (SQL Server):**
+  ```sql
+  SELECT *
+  FROM articles
+  WHERE CONTAINS(content, 'database');
+  ```
+  *This query searches for the term "database" within the `content` column.*
+
+---
+
+## 11. Table Partitioning  
+**Purpose:** Divide large tables into smaller, more manageable pieces to improve performance and maintenance.
+
+- **Example (MySQL Range Partitioning):**
+  ```sql
+  CREATE TABLE orders (
+      order_id INT,
+      order_date DATE,
+      amount DECIMAL(10,2)
+  )
+  PARTITION BY RANGE (YEAR(order_date)) (
+      PARTITION p2019 VALUES LESS THAN (2020),
+      PARTITION p2020 VALUES LESS THAN (2021),
+      PARTITION p2021 VALUES LESS THAN (2022)
+  );
+  ```
+  *This partitions the `orders` table by year, making queries on specific date ranges more efficient.*
+
+---
+
+## 12. Materialized Views  
+**Purpose:** Store the result of a query physically to speed up retrieval for complex or resource-intensive queries.
+
+- **Example (Oracle):**
+  ```sql
+  CREATE MATERIALIZED VIEW sales_summary AS
+  SELECT salesperson, SUM(sales) AS total_sales
+  FROM sales
+  GROUP BY salesperson;
+  ```
+  *Materialized views can be refreshed periodically to provide up-to-date aggregated data.*
+
+---
+
+## 13. Error Handling with TRY/CATCH  
+**Purpose:** Capture and handle errors in SQL code, especially within stored procedures.
+
+- **Example (SQL Server):**
+  ```sql
+  BEGIN TRY
+      -- Statements that might cause an error
+      UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;
+  END TRY
+  BEGIN CATCH
+      PRINT 'An error occurred: ' + ERROR_MESSAGE();
+  END CATCH;
+  ```
+  *This structure catches errors and provides a mechanism to handle them gracefully.*
+
+---
+
+## 14. Hierarchical Queries (Oracle CONNECT BY)  
+**Purpose:** Retrieve and display hierarchical data (e.g., organizational structures).
+
+- **Example (Oracle):**
+  ```sql
+  SELECT employee_id, employee_name, manager_id
+  FROM employees
+  START WITH manager_id IS NULL
+  CONNECT BY PRIOR employee_id = manager_id;
+  ```
+  *This query builds an organizational hierarchy starting from top-level employees (with no manager).*
+
+---
+
+## 15. Optimizing Index Usage and Maintenance  
+**Purpose:** Enhance query performance by creating, analyzing, and maintaining indexes.
+
+- **Creating a Composite Index:**
+  ```sql
+  CREATE INDEX idx_customer_order ON orders(customer_id, order_date);
+  ```
+  *A composite index can speed up queries filtering on both `customer_id` and `order_date`.*
+
+- **Rebuilding an Index (SQL Server):**
+  ```sql
+  ALTER INDEX idx_customer_order ON orders REBUILD;
+  ```
+  *Regular index maintenance (like rebuilding) ensures optimal performance.*
+
+---
+
+These advanced techniques extend the power of SQL, enabling you to handle complex data scenarios, optimize performance, and build more robust applications. Happy querying!
