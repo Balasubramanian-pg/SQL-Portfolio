@@ -735,4 +735,153 @@ GO  -- Marks the end of a batch in SQL Server.
 
 ---
 
-These advanced features further empower you to handle complex data operations, optimize performance, ensure security, and manage data more effectively. Happy coding!
+Here are even more advanced SQL features that can take your skills to the next level:
+
+---
+
+## 22. Temporal Tables (System-Versioned Tables)
+**Purpose:** Automatically track and store the full history of data changes over time, enabling you to query data as it was at any point in time.
+
+**Example (SQL Server):**
+```sql
+CREATE TABLE EmployeeHistory (
+    EmployeeID INT PRIMARY KEY,
+    EmployeeName VARCHAR(100),
+    Salary DECIMAL(10,2),
+    ValidFrom DATETIME2 GENERATED ALWAYS AS ROW START,
+    ValidTo DATETIME2 GENERATED ALWAYS AS ROW END,
+    PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+)
+WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.EmployeeHistoryHistory));
+```
+
+---
+
+## 23. Graph Queries
+**Purpose:** Model and query complex many-to-many relationships (such as social networks or recommendation systems) using node and edge tables.
+
+**Example (SQL Server):**
+```sql
+-- Create node table for persons
+CREATE TABLE Person (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50)
+) AS NODE;
+
+-- Create edge table for friendships
+CREATE TABLE Friendship (
+    $from_id INT,
+    $to_id INT
+) AS EDGE;
+
+-- Query to find a person's friends:
+SELECT p.Name, f.$to_id
+FROM Person p
+JOIN Friendship f ON p.ID = f.$from_id;
+```
+
+---
+
+## 24. External Tables / PolyBase
+**Purpose:** Query data stored in external sources (like Hadoop, Azure Blob Storage, or flat files) as if it were in your local database.
+
+**Example (SQL Server with PolyBase):**
+```sql
+CREATE EXTERNAL TABLE ExternalSales (
+    SaleID INT,
+    Amount DECIMAL(10,2)
+)
+WITH (
+    LOCATION = 'externaldata/sales/',
+    DATA_SOURCE = MyExternalDataSource,
+    FILE_FORMAT = MyFileFormat
+);
+```
+
+---
+
+## 25. Row-Level Security
+**Purpose:** Enforce fine-grained access control by restricting which rows a user can view or modify.
+
+**Example (SQL Server):**
+```sql
+-- Create a predicate function:
+CREATE FUNCTION dbo.fn_securitypredicate(@CustomerID INT)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+    RETURN SELECT 1 AS fn_securitypredicate_result
+           WHERE @CustomerID = CAST(SESSION_CONTEXT(N'CustomerID') AS INT);
+
+-- Apply the security policy on the Sales table:
+CREATE SECURITY POLICY SalesFilter
+ADD FILTER PREDICATE dbo.fn_securitypredicate(CustomerID)
+ON dbo.Sales
+WITH (STATE = ON);
+```
+
+---
+
+## 26. Change Data Capture (CDC) / Change Tracking
+**Purpose:** Track changes made to tables over time so you can capture data modifications for auditing or incremental data processing.
+
+**Example (SQL Server CDC):**
+```sql
+EXEC sys.sp_cdc_enable_table 
+    @source_schema = 'dbo', 
+    @source_name   = 'Sales', 
+    @role_name     = NULL;
+```
+
+---
+
+## 27. Columnstore Indexes
+**Purpose:** Improve the performance of analytical queries by storing data in a columnar format rather than row-based, which is particularly effective for large data warehouses.
+
+**Example (SQL Server):**
+```sql
+CREATE COLUMNSTORE INDEX idx_ColumnStore
+ON Sales (SaleID, Amount);
+```
+
+---
+
+## 28. In-Memory OLTP
+**Purpose:** Dramatically boost transaction processing performance by storing and managing data in memory-optimized tables.
+
+**Example (SQL Server):**
+```sql
+CREATE TABLE InMemorySales (
+    SaleID INT NOT NULL PRIMARY KEY NONCLUSTERED,
+    Amount DECIMAL(10,2)
+) WITH (MEMORY_OPTIMIZED = ON, DURABILITY = SCHEMA_AND_DATA);
+```
+
+---
+
+## 29. Data Compression
+**Purpose:** Reduce the storage footprint of your data and potentially improve I/O performance through row-level or page-level compression.
+
+**Example (SQL Server):**
+```sql
+ALTER TABLE Sales 
+REBUILD PARTITION = ALL 
+WITH (DATA_COMPRESSION = PAGE);
+```
+
+---
+
+## 30. Extended Events
+**Purpose:** Monitor, diagnose, and troubleshoot performance and other issues in SQL Server by capturing detailed event data.
+
+**Example (SQL Server):**
+```sql
+CREATE EVENT SESSION QueryMonitor ON SERVER 
+ADD EVENT sqlserver.sql_statement_completed
+ADD TARGET package0.event_file(SET filename = N'QueryMonitor.xel');
+ALTER EVENT SESSION QueryMonitor ON SERVER STATE = START;
+```
+
+---
+
+These additional features empower you to manage data more effectively, optimize performance, and build robust, enterprise-level solutions. Happy querying!
