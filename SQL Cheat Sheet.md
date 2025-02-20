@@ -884,4 +884,84 @@ ALTER EVENT SESSION QueryMonitor ON SERVER STATE = START;
 
 ---
 
-These additional features empower you to manage data more effectively, optimize performance, and build robust, enterprise-level solutions. Happy querying!
+Below are additional advanced SQL features (items 31–35) to further enhance your database management and optimization skills:
+
+---
+
+## 31. Database Replication and Mirroring  
+**Purpose:**  
+Enable high availability and redundancy by replicating data between databases. This helps ensure data remains accessible in case of hardware failures or planned maintenance.  
+
+**Example (Conceptual - SQL Server):**  
+Replication is often configured using SQL Server Management Studio and system stored procedures. For example, to set up snapshot replication, you might use:  
+```sql
+-- This is a conceptual example; actual replication setup involves several steps.
+EXEC sp_addpublication 
+    @publication = 'MySnapshotPublication', 
+    @publication_type = 'snapshot',
+    @description = 'Snapshot replication for high availability';
+```
+*Note: The full setup requires configuring publishers, distributors, and subscribers.*
+
+---
+
+## 32. Query Store and Plan Forcing  
+**Purpose:**  
+Capture historical query performance data to analyze and optimize queries. The Query Store also allows you to force a specific query plan if needed, helping mitigate performance regressions.  
+
+**Example (SQL Server):**  
+```sql
+-- Enable Query Store on your database
+ALTER DATABASE YourDatabase SET QUERY_STORE = ON;
+```
+After enabling, you can review performance data in SQL Server Management Studio and, if necessary, force an optimal plan using query hints (e.g., `OPTION (USE PLAN N'...')`).
+
+---
+
+## 33. Dynamic Data Masking  
+**Purpose:**  
+Protect sensitive information by masking it in query results without altering the underlying data. This is particularly useful for limiting exposure in non-privileged environments.  
+
+**Example (SQL Server):**  
+```sql
+ALTER TABLE Customers
+ALTER COLUMN Email ADD MASKED WITH (FUNCTION = 'email()');
+```
+*This masks the email addresses so that only a partial view is returned to users without proper privileges.*
+
+---
+
+## 34. Distributed Transactions and Two-Phase Commit  
+**Purpose:**  
+Ensure atomic operations across multiple databases or servers. Distributed transactions coordinate commits across systems so that either all operations succeed or none do.  
+
+**Example:**  
+```sql
+BEGIN DISTRIBUTED TRANSACTION;
+  -- Execute operations across different databases/servers
+  UPDATE DatabaseA.dbo.Orders SET Status = 'Processed' WHERE OrderID = 123;
+  UPDATE DatabaseB.dbo.Inventory SET Quantity = Quantity - 1 WHERE ProductID = 456;
+COMMIT TRANSACTION;
+```
+*Note: Distributed transactions require proper configuration of a transaction coordinator (e.g., MSDTC in SQL Server).*
+
+---
+
+## 35. Advanced Concurrency Control  
+**Purpose:**  
+Manage simultaneous data access using fine-tuned locking and isolation levels, reducing conflicts and improving performance in multi-user environments.  
+
+**Example (SQL Server using SNAPSHOT isolation):**  
+```sql
+SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+BEGIN TRANSACTION;
+  -- Perform concurrent-safe operations here
+  UPDATE Accounts SET Balance = Balance - 100 WHERE AccountID = 1;
+  UPDATE Accounts SET Balance = Balance + 100 WHERE AccountID = 2;
+COMMIT TRANSACTION;
+```
+*Using SNAPSHOT isolation minimizes locking contention by providing a transactionally consistent view of the data.*
+
+---
+
+These features further empower you to build robust, high-performance, and secure database applications. Happy querying!
