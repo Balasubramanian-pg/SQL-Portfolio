@@ -612,4 +612,127 @@ Below is a further advanced SQL cheat sheet highlighting additional powerful SQL
 
 ---
 
-These advanced techniques extend the power of SQL, enabling you to handle complex data scenarios, optimize performance, and build more robust applications. Happy querying!
+Below are even more advanced SQL features to expand your toolkit:
+
+---
+
+## 16. MERGE / UPSERT  
+**Purpose:** Combine insert, update, and delete operations in one atomic statement, which is useful for synchronizing tables.
+
+**Example (SQL Server):**
+```sql
+MERGE target_table AS target
+USING source_table AS source
+ON target.id = source.id
+WHEN MATCHED THEN
+    UPDATE SET target.value = source.value
+WHEN NOT MATCHED BY TARGET THEN
+    INSERT (id, value) VALUES (source.id, source.value)
+WHEN NOT MATCHED BY SOURCE THEN
+    DELETE;
+```
+*This statement updates matching records, inserts new ones, and deletes records not present in the source.*
+
+---
+
+## 17. Cursors  
+**Purpose:** Process query results row by row when set-based operations aren’t suitable.
+
+**Example (SQL Server):**
+```sql
+DECLARE @value INT;
+
+DECLARE cursor_example CURSOR FOR
+SELECT column_name FROM table_name;
+
+OPEN cursor_example;
+FETCH NEXT FROM cursor_example INTO @value;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Process each row individually
+    PRINT @value;
+    FETCH NEXT FROM cursor_example INTO @value;
+END;
+
+CLOSE cursor_example;
+DEALLOCATE cursor_example;
+```
+*Use cursors sparingly, as set-based operations are typically more efficient.*
+
+---
+
+## 18. Batch Processing & Scripting  
+**Purpose:** Execute multiple SQL statements as a single unit or batch.
+
+**Example (T-SQL):**
+```sql
+-- This batch creates a temporary table, inserts data, and selects from it.
+CREATE TABLE #TempData (id INT, value VARCHAR(50));
+
+INSERT INTO #TempData (id, value)
+VALUES (1, 'A'), (2, 'B');
+
+SELECT * FROM #TempData;
+GO  -- Marks the end of a batch in SQL Server.
+```
+*Batches can help organize scripts and control execution flow.*
+
+---
+
+## 19. Advanced Data Types  
+**Purpose:** Leverage specialized types for complex data such as XML, arrays, or geospatial data.
+
+- **XML:**  
+  **Example (SQL Server):**
+  ```sql
+  DECLARE @xml XML = '<root><item id="1">Value</item></root>';
+  SELECT @xml.value('(/root/item/@id)[1]', 'INT') AS ItemID;
+  ```
+  
+- **Arrays (PostgreSQL):**  
+  **Example:**
+  ```sql
+  SELECT ARRAY[1, 2, 3] AS numbers;
+  ```
+
+*Using these types can simplify the storage and querying of structured data.*
+
+---
+
+## 20. Security, Roles & Encryption  
+**Purpose:** Manage access, permissions, and protect data within the database.
+
+- **Roles & Permissions:**  
+  **Example (PostgreSQL):**
+  ```sql
+  CREATE ROLE read_only;
+  GRANT SELECT ON ALL TABLES IN SCHEMA public TO read_only;
+  ```
+- **Encryption:**  
+  Some databases offer built-in encryption features for data-at-rest or during transmission (e.g., Transparent Data Encryption in SQL Server).
+
+*Properly managing security is critical for safeguarding data integrity and privacy.*
+
+---
+
+## 21. Query Execution Plans & Optimization Tools  
+**Purpose:** Analyze and optimize query performance by reviewing how the database executes SQL statements.
+
+- **EXPLAIN (MySQL/PostgreSQL):**
+  ```sql
+  EXPLAIN SELECT * FROM orders WHERE customer_id = 123;
+  ```
+  *This provides insights into index usage, joins, and potential bottlenecks.*
+
+- **Execution Plan Analysis (SQL Server):**
+  ```sql
+  SET SHOWPLAN_ALL ON;
+  SELECT * FROM orders WHERE customer_id = 123;
+  SET SHOWPLAN_ALL OFF;
+  ```
+*Understanding execution plans helps you fine-tune your queries for better performance.*
+
+---
+
+These advanced features further empower you to handle complex data operations, optimize performance, ensure security, and manage data more effectively. Happy coding!
