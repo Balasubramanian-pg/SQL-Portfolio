@@ -964,4 +964,88 @@ COMMIT TRANSACTION;
 
 ---
 
-These features further empower you to build robust, high-performance, and secure database applications. Happy querying!
+Below are additional advanced SQL features (items 36–40) that further extend your capabilities for handling complex, scalable, and high-performance database scenarios:
+
+---
+
+## 36. Database Sharding  
+**Purpose:**  
+Distribute large datasets across multiple database servers (shards) to enable horizontal scaling and improve performance under heavy loads.
+
+**Concept:**  
+Sharding is typically managed by the application or middleware rather than pure SQL. The idea is to partition data based on a key (like customer ID) so that each shard holds a subset of data.
+
+**Conceptual Example:**  
+```sql
+-- Data distribution is managed externally. For example:
+-- Orders for Customer IDs 1-10000 go to Shard1, 10001-20000 to Shard2, etc.
+INSERT INTO Orders_Shard_1 (order_id, customer_id, order_date, amount) VALUES (...);
+```
+
+---
+
+## 37. Read Replicas  
+**Purpose:**  
+Improve read performance and reduce load on the primary database by offloading read operations to one or more replica databases.
+
+**Concept:**  
+Read replicas are typically configured in managed or cloud environments. Applications can direct SELECT queries to a replica endpoint while write operations continue to use the primary database.
+
+**Conceptual Note:**  
+No specific SQL command is used here; rather, it’s about configuring your connection strings and database settings to point to a replica.
+
+---
+
+## 38. User-Defined Aggregate Functions (UDAFs)  
+**Purpose:**  
+Create custom aggregate functions to perform specialized summarizations that built-in functions might not cover.
+
+**Example (Conceptual - PostgreSQL):**  
+```sql
+-- In PostgreSQL, you can define a custom aggregate function.
+-- This example assumes you have created a supporting state function 'numeric_avg' to calculate the average.
+CREATE AGGREGATE custom_avg(numeric) (
+  sfunc = numeric_avg,  -- state function to process each value
+  stype = numeric,      -- state data type
+  initcond = '0'
+);
+```
+
+*Note: Syntax and capabilities vary by database. SQL Server, for example, supports UDAFs via CLR integration.*
+
+---
+
+## 39. Column-Level Encryption  
+**Purpose:**  
+Enhance data security by encrypting sensitive data stored in specific columns. This protects data at rest and limits exposure if unauthorized access occurs.
+
+**Example (SQL Server using symmetric key encryption):**  
+```sql
+-- First, open the symmetric key (configured previously with a certificate)
+OPEN SYMMETRIC KEY MyKey DECRYPTION BY CERTIFICATE MyCert;
+
+-- Encrypt the SSN column for a specific customer
+UPDATE Customers 
+SET EncryptedSSN = ENCRYPTBYKEY(KEY_GUID('MyKey'), SSN)
+WHERE CustomerID = 123;
+```
+
+*This example encrypts the `SSN` field into a new column `EncryptedSSN`. Decryption would use the corresponding DECRYPTBYKEY function.*
+
+---
+
+## 40. Approximate Query Processing  
+**Purpose:**  
+Quickly run aggregations over massive datasets by returning approximate results with a known error margin. This is useful when speed is more critical than exact precision.
+
+**Example (SQL Server / BigQuery):**  
+```sql
+SELECT APPROX_COUNT_DISTINCT(UserID) AS ApproxUserCount
+FROM Logins;
+```
+
+*This query calculates an approximate distinct count of users, often much faster than an exact count on very large tables.*
+
+---
+
+These advanced features further empower you to build scalable, secure, and high-performance database solutions. Happy querying!
