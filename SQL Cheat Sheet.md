@@ -1,180 +1,199 @@
 Below is a cheat sheet highlighting some of the most important SQL functions along with their uses and small examples:
 
 ---
+# **SQL Aggregate Functions**
 
-SQL Aggregate Functions
+Aggregate functions perform calculations on multiple rows of data and return a single value. They are commonly used in **reporting, analytics, and summarizing data** in SQL queries.  
 
-Aggregate functions perform calculations on multiple rows of data and return a single value. They are commonly used in reporting, analytics, and summarizing data in SQL queries.
-1. COUNT()
+## **1. COUNT()**  
+🔹 **Purpose:** Returns the number of rows that match a specified condition. Often used to count the total number of records in a table or within a group.  
 
-🔹 Purpose: Returns the number of rows that match a specified condition. Often used to count the total number of records in a table or within a group.
-
-📌 Example 1: Count total orders in the orders table
-
+📌 **Example 1: Count total orders in the `orders` table**  
+```sql
 SELECT COUNT(*) AS total_orders
 FROM orders;
+```
+🔹 **Output:**  
+| total_orders |
+|-------------|
+| 1500        |
 
-🔹 Output:
-total_orders
-1500
-
-📌 Example 2: Count orders placed by a specific customer (customer_id = 101)
-
+📌 **Example 2: Count orders placed by a specific customer (`customer_id = 101`)**  
+```sql
 SELECT COUNT(*) AS customer_orders
 FROM orders
 WHERE customer_id = 101;
+```
+🔹 **Output:**  
+| customer_orders |
+|----------------|
+| 25             |
 
-🔹 Output:
-customer_orders
-25
-
-📌 Example 3: Count distinct products sold
-
+📌 **Example 3: Count distinct products sold**  
+```sql
 SELECT COUNT(DISTINCT product_id) AS unique_products_sold
 FROM sales;
+```
+🔹 **Output:**  
+| unique_products_sold |
+|----------------------|
+| 320                  |
 
-🔹 Output:
-unique_products_sold
-320
-2. SUM()
+---
 
-🔹 Purpose: Returns the total sum of numeric values in a column. Used for calculating total revenue, sales, expenses, etc.
+## **2. SUM()**  
+🔹 **Purpose:** Returns the total sum of numeric values in a column. Used for calculating total revenue, sales, expenses, etc.  
 
-📌 Example 1: Total sales revenue from the sales table
-
+📌 **Example 1: Total sales revenue from the `sales` table**  
+```sql
 SELECT SUM(amount) AS total_revenue
 FROM sales;
+```
+🔹 **Output:**  
+| total_revenue |
+|--------------|
+| 5,000,000    |
 
-🔹 Output:
-total_revenue
-5,000,000
-
-📌 Example 2: Total salary paid to employees in the employees table
-
+📌 **Example 2: Total salary paid to employees in the `employees` table**  
+```sql
 SELECT SUM(salary) AS total_salaries
 FROM employees;
+```
+🔹 **Output:**  
+| total_salaries |
+|---------------|
+| 12,500,000    |
 
-🔹 Output:
-total_salaries
-12,500,000
-
-📌 Example 3: Total quantity of products sold by category
-
+📌 **Example 3: Total quantity of products sold by category**  
+```sql
 SELECT category, SUM(quantity) AS total_quantity_sold
 FROM products
 GROUP BY category;
+```
+🔹 **Output:**  
+| category | total_quantity_sold |
+|----------|--------------------|
+| Electronics | 10,000           |
+| Clothing    | 5,500            |
 
-🔹 Output:
-category	total_quantity_sold
-Electronics	10,000
-Clothing	5,500
-3. AVG()
+---
 
-🔹 Purpose: Computes the average value of a numeric column. Useful for analyzing trends like average order value, average salary, or customer spend.
+## **3. AVG()**  
+🔹 **Purpose:** Computes the average value of a numeric column. Useful for analyzing trends like **average order value, average salary, or customer spend.**  
 
-📌 Example 1: Calculate the average product price
-
+📌 **Example 1: Calculate the average product price**  
+```sql
 SELECT AVG(price) AS average_price
 FROM products;
+```
+🔹 **Output:**  
+| average_price |
+|--------------|
+| 299.99       |
 
-🔹 Output:
-average_price
-299.99
-
-📌 Example 2: Find the average salary by department
-
+📌 **Example 2: Find the average salary by department**  
+```sql
 SELECT department, AVG(salary) AS avg_salary
 FROM employees
 GROUP BY department;
+```
+🔹 **Output:**  
+| department | avg_salary |
+|------------|------------|
+| HR         | 60,000     |
+| IT         | 85,000     |
 
-🔹 Output:
-department	avg_salary
-HR	60,000
-IT	85,000
-
-📌 Example 3: Average revenue per order
-
+📌 **Example 3: Average revenue per order**  
+```sql
 SELECT AVG(amount) AS avg_order_value
 FROM orders;
+```
+🔹 **Output:**  
+| avg_order_value |
+|---------------|
+| 350.50       |
 
-🔹 Output:
-avg_order_value
-350.50
-4. MIN()
+---
 
-🔹 Purpose: Retrieves the smallest (minimum) value in a column. Useful for identifying lowest prices, minimum salaries, earliest dates, etc.
+## **4. MIN()**  
+🔹 **Purpose:** Retrieves the smallest (minimum) value in a column. Useful for identifying **lowest prices, minimum salaries, earliest dates, etc.**  
 
-📌 Example 1: Find the lowest product price
-
+📌 **Example 1: Find the lowest product price**  
+```sql
 SELECT MIN(price) AS lowest_price
 FROM products;
+```
+🔹 **Output:**  
+| lowest_price |
+|-------------|
+| 5.99        |
 
-🔹 Output:
-lowest_price
-5.99
-
-📌 Example 2: Find the earliest order date in the orders table
-
+📌 **Example 2: Find the earliest order date in the `orders` table**  
+```sql
 SELECT MIN(order_date) AS first_order_date
 FROM orders;
+```
+🔹 **Output:**  
+| first_order_date |
+|-----------------|
+| 2020-01-15      |
 
-🔹 Output:
-first_order_date
-2020-01-15
-
-📌 Example 3: Find the minimum salary in the employees table
-
+📌 **Example 3: Find the minimum salary in the `employees` table**  
+```sql
 SELECT MIN(salary) AS lowest_salary
 FROM employees;
+```
+🔹 **Output:**  
+| lowest_salary |
+|-------------|
+| 45,000      |
 
-🔹 Output:
-lowest_salary
-45,000
-5. MAX()
+---
 
-🔹 Purpose: Retrieves the largest (maximum) value in a column. Commonly used to find highest revenue, peak sales, most expensive items, latest dates, etc.
+## **5. MAX()**  
+🔹 **Purpose:** Retrieves the largest (maximum) value in a column. Commonly used to find **highest revenue, peak sales, most expensive items, latest dates, etc.**  
 
-📌 Example 1: Find the most expensive product
-
+📌 **Example 1: Find the most expensive product**  
+```sql
 SELECT MAX(price) AS highest_price
 FROM products;
+```
+🔹 **Output:**  
+| highest_price |
+|-------------|
+| 1999.99     |
 
-🔹 Output:
-highest_price
-1999.99
-
-📌 Example 2: Find the latest order date
-
+📌 **Example 2: Find the latest order date**  
+```sql
 SELECT MAX(order_date) AS last_order_date
 FROM orders;
+```
+🔹 **Output:**  
+| last_order_date |
+|---------------|
+| 2024-03-22   |
 
-🔹 Output:
-last_order_date
-2024-03-22
-
-📌 Example 3: Find the maximum salary in the employees table
-
+📌 **Example 3: Find the maximum salary in the `employees` table**  
+```sql
 SELECT MAX(salary) AS highest_salary
 FROM employees;
+```
+🔹 **Output:**  
+| highest_salary |
+|--------------|
+| 250,000      |
 
-🔹 Output:
-highest_salary
-250,000
-Conclusion
+---
 
-SQL aggregate functions are essential for summarizing and analyzing data efficiently. They help extract valuable insights like total revenue, average order value, highest sales, and more. When combined with GROUP BY and HAVING clauses, they become even more powerful for detailed reporting and business intelligence.
+## **Conclusion**  
+SQL aggregate functions are essential for summarizing and analyzing data efficiently. They help extract valuable insights like **total revenue, average order value, highest sales, and more.** When combined with `GROUP BY` and `HAVING` clauses, they become even more powerful for detailed reporting and business intelligence.  
 
-✅ Key Takeaways:
-
-    COUNT() → Count records, distinct values
-
-    SUM() → Total sum of numeric values
-
-    AVG() → Compute average value
-
-    MIN() → Retrieve the smallest value
-
-    MAX() → Retrieve the largest value### String Functions
+✅ **Key Takeaways:**  
+- `COUNT()` → Count records, distinct values  
+- `SUM()` → Total sum of numeric values  
+- `AVG()` → Compute average value  
+- `MIN()` → Retrieve the smallest value  
+- `MAX()` → Retrieve the largest value  
 
 - **CONCAT()**  
   **Use:** Combines two or more strings into one.  
