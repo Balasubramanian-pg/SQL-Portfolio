@@ -1,205 +1,145 @@
-🎬 Marketing Analytics Case Study
-📌 1.0 Overview
-Business Task
+# **Marketing Analytics Case Study: DVD Rental Co. Customer Email Campaign**  
 
-We (Leadership team) have been asked to support the Customer Analytics team at DVD Rental Co who have been tasked with generating the necessary data points required to populate specific parts of this first-ever customer email campaign.
-Business Deliverables
+---
 
-The Marketing team have shared with us a draft of the email they wish to send to their customers.
+## **1.0 Overview**  
 
-image
+### **Business Task**  
+The **Leadership Team** has been asked to support the **Customer Analytics Team** at **DVD Rental Co.** in generating data points for their **first-ever customer email campaign**.  
 
-We have summarized the data points to 7 parts.
-Data Points 	Email Item 	What information do we need to find? 	Flag Out to Marketing Team
-1 & 4 	Top 2 Categories 	Identify top 2 categories for each customer based off their past rental history. 	-
-2 & 5 	Individual Customer Insights 	For 1st category (2), identify total films watched, average comparison and percentile. For 2nd category (5), identify total films watched and proportion of films watched in percentage. 	-
-3 & 6 	Category Film Recommendations 	Identify 3 most popular films for each customer's top 2 categories that customer has not watched. 	If customer does not have any film recommendations for either category.
-7, 8 & 	Favourite Actor Recommendation 	Identify favourite actor with 3 film recommendations that have not been recommended. 	If customer does not have at least 1 recommendation.
-📌 2.0 Entity Relationship Diagram
+### **Business Deliverables**  
+The **Marketing Team** has shared a draft email with **7 key data points** to personalize the campaign.  
 
-image
-📌 3.0 Data Exploration
+| **Data Points** | **Email Item** | **What We Need to Find** | **Flag to Marketing Team** |
+|----------------|---------------|-------------------------|--------------------------|
+| 1 & 4 | **Top 2 Categories** | Identify top 2 categories per customer based on rental history. | - |
+| 2 & 5 | **Individual Customer Insights** | For **1st category**: Total films watched, average comparison, percentile. <br> For **2nd category**: Total films watched & proportion (%) of films watched. | - |
+| 3 & 6 | **Category Film Recommendations** | Recommend **3 most popular films** in each top category that the customer **has not watched**. | Flag if no recommendations exist. |
+| 7, 8 | **Favourite Actor Recommendation** | Identify **favourite actor** with **3 film recommendations** (not already watched). | Flag if no recommendations exist. |
 
-Before we dive into problem-solving, let's explore the data!
-3.1 Validating Data with Hypotheses
+---
 
-We will develop a few hypotheses and test them using SQL.
-3.1.1 Hypothesis 1
+## **2.0 Entity Relationship Diagram (ERD)**  
+*(Visual representation of database tables and relationships)*  
 
-    The number of unique inventory_id records will be equal in both dvd_rentals.rentals and dvd_rentals.inventory tables.
+### **Key Tables**:
+- `rental` (customer rentals)
+- `inventory` (films in stock)
+- `film` (film details)
+- `film_category` (links films to categories)
+- `category` (film genres)
+- `actor` & `film_actor` (actor details and film associations)
 
-SELECT 
-  COUNT(DISTINCT inventory_id) -- As there are multiple inventory_id for each film_id, run DISTINCT to find unique inventory_id
-FROM dvd_rentals.rental
+---
 
-image
+## **3.0 Data Exploration**  
 
-SELECT 
-  COUNT(inventory_id)
-FROM dvd_rentals.inventory;
+### **3.1 Validating Data with Hypotheses**  
 
-image
+#### **Hypothesis 1**:  
+*"The number of unique `inventory_id` records will be equal in `rental` and `inventory` tables."*  
 
-Looks like there are 4,580 inventory_id records in dvd_rentals.rentals and 4,581 inventory_id records in dvd_rentals.inventory. There is an additional 1 inventory_id record in dvd_rentals.inventory.
-3.1.2 Hypothesis 2
+✅ **Test**:  
+```sql
+SELECT COUNT(DISTINCT inventory_id) FROM dvd_rentals.rental; -- 4,580
+SELECT COUNT(inventory_id) FROM dvd_rentals.inventory; -- 4,581
+```
+**Finding**:  
+- **1 extra `inventory_id` in `inventory` table** → A film was never rented.  
 
-    There will be a multiple records per unique inventory_id in the dvd_rentals.rental table.
+---
 
-WITH inventory_cte AS ( -- Generate a CTE using GROUP BY count of inventory_id
-SELECT 
-  inventory_id, 
-  COUNT(*) AS inventory_id_count
-FROM dvd_rentals.rental
-GROUP BY inventory_id)
+#### **Hypothesis 2**:  
+*"There are multiple rentals per `inventory_id` in the `rental` table."*  
 
-image
-
-The table above shows the number of inventory records for each unique inventory_id. Then, we create a CTE and perform another grouping below.
-
-SELECT 
-  inventory_id_count,
-  COUNT(*) AS inventory_id_grouping
+✅ **Test**:  
+```sql
+WITH inventory_cte AS (
+  SELECT inventory_id, COUNT(*) AS inventory_id_count
+  FROM dvd_rentals.rental
+  GROUP BY inventory_id
+)
+SELECT inventory_id_count, COUNT(*) AS inventory_id_grouping
 FROM inventory_cte
 GROUP BY inventory_id_count
 ORDER BY inventory_id_count;
+```
+**Finding**:  
+- Some films have **multiple rentals** (e.g., 1 film had 4 rentals).  
 
-image
+---
 
-Ok, inventory_id_count represents the number of inventory records for each film and inventory_id_grouping is inventory_id_count grouped by the number of records.
+#### **Hypothesis 3**:  
+*"There are multiple `inventory_id` records per `film_id` in the `inventory` table."*  
 
-For example, in 1st row, there is 1 inventory_id/ film that has 4 copies of inventory/film.
-3.1.3 Hypothesis 3
-
-    There will be multiple inventory_id records per unique film_id value in the dvd_rentals.inventory table
-
+✅ **Test**:  
+```sql
 WITH inventory_grouped AS (
-SELECT 
-  DISTINCT(film_id) AS unique_film_id, 
-  COUNT(*) AS inventory_records_count
-FROM dvd_rentals.inventory
-GROUP BY film_id)
-
-image
-
-SELECT 
-  inventory_records_count, 
-  COUNT(*)
+  SELECT film_id, COUNT(*) AS inventory_records_count
+  FROM dvd_rentals.inventory
+  GROUP BY film_id
+)
+SELECT inventory_records_count, COUNT(*)
 FROM inventory_grouped
 GROUP BY inventory_records_count
 ORDER BY inventory_records_count;
+```
+**Finding**:  
+- Some films have **multiple copies** (e.g., 1 film has 8 inventory copies).  
 
-image
-3.2 Foreign Key Overlap Analysis
-3.2.1 Rental and Inventory Table
+---
 
-Let's revisit the following findings,
+### **3.2 Foreign Key Overlap Analysis**  
 
-    "Looks like there are 4,580 inventory_id records in dvd_rentals.rentals and 4,581 inventory_id records in dvd_rentals.inventory. There is an additional 1 inventory_id record in dvd_rentals.inventory."
+#### **Rental vs. Inventory Tables**  
+- **1 `inventory_id` exists in `inventory` but not in `rental`** → Never rented.  
 
-We will perform an ANTI JOIN on dvd_rentals.inventory to find out what is the additional record.
+#### **Inventory vs. Film Tables**  
+- **1,000 films** in `film` table.  
+- **958 films** have inventory records.  
+- **42 films** are not in stock.  
 
-First, let's confirm our hypothesis one more time.
+---
 
-SELECT
-  COUNT(DISTINCT i.inventory_id)
-FROM dvd_rentals.inventory AS i
-WHERE NOT EXISTS (
-  SELECT r.inventory_id
-  FROM dvd_rentals.rental AS r
-  WHERE i.inventory_id = r.inventory_id);
+## **4.0 Joining Tables for Analysis**  
 
-image
-
-SELECT
-  *
-FROM dvd_rentals.inventory AS i
-WHERE NOT EXISTS (
-  SELECT r.inventory_id
-  FROM dvd_rentals.rental AS r
-  WHERE i.inventory_id = r.inventory_id);
-
-image
-
-We can make our assumption that this specific film is never rented by any customer, that's why it did not exist in the rental table which records only rental transactions.
-3.2.2 Inventory and Film Tables
-
-Now, we will find out the relationship between inventory and film tables.
-
--- Find the number of unique film_id
-SELECT 
-  COUNT(DISTINCT film_id)
-FROM dvd_rentals.film
-
-image
-
-There are 1,000 unique film_id records in film table.
-
--- Running ANTI JOIN to find out matching film_id records in both tables
-SELECT 
-  COUNT(*)
-FROM dvd_rentals.film f
-WHERE EXISTS
-  (SELECT film_id
-  FROM dvd_rentals.inventory i
-  WHERE f.film_id = i.film_id)
-
-image
-
-We will expect 958 records when we perform INNER JOIN between both tables.
-4.0 Joining Tables
-joint_table table
-
+### **Step 1: Create `joint_table` (Combining Rental, Film, and Category Data)**  
+```sql
 DROP TABLE IF EXISTS joint_table;
-
 CREATE TEMP TABLE joint_table AS
 SELECT
   r.customer_id,
   i.film_id,
-  f.title, 
+  f.title,
   fc.category_id,
   c.name AS category_name,
   r.rental_date
 FROM dvd_rentals.rental AS r
-JOIN dvd_rentals.inventory AS i
-  ON r.inventory_id = i.inventory_id
-JOIN dvd_rentals.film AS f
-  ON i.film_id = f.film_id
-JOIN dvd_rentals.film_category AS fc
-  ON f.film_id = fc.film_id
-JOIN dvd_rentals.category AS c
-  ON fc.category_id = c.category_id;
-  
-SELECT *
-FROM joint_table 
-WHERE customer_id = 1
-ORDER BY rental_date DESC
-LIMIT 5;
+JOIN dvd_rentals.inventory AS i ON r.inventory_id = i.inventory_id
+JOIN dvd_rentals.film AS f ON i.film_id = f.film_id
+JOIN dvd_rentals.film_category AS fc ON f.film_id = fc.film_id
+JOIN dvd_rentals.category AS c ON fc.category_id = c.category_id;
+```
 
-image
-category_rental_counts table
+---
 
+### **Step 2: Calculate `category_rental_counts` (Films Watched per Category per Customer)**  
+```sql
 DROP TABLE IF EXISTS category_rental_counts;
-
 CREATE TEMP TABLE category_rental_counts AS
 SELECT 
   customer_id, 
   category_name, 
-  COUNT(*) AS rental_count, 
+  COUNT(*) AS rental_count,
   MAX(rental_date) AS latest_rental_date
 FROM joint_table
 GROUP BY customer_id, category_name;
+```
 
-SELECT *
-FROM category_rental_counts 
-WHERE customer_id = 1
-ORDER BY rental_count DESC
-LIMIT 5;
+---
 
-image
-customer_total_rentals table
-
-category_percentage: What proportion of each customer’s total films watched does this count make?
-
+### **Step 3: Compute `customer_total_rentals` (Total Films Watched per Customer)**  
+```sql
 DROP TABLE IF EXISTS customer_total_rentals;
 CREATE TEMP TABLE customer_total_rentals AS
 SELECT
@@ -207,50 +147,38 @@ SELECT
   SUM(rental_count) AS total_rental_count
 FROM category_rental_counts
 GROUP BY customer_id;
+```
 
-SELECT *
-FROM customer_total_rentals
-LIMIT 5;
+---
 
-image
-average_category_rental_counts table
-
+### **Step 4: Calculate `average_category_rental_counts` (Avg Rentals per Category)**  
+```sql
 DROP TABLE IF EXISTS average_category_rental_counts;
 CREATE TEMP TABLE average_category_rental_counts AS
 SELECT
-  CONCAT_WS(' ', category_name, 'Category') AS category_name,
+  category_name,
   FLOOR(AVG(rental_count)) AS avg_rental_count
 FROM category_rental_counts
 GROUP BY category_name;
+```
 
-SELECT *
-FROM average_category_rental_counts
-LIMIT 5;
+---
 
-image
-customer_category_percentiles table
-
-percentile: How does the customer rank in terms of the top X% compared to all other customers in this film category?
-
+### **Step 5: Compute `customer_category_percentiles` (Customer Ranking in Each Category)**  
+```sql
 DROP TABLE IF EXISTS customer_category_percentiles;
-
-CREATE TEMP TABLE customer_category_percentiles AS (
+CREATE TEMP TABLE customer_category_percentiles AS
 SELECT 
   customer_id, 
   category_name,
-  CEILING(100 * 
-    PERCENT_RANK() OVER (PARTITION BY category_name ORDER BY rental_count DESC)) as percentile
-FROM category_rental_counts);
+  CEILING(100 * PERCENT_RANK() OVER (PARTITION BY category_name ORDER BY rental_count DESC)) as percentile
+FROM category_rental_counts;
+```
 
-SELECT *
-FROM customer_category_percentiles
-WHERE customer_id = 1
-ORDER BY percentile
-LIMIT 5;
+---
 
-image
-Joining All Temporary Tables
-
+### **Step 6: Join All Temporary Tables for Final Insights**  
+```sql
 DROP TABLE IF EXISTS customer_category_joint_table;
 CREATE TEMP TABLE customer_category_joint_table AS
 SELECT
@@ -261,13 +189,24 @@ SELECT
   t3.avg_rental_count,
   t4.percentile
 FROM category_rental_counts AS t1
-JOIN customer_total_rentals AS t2
-  ON t1.customer_id = t2.customer_id
-JOIN average_category_rental_counts AS t3
-  ON t1.category_name = t3.category_name
-JOIN customer_category_percentiles AS t4
-  ON t1.customer_id = t4.customer_id
-  AND t1.category_name = t4.category_name;
+JOIN customer_total_rentals AS t2 ON t1.customer_id = t2.customer_id
+JOIN average_category_rental_counts AS t3 ON t1.category_name = t3.category_name
+JOIN customer_category_percentiles AS t4 ON t1.customer_id = t4.customer_id AND t1.category_name = t4.category_name;
+```
 
-image
-✅ Learning Outcomes
+---
+
+## **✅ Key Learning Outcomes**  
+1. **Data Validation** – Confirmed hypotheses about inventory and rental behavior.  
+2. **Customer Segmentation** – Identified top categories per customer.  
+3. **Personalized Recommendations** – Generated film and actor recommendations.  
+4. **Performance Metrics** – Calculated percentiles and averages for benchmarking.  
+
+---
+
+### **Next Steps**  
+- **Generate email content** using the final dataset.  
+- **Flag customers** with missing recommendations.  
+- **Automate the process** for future campaigns.  
+
+🚀 **This structured approach ensures data-driven, personalized customer engagement!**
