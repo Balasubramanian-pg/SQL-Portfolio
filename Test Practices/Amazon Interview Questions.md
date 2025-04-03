@@ -154,7 +154,7 @@ CREATE TABLE NPS_Surveys (
 
 Now, let's answer each question:
 
-**1/ Retrieve the top 5 products that experienced the highest sales growth in the last quarter compared to the previous quarter.**
+**1. Retrieve the top 5 products that experienced the highest sales growth in the last quarter compared to the previous quarter.**
 
 *   **Schema:** `Orders`, `OrderItems`, `Products`
 *   **Approach:**
@@ -201,7 +201,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Two CTEs calculate sales per product for the last and previous quarters based on the current date. These are joined with the `Products` table. `COALESCE` ensures that if a product had no sales in a quarter, its sales are treated as 0. The difference (growth) is calculated, ordered, and the top 5 are selected.
 
-**2/ Calculate the month-over-month growth rate in revenue for each product category.**
+**2. Calculate the month-over-month growth rate in revenue for each product category.**
 
 *   **Schema:** `Orders`, `OrderItems`, `Products`, `Categories`
 *   **Approach:**
@@ -245,7 +245,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** The first CTE aggregates revenue by category and month. The second CTE uses `LAG()` partitioned by category and ordered by month to find the revenue from the preceding month. The final SELECT calculates the percentage growth, handling cases where the previous month had no revenue.
 
-**3/ Identify customers who made repeat purchases within the last 90 days.**
+**3. Identify customers who made repeat purchases within the last 90 days.**
 
 *   **Schema:** `Orders`
 *   **Approach:**
@@ -270,7 +270,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** This query joins `Customers` and `Orders`, filters orders within the last 90 days, groups by customer, and uses the `HAVING` clause to keep only those customers with more than one order in the period.
 
-**4/ List all products with an average rating below 3 stars, along with the total number of reviews.**
+**4. List all products with an average rating below 3 stars, along with the total number of reviews.**
 
 *   **Schema:** `Products`, `Reviews`
 *   **Approach:**
@@ -293,7 +293,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** The query aggregates review data per product, calculating the count and average rating. The `HAVING` clause filters these aggregated results to show only products with an average rating below 3.
 
-**5/ Find the top 3 sellers in each product category based on their revenue contribution.**
+**5. Find the top 3 sellers in each product category based on their revenue contribution.**
 
 *   **Schema:** `Sellers`, `Products`, `OrderItems`, `Orders`, `Categories`
 *   **Approach:**
@@ -339,7 +339,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** The first CTE calculates total revenue per seller per category. The second CTE assigns a rank to each seller within each category based on that revenue. The final SELECT filters for the top 3 ranks in each category.
 
-**6/ Calculate the return rate (number of returned items / total items sold) for each seller.**
+**6. Calculate the return rate (number of returned items / total items sold) for each seller.**
 
 *   **Schema:** `Sellers`, `Products`, `OrderItems`
 *   **Approach:**
@@ -367,7 +367,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** This query joins `OrderItems` through `Products` to `Sellers`. It then aggregates the total quantity sold and the total quantity returned for each seller. Finally, it calculates the return rate as a percentage, ensuring correct decimal division and handling cases where a seller sold zero items.
 
-**7/ Identify regions where the sales volume has declined by more than 20% compared to the previous month.**
+**7. Identify regions where the sales volume has declined by more than 20% compared to the previous month.**
 
 *   **Schema:** `Regions`, `Customers`, `Orders`
 *   **Approach:**
@@ -411,7 +411,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Calculates monthly sales counts per region, uses `LAG` to get the previous month's count, calculates the decline percentage, and filters for regions where this decline is > 20% in the most recent month processed.
 
-**8/ Determine the most common delivery issues reported by customers in the last 6 months.**
+**8. Determine the most common delivery issues reported by customers in the last 6 months.**
 
 *   **Schema:** `DeliveryIssues`
 *   **Approach:**
@@ -433,7 +433,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Filters the `DeliveryIssues` table for the specified period, groups by the type of issue, counts how many times each type appears, and orders them to show the most frequent first.
 
-**9/ Retrieve the top 5 cities contributing the highest revenue for the “Electronics” category.**
+**9. Retrieve the top 5 cities contributing the highest revenue for the “Electronics” category.**
 
 *   **Schema:** `Customers`, `Orders`, `OrderItems`, `Products`, `Categories`
 *   **Approach:**
@@ -462,7 +462,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** This query joins all necessary tables, filters for 'Electronics' category items, aggregates the revenue by customer city, and then selects the top 5 cities based on this aggregated revenue.
 
-**10/ Calculate the customer retention rate for the last 12 months.**
+**10. Calculate the customer retention rate for the last 12 months.**
 
 *   **Schema:** `Orders`
 *   **Approach:** (Using a common definition: Customers active in period N who were also active in period N-1)
@@ -505,7 +505,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Defines CTEs for customers active in the previous 12-month block and the most recent 12-month block. `INTERSECT` finds customers active in both periods. The final SELECT calculates the counts and the retention rate percentage.
 
-**11/ Find all users who have referred at least 3 other users through the referral program.**
+**11. Find all users who have referred at least 3 other users through the referral program.**
 
 *   **Schema:** `Referrals`, `Customers`
 *   **Approach:**
@@ -528,7 +528,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Groups the referrals by the referring customer, counts the number of successful referrals for each, and filters using `HAVING` to show only those who referred 3 or more people. Joins to `Customers` to display names/emails.
 
-**12/ Write an SQL query to determine the average delivery time per region.**
+**12. Write an SQL query to determine the average delivery time per region.**
 
 *   **Schema:** `Orders`, `Customers`, `Regions`
 *   **Approach:**
@@ -557,7 +557,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Filters for completed deliveries with valid dates, joins tables to get region information, calculates the time difference for each order, and then averages this difference per region. The exact way to calculate and average time differences varies slightly between SQL databases.
 
-**13/ Identify customers who made purchases from 3 or more different product categories in a single month.**
+**13. Identify customers who made purchases from 3 or more different product categories in a single month.**
 
 *   **Schema:** `Orders`, `OrderItems`, `Products`, `Categories`, `Customers`
 *   **Approach:**
@@ -600,7 +600,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** The first CTE identifies the distinct categories purchased by each customer each month. The second CTE counts these distinct categories per customer per month. The final query selects the details of customers who had a count of 3 or more in at least one month.
 
-**14/ Calculate the contribution of Prime members to the total revenue in the last year.**
+**14. Calculate the contribution of Prime members to the total revenue in the last year.**
 
 *   **Schema:** `Customers`, `Orders`, `OrderItems`
 *   **Approach:**
@@ -630,7 +630,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Calculates total revenue and prime member revenue within the last year using conditional aggregation (`SUM(CASE WHEN...)`). The final SELECT displays these values and calculates the prime contribution percentage.
 
-**15/ Retrieve the top 10 products with the highest cart abandonment rate.**
+**15. Retrieve the top 10 products with the highest cart abandonment rate.**
 
 *   **Schema:** `CartEvents`, `OrderItems`, `Products` (This is complex and depends heavily on how cart events vs actual purchases are tracked. Using a proxy approach: Adds vs Purchases).
 *   **Approach (Proxy: Adds vs Purchases):**
@@ -718,7 +718,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Calculates the standard deviation of prices for each product over the last 6 months using historical price data. It then aggregates this fluctuation metric (using average standard deviation here) at the supplier level and ranks suppliers accordingly.
 
-**17/ Write an SQL query to analyze the effect of discounts on sales for a specific product.**
+**17. Write an SQL query to analyze the effect of discounts on sales for a specific product.**
 
 *   **Schema:** `OrderItems`, `Orders`, `Products`
 *   **Approach:**
@@ -749,7 +749,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** This query focuses on a single product ID. It separates the order items for that product into two groups based on whether a discount was applied. It then calculates various sales metrics for each group, allowing comparison to see the impact of discounts (e.g., higher quantity sold but lower average price when discounted).
 
-**18/ Determine the Net Promoter Score (NPS) trend over the last year using the Net Promoter Score (NPS).**
+**18. Determine the Net Promoter Score (NPS) trend over the last year using the Net Promoter Score (NPS).**
 
 *   **Schema:** `NPS_Surveys`
 *   **Approach:**
@@ -797,7 +797,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Categorizes NPS scores from surveys within the last year. Aggregates counts of Promoters and Detractors per month. Calculates the final NPS score for each month based on the standard formula, showing the trend over time.
 
-**19/ Calculate the average revenue per customer (ARPU) for each quarter.**
+**19. Calculate the average revenue per customer (ARPU) for each quarter.**
 
 *   **Schema:** `Orders`, `OrderItems`, `Customers`
 *   **Approach:**
@@ -837,7 +837,7 @@ Now, let's answer each question:
     ```
 *   **Explanation:** Calculates revenue per customer per quarter first. Then aggregates total revenue and counts distinct active customers per quarter. Finally, divides revenue by customer count to get ARPU for each quarter.
 
-**20/ Identify the products that had a significant increase in search impressions but low conversion rates.**
+**20. Identify the products that had a significant increase in search impressions but low conversion rates.**
 
 *   **Schema:** `SearchImpressions`, `OrderItems`, `Products`, `Orders`
 *   **Approach:** (Defining "significant increase" and "low conversion" requires thresholds or comparison to averages). Let's compare the last month to the previous month for impressions and calculate the conversion rate for the last month.
