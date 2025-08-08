@@ -1,5 +1,5 @@
 # Chicago Crime & Weather 2021 Analysis  
-	*Structured as Question → SQL Query → Result/Solution*
+*Structured as Question → SQL Query → Result/Solution*
 
 ---
 
