@@ -1,5 +1,3 @@
-Okay, let's break down the SQL code for each question in the Balanced Tree Case Study.
-
 ## A. High Level Sales Analysis
 
 **1a. What was the total quantity sold for all products?**
@@ -137,5 +135,3 @@ ORDER BY
 * **Results Interpretation:** The results list product names, their `total_item_revenue`, and `total_item_discounts`, ordered by `total_item_revenue`.  For example, for "Blue Polo Shirt - Mens," the total revenue was $217,683, and the total discount applied was $26,819.07. This helps understand the discount impact on revenue for each product.
 
 ---
-
-Let's move on to Section B (Transaction Analysis) in the next response to keep things organized. Let me know if you have any specific questions about Section A before we proceed!
