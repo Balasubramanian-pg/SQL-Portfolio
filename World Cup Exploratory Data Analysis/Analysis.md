@@ -4,8 +4,6 @@ A team's success isn't an accident. It's a system. Our problem is that we only s
 
 The final score tells you who won, but the data tells you *how* they won. And if you know *how*, you can replicate it. Or, even better, you can exploit your opponent's weaknesses. This isn't about stats; it's about finding the asymmetrical opportunities that win games.
 
----
-
 ### **Analysis Approach Note (The Game Plan)**
 
 Our approach is simple and brutal. We use SQL as a scalpel to dissect this `Goals` table. We're looking for patterns, dependencies, and weaknesses.
