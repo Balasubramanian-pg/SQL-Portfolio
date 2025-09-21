@@ -121,8 +121,9 @@ WHERE
 ORDER BY
     routine_name;
 ```
+<img width="1919" height="1136" alt="image" src="https://github.com/user-attachments/assets/1de3a714-4b3e-42de-9203-dc9ba209b7e3" />
 
----
+
 ## **Method 4: Filtering Specific Procedures**
 ```sql
 -- Find procedures with specific parameters
