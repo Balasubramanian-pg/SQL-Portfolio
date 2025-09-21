@@ -170,6 +170,7 @@ CREATE TABLE order_items (
 CREATE INDEX idx_order_items_order ON order_items(order_id);
 CREATE INDEX idx_order_items_product ON order_items(product_id);
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/3347ca27-6e22-49d9-82c4-edc007912d68" />
 
 ### **Inventory Table**
 ```sql
