@@ -376,6 +376,7 @@ shipping_cost = CASE
 END
 WHERE order_id IN (SELECT order_id FROM orders);
 ```
+<img width="1919" height="1137" alt="image" src="https://github.com/user-attachments/assets/d18f3998-f0a8-4b3b-8bdd-87a326f37620" />
 
 ### **Insert Reviews**
 ```sql
