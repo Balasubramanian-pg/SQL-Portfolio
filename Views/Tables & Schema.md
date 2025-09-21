@@ -403,6 +403,7 @@ INSERT INTO reviews (product_id, customer_id, rating, review_text, review_date, 
 ((SELECT product_id FROM products WHERE sku = 'WH-6001'), (SELECT customer_id FROM customers WHERE email = 'robert.j@example.com'), 5, 'Amazing sound quality and comfort!', CURRENT_DATE - INTERVAL '2 days', TRUE),
 ((SELECT product_id FROM products WHERE sku = 'WH-6001'), (SELECT customer_id FROM customers WHERE email = 'thomas.m@example.com'), 4, 'Great for travel. Noise cancellation works well.', CURRENT_DATE - INTERVAL '10 days', TRUE);
 ```
+<img width="1919" height="1137" alt="image" src="https://github.com/user-attachments/assets/3e41d410-0410-4b9f-9fc2-d32b0f3be2d7" />
 
 ## **5. Data Verification**
 
