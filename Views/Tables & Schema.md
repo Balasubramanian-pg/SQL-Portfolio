@@ -240,6 +240,7 @@ INSERT INTO suppliers (supplier_name, contact_name, contact_email, contact_phone
 ('ElectroParts', 'David Wilson', 'david@electroparts.com', '555-456-7890', '321 Industrial Rd, Detroit, MI', 2, 4.9),
 ('KitchenPro', 'Lisa Chen', 'lisa@kitchenpro.com', '555-567-8901', '654 Culinary Blvd, Portland, OR', 4, 4.7);
 ```
+<img width="1919" height="1142" alt="image" src="https://github.com/user-attachments/assets/aec68c73-8305-4d97-b4e8-5e01ed876d0a" />
 
 ### **Insert Products**
 ```sql
