@@ -260,6 +260,7 @@ INSERT INTO products (product_name, description, category_id, price, cost, suppl
 ('Gaming Desktop', 'High-performance gaming PC', (SELECT category_id FROM categories WHERE category_name = 'Desktops'), 1499.99, 1100.00, (SELECT supplier_id FROM suppliers WHERE supplier_name = 'TechSupplies Inc.'), 'GD-9001', '890123456797', TRUE),
 ('Standing Desk', 'Adjustable height standing desk', (SELECT category_id FROM categories WHERE category_name = 'Furniture'), 349.99, 220.00, (SELECT supplier_id FROM suppliers WHERE supplier_name = 'HomeGoods Co.'), 'SD-1001', '890123456798', TRUE);
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/0fd83d05-113d-4652-a1fd-8ccb95163bfc" />
 
 ### **Update Products with Inventory**
 ```sql
