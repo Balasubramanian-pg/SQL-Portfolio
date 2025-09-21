@@ -227,8 +227,8 @@ WHERE
 ORDER BY
     p.proname;
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/ff25d701-d57a-49a6-947b-f07ec6938888" />
 
----
 ## **Troubleshooting**
 1. **Permission denied?**
    ```sql
@@ -279,15 +279,12 @@ ORDER BY
    WHERE p.prokind = 'p'
    AND d.objid IS NULL;
    ```
-
----
 ## **GUI Tools Alternative**
 If you prefer visual tools:
 1. **pgAdmin**: Object browser → Procedures
 2. **DBeaver**: Database → Procedures filter
 3. **ERBuilder**: Reverse engineer → View procedures (as mentioned in original article)
 
----
 ## **Performance Considerations**
 For large databases with many procedures:
 ```sql
@@ -313,7 +310,6 @@ WHERE
 REFRESH MATERIALIZED VIEW procedure_catalog;
 ```
 
----
 ### **Final Notes**
 - Procedures were introduced in PostgreSQL 11 (2018)
 - For versions <11, you'll only see functions
