@@ -229,6 +229,7 @@ INSERT INTO categories (category_name, parent_category_id, description) VALUES
 ('Men', (SELECT category_id FROM categories WHERE category_name = 'Clothing'), 'Men''s clothing'),
 ('Women', (SELECT category_id FROM categories WHERE category_name = 'Clothing'), 'Women''s clothing');
 ```
+<img width="1919" height="1139" alt="image" src="https://github.com/user-attachments/assets/3cddacc6-590a-425c-8b5b-60f7a91551fe" />
 
 ### **Insert Suppliers**
 ```sql
