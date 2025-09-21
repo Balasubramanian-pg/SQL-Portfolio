@@ -149,6 +149,7 @@ CREATE INDEX idx_orders_date ON orders(order_date);
 CREATE INDEX idx_orders_status ON orders(status);
 CREATE INDEX idx_orders_amount ON orders(amount);
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/5a6fe4c8-7fdc-4811-95a2-a8f0f77e5bf1" />
 
 ### **Order Items Table**
 ```sql
