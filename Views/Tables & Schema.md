@@ -434,6 +434,7 @@ UNION ALL
 SELECT
     'reviews', COUNT(*) FROM reviews;
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/5ebac9f2-2003-4a64-bb1e-6d117f3436c3" />
 
 ### **Verify Relationships**
 ```sql
