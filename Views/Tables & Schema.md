@@ -211,6 +211,7 @@ CREATE INDEX idx_reviews_product ON reviews(product_id);
 CREATE INDEX idx_reviews_rating ON reviews(rating);
 CREATE INDEX idx_reviews_date ON reviews(review_date);
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/312c8bff-731c-4569-8b9a-a8a92b51c77b" />
 
 ## **4. Sample Data Insertion**
 
