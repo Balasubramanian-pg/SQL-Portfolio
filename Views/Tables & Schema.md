@@ -450,6 +450,7 @@ FROM orders o
 LEFT JOIN order_items oi ON o.order_id = oi.order_id
 WHERE oi.order_item_id IS NULL AND o.status != 'Cancelled';
 ```
+<img width="1919" height="1139" alt="image" src="https://github.com/user-attachments/assets/7e37599e-9510-4900-84d7-7ad2b7b9d7fa" />
 
 ### **Check Inventory Levels**
 ```sql
