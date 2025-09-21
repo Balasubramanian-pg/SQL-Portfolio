@@ -1,7 +1,6 @@
 # PostgreSQL Views Database Setup
 # Complete schema with tables, constraints, and sample data
 
----
 ## **1. Database Creation**
 ```sql
 -- Create a dedicated database for our examples
@@ -18,7 +17,6 @@ CREATE DATABASE ecommerce_demo
 \c ecommerce_demo
 ```
 
----
 ## **2. Schema Creation**
 ```sql
 -- Create schemas for better organization
@@ -27,7 +25,6 @@ CREATE SCHEMA reporting;
 CREATE SCHEMA staging;
 ```
 
----
 ## **3. Core Tables Setup**
 
 ### **Customers Table**
@@ -208,7 +205,6 @@ CREATE INDEX idx_reviews_rating ON reviews(rating);
 CREATE INDEX idx_reviews_date ON reviews(review_date);
 ```
 
----
 ## **4. Sample Data Insertion**
 
 ### **Insert Categories**
@@ -395,7 +391,6 @@ INSERT INTO reviews (product_id, customer_id, rating, review_text, review_date, 
 ((SELECT product_id FROM products WHERE sku = 'WH-6001'), (SELECT customer_id FROM customers WHERE email = 'thomas.m@example.com'), 4, 'Great for travel. Noise cancellation works well.', CURRENT_DATE - INTERVAL '10 days', TRUE);
 ```
 
----
 ## **5. Data Verification**
 
 ### **Check Table Counts**
@@ -460,7 +455,6 @@ ORDER BY
     below_threshold_by ASC;
 ```
 
----
 ## **6. Create the Views from the Documentation**
 
 Now that we have all the tables populated, let's create the views from the original documentation:
@@ -607,7 +601,6 @@ FROM
     customers;
 ```
 
----
 ## **7. Verification Queries**
 
 Let's verify that our views work correctly:
@@ -638,7 +631,6 @@ SELECT * FROM product_catalog WHERE in_stock > 0 LIMIT 5;
 SELECT * FROM legacy_customer_view LIMIT 2;
 ```
 
----
 ## **8. Cleanup Script (Optional)**
 
 If you need to start over:
@@ -669,7 +661,6 @@ DROP FUNCTION IF EXISTS random_date(DATE, DATE);
 DROP FUNCTION IF EXISTS get_random_product();
 ```
 
----
 ## **9. Database Maintenance**
 
 Set up some basic maintenance:
