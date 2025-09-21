@@ -159,7 +159,6 @@ ORDER BY
     p.prolastmod DESC;
 ```
 
----
 ## **Method 5: View Procedure Definitions**
 ```sql
 -- Get full definition of a specific procedure
@@ -189,8 +188,8 @@ WHERE
     p.proname = 'your_procedure_name'
     AND n.nspname = 'public';
 ```
+<img width="1919" height="1140" alt="image" src="https://github.com/user-attachments/assets/8b3fae13-491d-45fe-abcd-057957473372" />
 
----
 ## **Bonus: Export Procedures to File**
 ```bash
 # Export all procedure definitions to a file
@@ -203,7 +202,6 @@ psql -U your_username -d your_database -c "
 " > procedures_export.sql
 ```
 
----
 ## **Automated Script for Documentation**
 ```sql
 -- Generate Markdown documentation for all procedures
