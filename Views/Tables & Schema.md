@@ -189,6 +189,7 @@ CREATE TABLE inventory (
 CREATE INDEX idx_inventory_quantity ON inventory(quantity_in_stock)
     WHERE quantity_in_stock <= reorder_threshold;
 ```
+<img width="1919" height="1140" alt="image" src="https://github.com/user-attachments/assets/e569ffc1-5f04-4318-8956-b193081dcbbd" />
 
 ### **Reviews Table**
 ```sql
