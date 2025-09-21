@@ -65,6 +65,7 @@ BEFORE UPDATE ON customers
 FOR EACH ROW
 EXECUTE FUNCTION update_customer_timestamp();
 ```
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/7f74002e-3c2e-4f60-ae31-728f8b77a057" />
 
 ### **Products Table**
 ```sql
