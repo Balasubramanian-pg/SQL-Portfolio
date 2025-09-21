@@ -80,7 +80,8 @@ ORDER BY
 |-------------|-----------------|-------------|-----------|-------------|----------|-------------|
 | public      | sample_proc1    | PROCEDURE   |           | void        | plpgsql  | BEGIN...    |
 
----
+<img width="1919" height="1141" alt="image" src="https://github.com/user-attachments/assets/d7f07b64-2d3e-429d-9024-ef2df81ec7ef" />
+
 ## **Method 2: psql Commands (Quick CLI)**
 ```bash
 # Connect to your database
