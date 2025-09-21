@@ -122,6 +122,7 @@ CREATE TABLE suppliers (
     last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+<img width="1919" height="1139" alt="image" src="https://github.com/user-attachments/assets/b66e4a0e-0c36-4586-85a8-1ee44ba43d69" />
 
 ### **Orders Table**
 ```sql
