@@ -112,7 +112,6 @@ $$ LANGUAGE plpgsql;
 SELECT * FROM get_customer_orders(123);
 ```
 
----
 ## **3. Advanced View Types**
 
 ### **Recursive View**
@@ -185,7 +184,6 @@ GROUP BY
     c.customer_id, c.customer_name;
 ```
 
----
 ## **4. Modifying Views**
 
 ### **Replace a View**
@@ -227,7 +225,6 @@ ALTER VIEW customer_order_summary RENAME TO customer_order_stats;
 DROP VIEW IF EXISTS old_view_name;
 ```
 
----
 ## **5. View Information & Metadata**
 
 ### **List All Views**
@@ -304,7 +301,6 @@ WHERE
     AND viewname = 'customer_order_summary';
 ```
 
----
 ## **6. Materialized Views**
 
 ### **Create Materialized View**
@@ -359,7 +355,6 @@ SELECT cron.schedule(
 );
 ```
 
----
 ## **7. Performance Considerations**
 
 ### **View Performance Tips**
@@ -388,7 +383,6 @@ EXPLAIN ANALYZE SELECT * FROM customer_order_summary WHERE total_orders > 10;
 | Storage Requirements  | None                       | Requires disk space         |
 | Best For              | Frequently changing data   | Static or periodically updated data |
 
----
 ## **8. Security with Views**
 
 ### **Row-Level Security**
@@ -425,7 +419,6 @@ GRANT SELECT ON customer_order_summary TO reporting_user;
 REVOKE ALL ON customers, orders FROM reporting_user;
 ```
 
----
 ## **9. Common Use Cases**
 
 ### **Simplify Complex Queries**
@@ -501,8 +494,6 @@ FROM
 GROUP BY
     DATE_TRUNC('day', order_date);
 ```
-
----
 ## **10. Troubleshooting**
 
 ### **Common Issues & Solutions**
@@ -564,7 +555,6 @@ View B references Table X
 */
 ```
 
----
 ## **Best Practices**
 
 1. **Naming Conventions**
@@ -636,7 +626,6 @@ View B references Table X
        customers;
    ```
 
----
 ## **Complete Example: E-commerce Views**
 
 ```sql
@@ -715,7 +704,6 @@ ORDER BY
     i.quantity_in_stock;
 ```
 
----
 ## **View Management Scripts**
 
 ### **Generate CREATE VIEW Statements for All Views**
@@ -758,7 +746,6 @@ ORDER BY
     n.nspname, c.relname;
 ```
 
----
 ### **Final Notes**
 - Views are **not** a performance optimization by themselves (they're query shortcuts)
 - Materialized views **are** a performance optimization but require maintenance
