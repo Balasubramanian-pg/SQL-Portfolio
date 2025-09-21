@@ -276,6 +276,7 @@ INSERT INTO inventory (product_id, quantity_in_stock, reorder_threshold, last_re
 ((SELECT product_id FROM products WHERE sku = 'GD-9001'), 8, 2, CURRENT_DATE - INTERVAL '15 days', 'Warehouse C'),
 ((SELECT product_id FROM products WHERE sku = 'SD-1001'), 12, 3, CURRENT_DATE - INTERVAL '6 days', 'Warehouse A');
 ```
+<img width="1919" height="1140" alt="image" src="https://github.com/user-attachments/assets/796a5634-32af-4696-b9d6-3d7e67b7a5fa" />
 
 ### **Insert Customers**
 ```sql
