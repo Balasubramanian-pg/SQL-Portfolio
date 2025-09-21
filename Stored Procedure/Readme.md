@@ -1,6 +1,5 @@
 # How to List Procedures in PostgreSQL: Complete Guide
 
----
 ## **Table of Contents**
 1. [Prerequisites](#prerequisites)
 2. [Method 1: SQL Query (Most Flexible)](#method-1-sql-query)
@@ -11,7 +10,6 @@
 7. [Bonus: Export Procedures to File](#bonus-export)
 8. [Automated Script for Documentation](#automated-script)
 
----
 ## **Prerequisites**
 ```sql
 -- Ensure you have:
@@ -27,8 +25,9 @@ RETURNS void
 LANGUAGE plpgsql
 AS $$ BEGIN RAISE NOTICE 'Test function 1'; END; $$;
 ```
+<img width="1919" height="1139" alt="image" src="https://github.com/user-attachments/assets/c7c84369-d36b-4bb7-8386-059b0206ea6a" />
 
----
+
 ## **Method 1: SQL Query (Most Flexible)**
 ```sql
 -- Basic list of all procedures in current database
