@@ -1,6 +1,5 @@
 # PostgreSQL Views: Complete Guide
 
----
 ## **Table of Contents**
 1. [What Are Views?](#what-are-views)
 2. [Basic View Creation](#basic-view-creation)
@@ -13,7 +12,6 @@
 9. [Common Use Cases](#use-cases)
 10. [Troubleshooting](#troubleshooting)
 
----
 ## **1. What Are Views?**
 A view is a **virtual table** based on the result set of a SQL query. Views:
 - Don't store data physically (except materialized views)
@@ -29,7 +27,19 @@ View:               [Customer_Order_Summary]
 */
 ```
 
----
+## Create the Customer Table
+```sql
+CREATE TABLE customers (
+    customer_id   SERIAL PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    email         VARCHAR(150) UNIQUE NOT NULL,
+    join_date     DATE NOT NULL,
+    is_active     BOOLEAN DEFAULT TRUE
+);
+```
+
+That way, your `active_customers` view will work straight away.
+
 ## **2. Basic View Creation**
 
 ### **Simple View**
