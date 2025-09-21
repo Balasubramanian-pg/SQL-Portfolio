@@ -105,6 +105,7 @@ CREATE TABLE categories (
 -- Self-referencing index for hierarchy
 CREATE INDEX idx_categories_parent ON categories(parent_category_id);
 ```
+<img width="1919" height="1137" alt="image" src="https://github.com/user-attachments/assets/737cab28-ae49-474a-a092-43278410e196" />
 
 ### **Suppliers Table**
 ```sql
