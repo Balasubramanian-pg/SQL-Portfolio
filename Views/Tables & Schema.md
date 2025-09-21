@@ -470,6 +470,7 @@ WHERE
 ORDER BY
     below_threshold_by ASC;
 ```
+<img width="1919" height="1134" alt="image" src="https://github.com/user-attachments/assets/c6647c1e-dff0-4fe5-9e1e-4917f78ae366" />
 
 ## **6. Create the Views from the Documentation**
 
