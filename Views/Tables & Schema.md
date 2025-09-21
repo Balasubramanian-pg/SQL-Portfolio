@@ -89,6 +89,7 @@ CREATE INDEX idx_products_category ON products(category_id);
 CREATE INDEX idx_products_active ON products(is_active) WHERE is_active = TRUE;
 CREATE INDEX idx_products_price ON products(price);
 ```
+<img width="1919" height="1137" alt="image" src="https://github.com/user-attachments/assets/a787e268-a2a0-47d3-9e91-5e00672e5e70" />
 
 ### **Categories Table**
 ```sql
