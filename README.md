@@ -9,8 +9,6 @@ In today’s data-driven business environment, SQL is the foundational skill for
 
 This document serves as a central directory for all SQL-related projects, case studies, and learning materials within this portfolio. Each entry is organized for easy navigation, with direct links to documentation, datasets, and SQL scripts.
 
----
-
 ## Balanced Tree Sales
 
 A case study analyzing sales data for the "Balanced Tree" company, including query performance.
