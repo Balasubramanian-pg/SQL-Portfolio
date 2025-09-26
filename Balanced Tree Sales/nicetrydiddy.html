@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Analyst Inquiry</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333333;
+            -webkit-text-size-adjust: 100%;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e1e1e1;
+            padding: 30px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 1.2em 0;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .signature {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e1e1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .signature p {
+            margin: 0 0 5px 0;
+        }
+        .name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <p>Dear {{ recipient_name }},</p>
+
+        <p>
+            I am writing to express my interest in the Business Analyst position at {{ company_name }}.
+        </p>
+
+        <p>
+            <i>With over three years of experience, I specialize in process automation and building dashboards that drive strategic decisions. </i> <br>
+            <br>I recently led a project that resulted in a <strong>43% YOY profit increase</strong> and cut reporting time by over 60%. <br>
+            <br>Below is a sample of my work:
+        </p>
+        
+        <!-- Embedded Dashboard Image -->
+        <div>
+            <img src="https://raw.githubusercontent.com/Balasubramanian-pg/notion-widgets/refs/heads/main/Assets/CEO%20Dashboard.png" alt="CEO Dashboard Sample" style="max-width: 100%; height: auto; display: block; border: 1px solid #cccccc; margin-top: 10px; margin-bottom: 20px;">
+        </div>
+
+        <p>
+            My <a href="https://drive.google.com/file/d/1-PzjZil8CdP02rfSTdW5T4ngmM7P38is/view?usp=sharing">resume</a> is attached for your review. I am confident I can bring similar value to your team and am eager to discuss the opportunity further.
+        </p>
+
+        <p>
+            Thank you so much for your time and consideration,
+        </p>
+
+        <div class="signature">
+            <p class="name">Balasubramanian PG</p>
+            <p>Business Analyst</p>
+            <p><a href="mailto:balasubramanyan18@gmail.com">balasubramanyan18@gmail.com</a></p>
+            <p>+91 6282603920</p>
+            <p><a href="https://www.linkedin.com/in/balasubramanianpg2022/">LinkedIn</a></p>
+            <p><a href="https://github.com/Balasubramanian-pg">Github</a></p>
+        </div>
+    </div>
+</body>
+</html>
