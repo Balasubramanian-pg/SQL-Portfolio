@@ -1,8 +1,6 @@
 # Chicago Crime & Weather 2021 Analysis  
 *Structured as Question → SQL Query → Result/Solution*
 
----
-
 ### 1. Total Reported Crimes  
 **Question**: How many total crimes were reported in 2021?  
 **Query**:  
@@ -12,8 +10,6 @@ FROM crimes;
 ```  
 **Solution**:  
 202,536 crimes were reported in 2021.
-
----
 
 ### 2. Violent Crime Breakdown  
 **Question**: What is the count of Homicides, Batteries, and Assaults?  
@@ -33,8 +29,6 @@ ORDER BY n_crimes DESC;
 | Battery    | 39,988 |
 | Assault    | 20,086 |
 | Homicide   | 803    |
-
----
 
 ### 3. Highest Crime Communities  
 **Question**: Which 10 communities had the most crimes (with population/density)?  
@@ -56,8 +50,6 @@ Top 3:
 2. **Near North Side** (8,126 crimes | Pop: 105,481 | Density: 38,497/sq mi)  
 3. **South Shore** (7,272 crimes | Pop: 53,971 | Density: 18,420/sq mi)  
 
----
-
 ### 4. Monthly Crime Trends  
 **Question**: Which month had the most crimes?  
 **Query**:  
@@ -71,8 +63,6 @@ ORDER BY n_crimes DESC;
 ```  
 **Solution**:  
 **October** had the highest crime volume (19,018 crimes).  
-
----
 
 ### 5. Homicide & Temperature  
 **Question**: Which month had the most homicides, and what were the temperatures?  
@@ -89,8 +79,6 @@ ORDER BY n_homicides DESC;
 ```  
 **Solution**:  
 **July** had the most homicides (112) with an average high of **82.6°F**.
-
----
 
 ### 6. Street Crime Hotspots  
 **Question**: Which streets had the most reported crimes?  
@@ -109,8 +97,6 @@ LIMIT 5;
 2. State St (2,858 crimes)  
 3. Halsted St (2,329 crimes)  
 
----
-
 ### 7. Domestic Violence Percentage  
 **Question**: What percentage of crimes were domestic-related?  
 **Query**:  
@@ -122,8 +108,6 @@ FROM chicago_crimes;
 ```  
 **Solution**:  
 **21.8%** of all crimes were domestic-related.
-
----
 
 ### 8. Weather Extremes  
 **Question**: How did crime compare on the hottest vs. coldest days?  
@@ -137,8 +121,6 @@ SELECT COUNT(*) FROM chicago_crimes WHERE temp_high = 4;
 **Solution**:  
 - **Hottest day**: 552 crimes  
 - **Coldest day**: 402 crimes  
-
----
 
 ### Key Insights  
 1. **Geographic**: Austin neighborhood is a high-priority area.  
