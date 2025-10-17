@@ -14,8 +14,6 @@ Our approach is simple and brutal. We use SQL as a scalpel to dissect this `Goal
 
 This isn't an academic exercise. Every query is a question designed to give us a lever to pull. Now, let's execute.
 
----
-
 ### **The Execution: 15 SQL Queries to Win**
 
 Here’s the playbook. Each query is a specific move to expose a weakness or identify a strength.
