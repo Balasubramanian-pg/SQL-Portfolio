@@ -188,7 +188,6 @@ An exploratory data analysis of World Cup data, focusing on match and goal stati
 - **Database design principles** for scalability and reliability.  
 - **Advanced analytical methods** to solve complex business problems.  
 
----  
 
 ## **Structured Learning Path**  
 
@@ -207,24 +206,16 @@ An exploratory data analysis of World Cup data, focusing on match and goal stati
 - Database normalization and schema design  
 - Handling large-scale datasets efficiently  
 
----  
-
 ## **How to Proceed**  
 1. **Begin with `/foundation`** – Master the critical SQL commands first.  
 2. **Apply skills in `/business-cases`** – Solve real business problems.  
 3. **Advance to `/advanced`** – Refine expertise with high-level techniques.  
 
----  
-
 ## **Why This Approach Works**  
 Traditional SQL training emphasizes syntax over application. This repository focuses on **practical execution**, ensuring that every concept learned translates directly to business value.  
 
----  
-
 ### **Begin Your SQL Mastery Today**  
-**Start with `/foundation/1_core_queries.md` to write your first high-value SQL query.**  
-
----  
+**Start with `/foundation/1_core_queries.md` to write your first high-value SQL query.**   
 
 ### **Contribute and Improve**  
 - **Submit pull requests** with additional business-focused SQL examples.  
@@ -232,5 +223,4 @@ Traditional SQL training emphasizes syntax over application. This repository foc
 
 **SQL is not just a technical skill—it’s a competitive advantage. Start leveraging it now.**  
 
----  
 *(Inspired by high-efficiency, results-driven methodologies.)*
