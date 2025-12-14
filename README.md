@@ -221,6 +221,4 @@ Traditional SQL training emphasizes syntax over application. This repository foc
 - **Submit pull requests** with additional business-focused SQL examples.  
 - **Share your progress** and insights with the community.  
 
-**SQL is not just a technical skill—it’s a competitive advantage. Start leveraging it now.**  
-
-*(Inspired by high-efficiency, results-driven methodologies.)*
+**SQL is not just a technical skill - it’s a competitive advantage. Start leveraging it now.**  
