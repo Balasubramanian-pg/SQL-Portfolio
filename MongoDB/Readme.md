@@ -1,5 +1,3 @@
-Alright Balu, here is a no-nonsense MongoDB cheat sheet. Old school DB instincts, new school syntax.
-
 **Basics**
 
 * `show dbs`
