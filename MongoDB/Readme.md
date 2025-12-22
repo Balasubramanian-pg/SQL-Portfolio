@@ -1,4 +1,6 @@
 # MongoDB Cheat Sheet
+This is a no bullshit, cheat sheet for a quick reference
+
 **Basics**
 
 * `show dbs`
