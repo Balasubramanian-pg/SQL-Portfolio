@@ -44,7 +44,8 @@ ORDER BY
 * `GROUP BY pd.product_name`: This is crucial. We use `GROUP BY` to group the results by `product_name`. This means the `sum(s.qty)` will be calculated for each distinct `product_name`.
 * `ORDER BY total_quantity DESC`:  Finally, we `ORDER BY` the `total_quantity` in descending order (`DESC`) so that the products with the highest total quantities sold appear at the top.
 
-* **Results Interpretation:** The results show a list of product names along with their respective `total_quantity` sold, ordered from highest to lowest quantity. For example, "Grey Fashion Jacket - Womens" was the top-selling product in terms of quantity, with 3876 units sold.
+>[!Tip]
+>**Results Interpretation:** The results show a list of product names along with their respective `total_quantity` sold, ordered from highest to lowest quantity. For example, "Grey Fashion Jacket - Womens" was the top-selling product in terms of quantity, with 3876 units sold.
 
 **2a. What is the total generated revenue for all products before discounts?**
 
