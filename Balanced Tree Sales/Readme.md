@@ -15,7 +15,7 @@ FROM balanced_tree.sales;
 * `AS total_product_quantity`: This renames the resulting sum column to `total_product_quantity` for better readability in the output.
 * `FROM balanced_tree.sales`: This specifies that we are querying data from the `sales` table within the `balanced_tree` schema.
 
->[!Tip] Result Interpretation
+>[!Tip]
 >**Results Interpretation:** The result `45216` means that a total of 45,216 products were sold across all transactions in the dataset.
 
 **1b. What was the total quantity sold for EACH product?**
