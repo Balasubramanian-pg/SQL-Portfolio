@@ -86,7 +86,7 @@ ORDER BY
 * This query structure is very similar to 1b. The key difference is in the `SELECT` clause: `sum(s.price * s.qty) AS total_gross_revenue`. Instead of just summing the `qty`, we are now summing the product of `price` and `qty` to calculate revenue for each sale, and then aggregating these revenues per product.
 * The `FROM`, `JOIN`, `GROUP BY`, and `ORDER BY` clauses function exactly as explained in 1b.
 
->[!Info]
+>[!Note]
 >**Results Interpretation:** The output lists product names and their corresponding `total_gross_revenue`, ordered from highest to lowest revenue. "Blue Polo Shirt - Mens" generated the highest gross revenue at $217,683.
 
 **3a. What was the total discount amount for all products?**
