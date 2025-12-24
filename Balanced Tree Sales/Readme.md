@@ -58,8 +58,8 @@ SELECT
 FROM balanced_tree.sales;
 ```
 
-    * `SELECT sum(price * qty) AS gross_revenue`: We calculate the revenue for each sale by multiplying `price` and `qty`. Then, we use `sum()` to add up all these individual revenues to get the total gross revenue. We alias this sum as `gross_revenue`.
-    * `FROM balanced_tree.sales`: We are querying the `sales` table.
+* `SELECT sum(price * qty) AS gross_revenue`: We calculate the revenue for each sale by multiplying `price` and `qty`. Then, we use `sum()` to add up all these individual revenues to get the total gross revenue. We alias this sum as `gross_revenue`.
+* `FROM balanced_tree.sales`: We are querying the `sales` table.
 
 * **Results Interpretation:** The result `1289453` indicates that the total gross revenue generated from all sales, before discounts, is $1,289,453.
 
