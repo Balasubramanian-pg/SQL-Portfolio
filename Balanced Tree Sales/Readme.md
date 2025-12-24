@@ -137,5 +137,3 @@ ORDER BY
     * `FROM`, `JOIN`, `GROUP BY`, and `ORDER BY` clauses work as previously explained in 1b and 2b.
 
 * **Results Interpretation:** The results list product names, their `total_item_revenue`, and `total_item_discounts`, ordered by `total_item_revenue`.  For example, for "Blue Polo Shirt - Mens," the total revenue was $217,683, and the total discount applied was $26,819.07. This helps understand the discount impact on revenue for each product.
-
----
