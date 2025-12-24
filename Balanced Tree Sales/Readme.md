@@ -136,4 +136,5 @@ ORDER BY
         * `round(sum((s.price * s.qty) * (s.discount::NUMERIC / 100)), 2) AS total_item_discounts`: Calculates the total discount per product, using the same discount calculation logic as in 3a, but now aggregated per product due to the `GROUP BY` clause.
     * `FROM`, `JOIN`, `GROUP BY`, and `ORDER BY` clauses work as previously explained in 1b and 2b.
 
-* **Results Interpretation:** The results list product names, their `total_item_revenue`, and `total_item_discounts`, ordered by `total_item_revenue`.  For example, for "Blue Polo Shirt - Mens," the total revenue was $217,683, and the total discount applied was $26,819.07. This helps understand the discount impact on revenue for each product.
+>[!Tip]
+>**Results Interpretation:** The results list product names, their `total_item_revenue`, and `total_item_discounts`, ordered by `total_item_revenue`.  For example, for "Blue Polo Shirt - Mens," the total revenue was $217,683, and the total discount applied was $26,819.07. This helps understand the discount impact on revenue for each product.
