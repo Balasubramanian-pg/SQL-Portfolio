@@ -37,12 +37,12 @@ ORDER BY
 	total_quantity DESC;
 ```
 
-    * `SELECT pd.product_name, sum(s.qty) AS total_quantity`:  We select the `product_name` from the `product_details` table and calculate the sum of `qty` from the `sales` table, aliasing it as `total_quantity`.
-    * `FROM balanced_tree.sales AS s JOIN balanced_tree.product_details AS pd ON pd.product_id = s.prod_id`:
-        * `FROM balanced_tree.sales AS s`: We start by selecting from the `sales` table and give it an alias `s` for brevity.
-        * `JOIN balanced_tree.product_details AS pd ON pd.product_id = s.prod_id`: We perform a `JOIN` operation with the `product_details` table (aliased as `pd`). The `ON` clause specifies the join condition: we link rows where `pd.product_id` matches `s.prod_id`. This is how we connect sales data with product information.
-    * `GROUP BY pd.product_name`: This is crucial. We use `GROUP BY` to group the results by `product_name`. This means the `sum(s.qty)` will be calculated for each distinct `product_name`.
-    * `ORDER BY total_quantity DESC`:  Finally, we `ORDER BY` the `total_quantity` in descending order (`DESC`) so that the products with the highest total quantities sold appear at the top.
+* `SELECT pd.product_name, sum(s.qty) AS total_quantity`:  We select the `product_name` from the `product_details` table and calculate the sum of `qty` from the `sales` table, aliasing it as `total_quantity`.
+* `FROM balanced_tree.sales AS s JOIN balanced_tree.product_details AS pd ON pd.product_id = s.prod_id`:
+* `FROM balanced_tree.sales AS s`: We start by selecting from the `sales` table and give it an alias `s` for brevity.
+* `JOIN balanced_tree.product_details AS pd ON pd.product_id = s.prod_id`: We perform a `JOIN` operation with the `product_details` table (aliased as `pd`). The `ON` clause specifies the join condition: we link rows where `pd.product_id` matches `s.prod_id`. This is how we connect sales data with product information.
+* `GROUP BY pd.product_name`: This is crucial. We use `GROUP BY` to group the results by `product_name`. This means the `sum(s.qty)` will be calculated for each distinct `product_name`.
+* `ORDER BY total_quantity DESC`:  Finally, we `ORDER BY` the `total_quantity` in descending order (`DESC`) so that the products with the highest total quantities sold appear at the top.
 
 * **Results Interpretation:** The results show a list of product names along with their respective `total_quantity` sold, ordered from highest to lowest quantity. For example, "Grey Fashion Jacket - Womens" was the top-selling product in terms of quantity, with 3876 units sold.
 
