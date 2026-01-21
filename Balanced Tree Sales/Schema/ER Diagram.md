@@ -7,8 +7,6 @@ This section gives you **two things** you can use directly in interviews:
 
 The explanation is framed exactly how a strong analytics or BI candidate should explain it.
 
----
-
 ## High-Level ER Design Summary
 
 The data model follows a **star schema**, optimized for analytical workloads rather than transactional OLTP systems.
@@ -22,8 +20,6 @@ This design:
 * Scales well over 8 years of data
 * Supports complex analytical queries efficiently
 
----
-
 ## Core Entities and Relationships
 
 ### Fact Table
@@ -36,15 +32,12 @@ This design:
 * `product_details`
 * `date_dim`
 
----
 
 ## Interview Explanation (What You Say Out Loud)
 
 ### Overall Design
 
 “This model is designed around a central sales fact table that records each product sold in each transaction. All analytical metrics like quantity, revenue, discounts, and penetration are derived from this table. Supporting dimension tables provide context such as product attributes, transaction metadata, and time.”
-
----
 
 ### Sales Fact Table
 
@@ -62,8 +55,6 @@ Why this matters:
 * Prevents double counting
 * Supports both transaction-level and product-level aggregation
 
----
-
 ### Transactions Dimension
 
 “The `transactions` table represents the **transaction header**. It contains attributes that apply to the entire transaction, such as transaction date and membership status.”
@@ -80,8 +71,6 @@ Why this matters:
 * Efficient transaction counting
 * Accurate average revenue per transaction calculations
 
----
-
 ### Product Details Dimension
 
 “The `product_details` table stores descriptive product attributes like name, segment, and category. This table enables hierarchical analysis without duplicating text fields in the fact table.”
@@ -96,8 +85,6 @@ Why this matters:
 
 * Enables product, segment, and category analysis
 * Keeps the fact table narrow and efficient
-
----
 
 ### Date Dimension
 
@@ -115,8 +102,6 @@ Why this matters:
 * Cleaner SQL
 * Avoids repeated date extraction logic
 
----
-
 ## Cardinality and Relationships
 
 ### Relationship Overview
@@ -127,8 +112,6 @@ Why this matters:
 
 This enforces a **many-to-one relationship** from the fact table to each dimension.
 
----
-
 ### Cardinality Explanation (Interview Language)
 
 * A single transaction can include multiple products
@@ -136,8 +119,6 @@ This enforces a **many-to-one relationship** from the fact table to each dimensi
 * A single calendar date can contain many transactions
 
 This structure ensures no data duplication and supports scalable analytics.
-
----
 
 ## Why This Design Works Well
 
@@ -155,9 +136,9 @@ This structure ensures no data duplication and supports scalable analytics.
 * dbt-friendly
 * Easy to extend with new dimensions
 
----
+<img width="1449" height="655" alt="image" src="https://github.com/user-attachments/assets/0e2ea5c5-7d8d-4fb9-9bed-919610a448a1" />
 
-## DBML Definition (Ready to Paste)
+## DBML Definition 
 
 ```dbml
 Table product_details {
@@ -195,8 +176,6 @@ Table date_dim {
 Ref: transactions.txn_date > date_dim.date_id
 ```
 
----
-
 ## How to Use This in an Interview
 
 You can confidently say:
@@ -207,8 +186,6 @@ You can confidently say:
 * “This model supports both descriptive and advanced analytics like basket analysis and anomaly detection.”
 
 That language signals **real-world data modeling experience**, not academic theory.
-
----
 
 ## Optional Follow-Up (If Interviewer Pushes)
 
