@@ -1,4 +1,5 @@
-## Balanced Tree Sales Analytics Case Study (SQL)
+## T-Base Sales Analytics Case Study (SQL)
+<img width="800" height="1089" alt="image" src="https://github.com/user-attachments/assets/a0976197-54a6-49a7-a8ff-88e2aa3b3280" />
 
 ## Project Purpose
 
