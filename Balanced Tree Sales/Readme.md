@@ -1,8 +1,4 @@
-## Project README
-
-Balanced Tree Sales Analytics Case Study (SQL)
-
----
+## Balanced Tree Sales Analytics Case Study (SQL)
 
 ## Project Purpose
 
@@ -16,8 +12,6 @@ The intent is not only to answer these questions correctly, but to demonstrate:
 * Structured documentation suitable for handover, review, or portfolio presentation
 
 Each section of the analysis aligns directly to a business theme and progresses from high level metrics to deeper transactional and product level insights.
-
----
 
 ## Business Questions Covered
 
@@ -40,7 +34,6 @@ Purpose of this section:
 This section answers the question:
 “How is the business performing overall?”
 
----
 
 ### B. Transaction Analysis
 
@@ -62,8 +55,6 @@ Purpose of this section:
 
 This section answers the question:
 “How do customers transact, and how does behavior differ across customer types?”
-
----
 
 ### C. Product Analysis
 
@@ -90,8 +81,6 @@ Purpose of this section:
 This section answers the question:
 “What products matter most, and how are they purchased together?”
 
----
-
 ## Dataset Overview
 
 The analysis is performed using two primary tables from the `balanced_tree` schema.
@@ -111,8 +100,6 @@ Key columns:
 
 This table forms the foundation for all volume, revenue, discount, and transaction level calculations.
 
----
-
 ### `product_details` Table
 
 This table contains descriptive product metadata.
@@ -126,8 +113,6 @@ Key columns:
 
 This table is joined to the sales data to enable product, segment, and category level analysis.
 
----
-
 ## Analysis Approach
 
 Each question in the project follows a consistent structure:
@@ -139,8 +124,6 @@ Each question in the project follows a consistent structure:
 * Interpretation of the results
 
 This structure mirrors how analytics work is typically reviewed in professional settings and ensures the output is understandable beyond just SQL practitioners.
-
----
 
 ## Key SQL Concepts Demonstrated
 
@@ -157,8 +140,6 @@ This project intentionally showcases practical SQL skills used in real world ana
 
 The SQL prioritizes readability, correctness, and explainability.
 
----
-
 ## Repository Structure
 
 A typical structure for this project would include:
@@ -174,8 +155,6 @@ A typical structure for this project would include:
 
 This layout supports easy navigation and future expansion.
 
----
-
 ## How to Use This Project
 
 You can engage with this repository in several ways:
@@ -187,8 +166,6 @@ You can engage with this repository in several ways:
 
 The project is intentionally modular and extensible.
 
----
-
 ## Assumptions and Limitations
 
 ASSUMPTION:
@@ -198,8 +175,6 @@ ASSUMPTION:
 * Discount percentages are stored consistently and represent percentage values
 
 These assumptions are required due to the structure of the available data and are explicitly stated to avoid misinterpretation.
-
----
 
 ## Intended Audience
 
@@ -211,8 +186,6 @@ This project is suitable for:
 * Interview panels evaluating SQL and reasoning skills
 
 The documentation is written to be understandable by both technical and non-technical stakeholders.
-
----
 
 ## Summary
 
