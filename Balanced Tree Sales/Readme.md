@@ -216,6 +216,401 @@ This project is suitable for:
 
 The documentation is written to be understandable by both technical and non-technical stakeholders.
 
+## Project Deliverables Inventory
+
+Balanced Tree Sales Analytics Case Study
+
+This section enumerates **every concrete deliverable** in the project, grouped by category, and clearly flags **what is complete** versus **what is not yet delivered**.
+
+The intent is to give you:
+
+* A precise scope definition
+* A portfolio-ready checklist
+* A clear view of what remains if you want this to be “end-to-end production grade”
+
+---
+
+## Deliverable Status Legend
+
+* Status: Delivered
+* Status: Not Yet Delivered
+
+---
+
+## 1. Business & Analytical Design Deliverables
+
+These define *what* the project answers and *why*.
+
+### 1.1 Business Question Framework
+
+* Structured problem statement (A, B, C sections)
+* Clearly scoped analytical questions
+
+Status: Delivered
+
+---
+
+### 1.2 Analytical Assumptions Documentation
+
+* Time range assumptions (8 years)
+* Grain definitions
+* Discount and pricing assumptions
+
+Status: Delivered
+
+---
+
+## 2. Data Modeling Deliverables
+
+These define *how data is structured*.
+
+### 2.1 Logical Data Model
+
+* Fact and dimension separation
+* Defined grains
+* Cardinality explained
+
+Status: Delivered
+
+---
+
+### 2.2 Physical Table Schemas (Snowflake-Compatible)
+
+* `SALES`
+* `TRANSACTIONS`
+* `PRODUCT_DETAILS`
+* `DATE_DIM`
+
+Status: Delivered
+
+---
+
+### 2.3 ER Diagram Explanation (Interview-Ready)
+
+* Star schema explanation
+* Grain justification
+* Cardinality walkthrough
+
+Status: Delivered
+
+---
+
+### 2.4 DBML Definition
+
+* Fully renderable ER diagram source
+
+Status: Delivered
+
+---
+
+## 3. Data Generation Deliverables
+
+These define *how data is created*.
+
+### 3.1 Synthetic Data Generation SQL
+
+* 8 years of transactions
+* Realistic distributions
+* Basket variability
+* Member vs non-member behavior
+
+Status: Delivered
+
+---
+
+### 3.2 Data Volume & Scale Design
+
+* Expected row counts
+* Performance considerations
+
+Status: Delivered
+
+---
+
+## 4. Data Quality & Validation Deliverables
+
+These define *how correctness is enforced*.
+
+### 4.1 Manual Data Quality Checks (SQL)
+
+* Referential integrity
+* Business rules
+* Temporal coverage
+* Analytical sanity checks
+
+Status: Delivered
+
+---
+
+### 4.2 dbt Schema Tests
+
+* Not null
+* Unique
+* Relationships
+
+Status: Delivered
+
+---
+
+### 4.3 dbt Generic Tests
+
+* Positive quantity
+* Valid discount range
+* Revenue vs discount constraints
+
+Status: Delivered
+
+---
+
+### 4.4 dbt Singular Tests
+
+* Orphan detection
+* Date range validation
+* Basket feasibility
+* Duplicate product per transaction
+
+Status: Delivered
+
+---
+
+## 5. Analytical Query Deliverables
+
+These define *how insights are produced*.
+
+### 5.1 High-Level Sales Analysis Queries (Section A)
+
+* Quantity
+* Revenue
+* Discount
+
+Status: Delivered
+
+---
+
+### 5.2 Transaction Analysis Queries (Section B)
+
+* Transaction counts
+* Basket size
+* Percentiles
+* Member vs non-member analysis
+
+Status: Delivered
+
+---
+
+### 5.3 Product Analysis Queries (Section C)
+
+* Top products
+* Segment and category rollups
+* Revenue splits
+* Penetration
+* Basket combinations
+
+Status: Delivered
+
+---
+
+### 5.4 Query Explanations (Interview-Ready)
+
+* Grain reasoning
+* Join justification
+* Window function usage
+
+Status: Delivered
+
+---
+
+## 6. Performance Engineering Deliverables
+
+These define *how the system scales*.
+
+### 6.1 Indexing Strategy
+
+* Table-by-table index design
+* Composite and partial indexes
+* dbt workload optimization
+* Basket analysis optimization
+
+Status: Delivered
+
+---
+
+### 6.2 Maintenance Strategy
+
+* Vacuum and analyze guidance
+* Reindex cadence
+
+Status: Delivered
+
+---
+
+## 7. Advanced Analytics Deliverables
+
+These define *how behavior is monitored over time*.
+
+### 7.1 Daily Metrics Model
+
+* Revenue
+* Discounts
+* Transactions
+* Averages
+
+Status: Delivered
+
+---
+
+### 7.2 Rolling Statistical Baselines
+
+* 30-day rolling means
+* Standard deviations
+
+Status: Delivered
+
+---
+
+### 7.3 Anomaly Detection Logic
+
+* Z-score based detection
+* Thresholding
+* Severity classification
+
+Status: Delivered
+
+---
+
+### 7.4 dbt Anomaly Tests
+
+* Unexpected anomaly detection
+* Pipeline failure conditions
+
+Status: Delivered
+
+---
+
+## 8. Documentation Deliverables
+
+These define *how the project is communicated*.
+
+### 8.1 README (Technical + Business Narrative)
+
+* Project overview
+* Dataset description
+* Analysis structure
+* Usage guidance
+
+Status: Delivered
+
+---
+
+### 8.2 Interview-Ready Verbal Explanations
+
+* Data model explanation
+* Query explanation
+* Design tradeoffs
+
+Status: Delivered
+
+---
+
+## 9. Not Yet Delivered Deliverables
+
+These are **optional but high-impact extensions** if you want this to be unmistakably senior-level or production-grade.
+
+### 9.1 dbt Documentation Site
+
+* Model descriptions
+* Column-level docs
+* Auto-generated lineage
+
+Status: Not Yet Delivered
+
+---
+
+### 9.2 dbt Exposures
+
+* Dashboards linked to models
+* Stakeholder ownership metadata
+
+Status: Not Yet Delivered
+
+---
+
+### 9.3 BI / Dashboard Layer
+
+* Power BI, Tableau, or Looker dashboards
+* Metric visualizations mapped to questions
+
+Status: Not Yet Delivered
+
+---
+
+### 9.4 CI Integration
+
+* dbt tests running on pull requests
+* Automated failure alerts
+
+Status: Not Yet Delivered
+
+---
+
+### 9.5 Cost Optimization Analysis (Snowflake)
+
+* Warehouse sizing
+* Query cost profiling
+* Materialization strategy
+
+Status: Not Yet Delivered
+
+---
+
+### 9.6 Data Lineage Diagram (Visual)
+
+* End-to-end flow visualization
+* dbt lineage export
+
+Status: Not Yet Delivered
+
+---
+
+### 9.7 Stakeholder-Facing Executive Summary
+
+* One-page insight narrative
+* Non-technical framing
+
+Status: Not Yet Delivered
+
+---
+
+## 10. Final Count Summary
+
+### Total Deliverables Identified
+
+* **41 total deliverables**
+
+### Delivered
+
+* **34 delivered**
+
+### Not Yet Delivered
+
+* **7 remaining (optional, value-add)**
+
+---
+
+## Bottom Line
+
+This project is already:
+
+* Technically complete
+* Interview-ready
+* Senior-level in scope
+
+The remaining items are not gaps. They are **polish layers** depending on whether you want this to be:
+
+* A standout portfolio piece
+* A production-mimicking analytics system
+* A teaching reference
+
 ## Summary
 
 This repository demonstrates a full end to end sales analysis workflow using SQL.
