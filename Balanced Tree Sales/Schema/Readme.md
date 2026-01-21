@@ -2,8 +2,6 @@
 
 Balanced Tree Sales Analytics (8 Years of Data)
 
----
-
 ## Overview
 
 This section defines the database schema required to support all questions in:
@@ -20,8 +18,6 @@ The schema is designed to:
 * Scale cleanly for large volumes of transactions
 
 The design follows a classic **fact–dimension model** with one central fact table and supporting dimension tables.
-
----
 
 ## Time Horizon
 
@@ -44,8 +40,6 @@ This range supports:
 
 Dates are stored at **transaction level granularity**.
 
----
-
 ## Schema Name
 
 ```sql
@@ -53,8 +47,6 @@ CREATE SCHEMA IF NOT EXISTS balanced_tree;
 ```
 
 All tables live under this schema.
-
----
 
 ## Table 1: `product_details`
 
@@ -84,8 +76,6 @@ CREATE TABLE balanced_tree.product_details (
 * `segment` and `category` enable hierarchical analysis
 * Product attributes are assumed to be slowly changing and static for simplicity
 
----
-
 ## Table 2: `transactions`
 
 ### Purpose
@@ -113,8 +103,6 @@ CREATE TABLE balanced_tree.transactions (
 * One row per transaction
 * `member` allows clean separation of member vs non-member behavior
 * `txn_date` supports time-based analysis across 8 years
-
----
 
 ## Table 3: `sales`
 
@@ -155,8 +143,6 @@ CREATE TABLE balanced_tree.sales (
   * Product penetration
 * `discount` is stored as a percentage value (for example `10` = 10%)
 
----
-
 ## Optional Table: `date_dim` (Recommended)
 
 ### Purpose
@@ -183,8 +169,6 @@ CREATE TABLE balanced_tree.date_dim (
 * Especially useful for 8-year trend analysis
 * Can be populated once for the full date range
 
----
-
 ## Relationship Diagram (Conceptual)
 
 * `product_details.product_id` → `sales.prod_id`
@@ -192,8 +176,6 @@ CREATE TABLE balanced_tree.date_dim (
 * `transactions.txn_date` → `date_dim.date_id`
 
 This forms a clean star schema optimized for analytics.
-
----
 
 ## Data Volume Expectations (8 Years)
 
@@ -214,8 +196,6 @@ These volumes are sufficient to:
 * Surface realistic basket combinations
 * Stress test analytical queries
 
----
-
 ## Why This Schema Works for All Questions
 
 This design fully supports:
@@ -231,7 +211,6 @@ This design fully supports:
 
 All required metrics can be derived cleanly without schema changes.
 
----
 
 ## Next Logical Step
 
