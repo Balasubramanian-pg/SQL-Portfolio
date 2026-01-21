@@ -2,8 +2,6 @@
 
 Balanced Tree Sales Dataset (8 Years)
 
----
-
 ## Goal
 
 This section provides **complete SQL scripts** to generate **realistic synthetic data covering 8 years** for all tables in the `balanced_tree` schema.
@@ -18,8 +16,6 @@ The generated data supports every business question listed earlier, including:
 
 The scripts are written for **PostgreSQL** and rely on `generate_series`, randomization, and controlled distributions.
 
----
-
 ## Assumptions (Explicit)
 
 ASSUMPTION
@@ -32,15 +28,11 @@ ASSUMPTION
 
 These assumptions are chosen to create realistic analytical behavior, not to simulate a specific real company.
 
----
-
 ## Step 1: Create Schema
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS balanced_tree;
 ```
-
----
 
 ## Step 2: Product Master Data
 
@@ -75,8 +67,6 @@ VALUES
 (18, 'Handbag - Womens',             'Accessories',    'Accessories');
 ```
 
----
-
 ## Step 3: Date Dimension (8 Years)
 
 ```sql
@@ -95,9 +85,6 @@ FROM generate_series(
     INTERVAL '1 day'
 ) AS d;
 ```
-
----
-
 ## Step 4: Transactions (8 Years)
 
 ### Generate Transactions Per Day
@@ -120,8 +107,6 @@ CROSS JOIN LATERAL generate_series(
     (200 + FLOOR(RANDOM() * 150))::INT
 );
 ```
-
----
 
 ## Step 5: Sales Line Items
 
@@ -153,8 +138,6 @@ CROSS JOIN LATERAL (
 ) p;
 ```
 
----
-
 ## Step 6: Indexing for Performance
 
 These indexes are critical for percentile queries, joins, and penetration analysis.
@@ -165,8 +148,6 @@ CREATE INDEX idx_sales_prod_id ON balanced_tree.sales (prod_id);
 CREATE INDEX idx_transactions_date ON balanced_tree.transactions (txn_date);
 CREATE INDEX idx_transactions_member ON balanced_tree.transactions (member);
 ```
-
----
 
 ## Step 7: Data Validation Checks
 
@@ -191,8 +172,6 @@ SELECT
 FROM balanced_tree.transactions;
 ```
 
----
-
 ## What This Dataset Enables
 
 With this generated data, you can now:
@@ -204,8 +183,6 @@ With this generated data, you can now:
 * Analyze trends across 8 full years
 
 The dataset behaves like a real retail system, not a toy example.
-
----
 
 ## Next Options
 
