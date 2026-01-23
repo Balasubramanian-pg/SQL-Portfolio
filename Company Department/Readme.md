@@ -10,13 +10,9 @@ The company has observed **high turnover rates** in certain departments, particu
 4. Are high-performing employees clustered in specific client companies?  
 5. How can we optimize compensation to improve retention?  
 
----
-
 ## **Analytical Approach**  
 1. **Salary Benchmarking** – Compare average salaries across departments.  
 2. **Tenure Analysis** – Identify employees onboarded in the last 12 months (highest attrition risk).  
 3. **Client Impact** – Determine if certain client companies correlate with higher salaries.  
 4. **Retention Risk Scoring** – Flag employees with below-average salaries and short tenure.  
 5. **Equity Adjustments** – Recommend salary adjustments for fairness.  
-
----
