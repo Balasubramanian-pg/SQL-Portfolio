@@ -548,13 +548,235 @@ All logic is Snowflake-compatible and portable.
 
 ## 21. Validation and Quality Checks
 
-Validation steps include:
+## 21. Validation and Quality Checks
 
-* Cross-checking salary aggregates
-* Verifying tenure calculations
-* Ensuring no duplicate employee records
+### Purpose of This Section
 
-Any anomalies are flagged for data review.
+Validation and quality checks ensure that the insights produced by the analysis are **trustworthy, reproducible, and defensible**. In HR analytics, even small data errors can lead to incorrect compensation decisions, legal risk, or loss of stakeholder confidence.
+
+This section explains **what is being validated**, **why it matters**, and **how it is typically done in SQL using Snowflake**.
+
+The intent is not advanced data engineering, but **analyst-grade rigor** that hiring managers and senior stakeholders expect.
+
+## 21.1 Cross-Checking Salary Aggregates
+
+### What This Means
+
+Salary aggregates such as:
+
+* Total salary
+* Average salary
+* Median salary
+* Department-level averages
+
+must be internally consistent across all queries.
+
+If two different queries produce different averages for the same department, the analysis cannot be trusted.
+
+### Why This Is Important
+
+Salary is a core metric driving:
+
+* Underpayment detection
+* Retention risk scoring
+* Compensation recommendations
+
+An incorrect aggregate can cascade into multiple wrong conclusions.
+
+### Typical Validation Logic
+
+The analyst verifies that:
+
+* Department-level salary averages roll up correctly to the company average
+* Filters such as active employees, full-time status, or date conditions are applied consistently
+* Null or zero salaries are either excluded or explicitly handled
+
+### How This Is Done in Snowflake
+
+Conceptually, this involves:
+
+* Comparing department averages calculated directly
+* Comparing those same averages calculated via window functions
+* Verifying totals using independent aggregation queries
+
+If the numbers differ, the query logic is reviewed for:
+
+* Missing WHERE conditions
+* Incorrect joins
+* Accidental row duplication
+
+### What an Anomaly Looks Like
+
+* Sales department average differs depending on query path
+* Company-wide average does not equal the weighted average of departments
+* Unexpected salary spikes caused by duplicate rows
+
+Such cases are flagged for investigation.
+
+## 21.2 Verifying Tenure Calculations
+
+### What This Means
+
+Tenure is calculated as the time between:
+
+* hire_date
+  and either:
+* current_date for active employees
+* termination_date for exited employees
+
+Errors in tenure calculation can misclassify employees into the wrong risk buckets.
+
+### Why This Is Important
+
+Tenure is used to:
+
+* Identify recent hires
+* Flag early attrition risk
+* Segment employees into lifecycle stages
+
+If tenure is wrong, retention risk scoring becomes unreliable.
+
+### Typical Validation Logic
+
+The analyst checks that:
+
+* Date arithmetic uses the correct units such as months or days
+* Hire dates are not in the future
+* Termination dates, if present, occur after hire dates
+* Active employees do not have termination dates
+
+### How This Is Done in Snowflake
+
+Snowflake date functions such as DATEDIFF and DATEADD are used consistently.
+
+Validation includes:
+
+* Spot-checking tenure values for known employees
+* Verifying boundary conditions such as exactly 12 months
+* Ensuring time zones or timestamp truncation do not affect results
+
+### What an Anomaly Looks Like
+
+* Negative tenure values
+* Tenure greater than the company’s existence
+* Employees marked as recent hires with multi-year tenure
+
+Any such records are flagged for correction or exclusion.
+
+## 21.3 Ensuring No Duplicate Employee Records
+
+### What This Means
+
+Each employee should appear **once and only once** in the analytical dataset unless explicitly required otherwise.
+
+Duplicates often arise from:
+
+* Incorrect joins
+* Historical records not properly filtered
+* Multiple client assignments joined incorrectly
+
+### Why This Is Important
+
+Duplicate records cause:
+
+* Inflated headcount
+* Overstated salary totals
+* Incorrect department averages
+* False identification of underpaid employees
+
+This is one of the most common and dangerous analytical errors.
+
+### Typical Validation Logic
+
+The analyst verifies:
+
+* employee_id is unique in the final dataset
+* Row counts match expected headcount
+* Aggregates do not increase unexpectedly after joins
+
+### How This Is Done in Snowflake
+
+Common checks include:
+
+* Counting distinct employee_id versus total rows
+* Grouping by employee_id and flagging counts greater than one
+* Reviewing join cardinality explicitly
+
+When duplicates are found, the root cause is identified:
+
+* Join keys reviewed
+* Filters tightened
+* CTE logic corrected
+
+### What an Anomaly Looks Like
+
+* Same employee appearing multiple times with identical data
+* Salary totals doubling after a join
+* Departments appearing larger than known headcount
+
+These are immediately flagged as data quality failures.
+
+## 21.4 Flagging and Handling Anomalies
+
+### What “Flagged for Data Review” Means
+
+Flagging does not mean silently dropping records.
+
+It means:
+
+* Identifying records that violate expectations
+* Isolating them in validation queries
+* Documenting the issue clearly
+
+Examples include:
+
+* Employees with null salaries
+* Hire dates after termination dates
+* Employees assigned to non-existent departments
+
+### Why This Matters
+
+Transparent handling of anomalies:
+
+* Builds stakeholder trust
+* Prevents silent data corruption
+* Makes assumptions explicit
+
+This is especially important in HR data, where decisions affect real people.
+
+### What Happens After Flagging
+
+Depending on severity:
+
+* Records may be excluded from analysis
+* Corrected upstream if possible
+* Escalated to HR or data owners for clarification
+
+ASSUMPTION: Flagged anomalies are reviewed before final insights are shared.
+
+## 21.5 Why This Section Is Critical in Interviews
+
+This section demonstrates that you:
+
+* Do not blindly trust data
+* Understand real-world data imperfections
+* Think beyond writing queries
+* Can defend your analysis under scrutiny
+
+Many analytics projects fail not because of bad SQL, but because of **unchecked assumptions and silent data errors**.
+
+Including this validation layer signals senior-level analytical maturity.
+
+## Summary
+
+Validation and quality checks ensure that:
+
+* Salary metrics are internally consistent
+* Tenure-based risk segmentation is accurate
+* Each employee is counted exactly once
+* Data anomalies are identified and handled transparently
+
+Without these checks, even the most sophisticated analysis becomes unreliable. This section turns the project from a query exercise into a **credible business analysis**.
 
 ## 22. Limitations
 
