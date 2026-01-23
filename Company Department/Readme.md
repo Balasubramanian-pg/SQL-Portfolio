@@ -804,15 +804,6 @@ Future enhancements may include:
 * Time-series analysis of salary growth
 * Visualization in BI tools
 
-## 25. Interview Talking Points
-
-This project demonstrates:
-
-* Strong SQL fundamentals
-* Business-driven analytics
-* Clear reasoning and structured problem solving
-* Practical HR domain understanding
-
 ## 26. Conclusion
 
 This HR Analytics project uses SQL and Snowflake to translate raw employee data into meaningful retention insights. By systematically analyzing compensation, tenure, and client assignments, the project provides leadership with a clear view of where and why attrition risk exists.
