@@ -44,19 +44,202 @@ Each question is mapped to specific SQL-based analyses described later in this d
 
 ## 4. Project Objectives
 
-The primary objectives of this project are:
+## Expanded Explanation of the Key Questions
 
-* Identify compensation disparities across departments
-* Quantify retention risk using measurable indicators
-* Highlight employees who may require compensation review
-* Surface patterns between client assignments and salary levels
-* Provide data-backed recommendations to leadership
+This section deepens the intent, analytical logic, and business relevance behind each key question. The goal is to make it clear why each question matters, how it is approached in SQL, and what leadership can practically do with the answers.
 
-Secondary objectives include:
+## 1. Are Certain Departments Underpaid Compared to Others?
 
-* Demonstrating strong SQL modeling and analytical skills
-* Applying Snowflake-specific SQL features where appropriate
-* Creating reusable and extensible analytical logic
+### Business Context
+
+Departments do not exist in isolation. Employees frequently compare compensation across teams, especially when collaboration is high or when internal transfers are common. Persistent pay gaps can create perceptions of unfairness, even if roles differ.
+
+Sales and Marketing are revenue-facing functions with typically higher market volatility and pressure. If these departments are paid significantly less than others with comparable responsibility levels, attrition risk increases sharply.
+
+### Analytical Intent
+
+This question aims to identify systemic compensation imbalances rather than individual anomalies.
+
+The analysis focuses on:
+
+* Average salary by department
+* Median salary by department to reduce skew from outliers
+* Variance between department averages and the company-wide average
+
+### SQL Reasoning Summary
+
+* Aggregate salaries by department
+* Compute company-wide benchmarks
+* Compare each department against those benchmarks
+* Rank departments from lowest to highest compensation
+
+The emphasis is on relative positioning, not absolute numbers.
+
+### What an Answer Looks Like
+
+* Departments that consistently fall below the company average
+* Departments with unusually wide salary distributions
+* Confirmation or rejection of the hypothesis that Sales and Marketing are underpaid
+
+### Why This Matters to Leadership
+
+* Identifies structural pay issues rather than isolated cases
+* Supports budget reallocation discussions
+* Provides evidence for revisiting departmental pay bands
+
+## 2. Which Employees Are at Risk of Leaving Due to Low Compensation?
+
+### Business Context
+
+Attrition rarely happens overnight. Employees typically disengage after prolonged periods of feeling undervalued. Compensation is one of the clearest and most quantifiable signals of that perception.
+
+Low compensation relative to peers is often more damaging than low compensation in absolute terms.
+
+### Analytical Intent
+
+The goal is to identify employees who are paid less than:
+
+* Their departmental peers
+* The company median
+* Employees with similar tenure or performance
+
+This question moves the analysis from department-level patterns to individual-level risk.
+
+### SQL Reasoning Summary
+
+* Use window functions to calculate department-level averages
+* Compare each employee’s salary against those benchmarks
+* Flag employees below a defined threshold
+
+ASSUMPTION: Department average salary is a fair baseline for comparison within similar roles.
+
+### What an Answer Looks Like
+
+* A list of employees earning below department average
+* The magnitude of underpayment
+* Distribution of at-risk employees across departments
+
+### Why This Matters to Leadership
+
+* Enables targeted retention actions
+* Prevents blanket salary increases
+* Helps HR prioritize compensation reviews where they matter most
+
+## 3. Does Onboarding Date Impact Retention?
+
+### Business Context
+
+The first year of employment is the most fragile period in the employee lifecycle. Poor onboarding, unmet salary expectations, or role mismatch often surface early.
+
+High early attrition is costly because recruitment and onboarding investments are not recovered.
+
+### Analytical Intent
+
+This question explores whether newer employees are disproportionately represented among:
+
+* Low-paid employees
+* High-risk attrition segments
+* Specific departments or clients
+
+### SQL Reasoning Summary
+
+* Calculate tenure using hire dates
+* Segment employees into tenure buckets
+* Cross-reference tenure with salary positioning
+
+ASSUMPTION: Employees with tenure under 12 months are at higher attrition risk.
+
+### What an Answer Looks Like
+
+* Attrition risk concentration by tenure bucket
+* Evidence of compensation issues among recent hires
+* Identification of departments with poor early retention
+
+### Why This Matters to Leadership
+
+* Highlights onboarding and expectation-setting issues
+* Identifies whether salary adjustments should happen earlier
+* Reduces churn before employees reach productivity maturity
+
+## 4. Are High-Performing or High-Paid Employees Clustered in Specific Client Companies?
+
+### Business Context
+
+Client assignments often influence workload, stress, visibility, and career growth. Over time, organizations may unintentionally create “premium” and “non-premium” clients from an employee experience perspective.
+
+If better-paid or higher-performing employees are concentrated around certain clients, inequities can emerge.
+
+### Analytical Intent
+
+This question examines whether client assignment correlates with:
+
+* Higher salaries
+* Higher performance ratings
+* Lower retention risk
+
+### SQL Reasoning Summary
+
+* Group employees by client company
+* Compute average salary and performance per client
+* Compare across clients and departments
+
+ASSUMPTION: Client assignment is relatively stable and meaningful for employees.
+
+### What an Answer Looks Like
+
+* Clients with above-average compensation profiles
+* Clients staffed primarily with lower-paid employees
+* Overlap between high-performing employees and specific clients
+
+### Why This Matters to Leadership
+
+* Reveals hidden inequities in client staffing
+* Informs fair rotation and compensation strategies
+* Prevents burnout in underpaid, high-demand client teams
+
+## 5. How Can We Optimize Compensation to Improve Retention?
+
+### Business Context
+
+Compensation optimization is not about paying everyone more. It is about paying the right people fairly, at the right time, for the right reasons.
+
+Poorly targeted salary increases are expensive and ineffective.
+
+### Analytical Intent
+
+This question synthesizes insights from all previous analyses to:
+
+* Identify where money will have the highest retention impact
+* Avoid overcorrecting in low-risk areas
+* Support data-driven decision-making
+
+### SQL Reasoning Summary
+
+* Combine salary, tenure, performance, and client factors
+* Assign retention risk indicators
+* Group employees by risk level
+
+ASSUMPTION: Retention risk can be approximated using observable compensation and tenure signals.
+
+### What an Answer Looks Like
+
+* A prioritized list of employees or segments for review
+* Clear justification for compensation adjustments
+* Estimated scope of financial impact
+
+### Why This Matters to Leadership
+
+* Enables proactive retention rather than reactive hiring
+* Improves internal equity and trust
+* Aligns compensation strategy with business outcomes
+
+## Summary of Verification and Uncertainty
+
+* The relationship between compensation and attrition is supported by HR analytics literature, but exact thresholds vary by organization.
+* Equal weighting of risk factors is an assumption and may not reflect real-world impact.
+* Client assignment influence depends on organizational structure and may require qualitative validation.
+
+These uncertainties should be addressed in future iterations using exit data, surveys, or longitudinal analysis.
 
 ## 5. Scope of Analysis
 
