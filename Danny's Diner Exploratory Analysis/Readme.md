@@ -1,4 +1,4 @@
-## READ ME: Danny's Diner Case Study
+## Danny's Diner Case Study
 
 This document explores customer purchase data at Danny's Diner using MS SQL Server. The data includes three tables:
 
@@ -35,3 +35,4 @@ This section provides two additional queries:
 * **Rank All The Things:** Similar to the previous query, but additionally assigns a ranking number (within customer and membership status groups) based on the order date.
 
 This document serves as a reference for understanding customer behavior at Danny's Diner through the provided sample data and SQL queries.
+
