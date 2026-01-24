@@ -51,8 +51,6 @@ Based on the queries provided, we can infer the following table structures and t
     *   `start_date`
     *   `end_date`
 
----
-
 ### **2. Digital Analysis**
 
 #### **1. How many users are there?**
@@ -71,8 +69,6 @@ FROM
 
 **Explanation:**
 This query counts the total number of unique users in the database. It selects the `user_id` column from the `users` table and uses `COUNT(DISTINCT ...)` to ensure that each user is counted only once, even if they appear multiple times with different cookies. The result shows there are 500 unique users.
-
----
 
 #### **2. How many cookies does each user have on average?**
 
@@ -152,8 +148,6 @@ This query aggregates the total number of unique user visits for each month.
 1.  The `WITH` clause first extracts the month from `event_time` using `EXTRACT('month' FROM ...)`. It then counts the number of distinct `visit_id`s for each `cookie_id` within each month.
 2.  The outer query then takes these monthly counts and sums them up (`SUM(n_visits)`) grouped by `visited_month` to get the total visits across all users for each month. The busiest month was February (Month 2).
 
----
-
 #### **4. What is the number of events for each event type?**
 
 **Query:**
@@ -183,8 +177,6 @@ ORDER BY
 **Explanation:**
 This query counts the occurrences of each type of event. It joins the `events` table with the `event_identifier` lookup table on `event_type` to retrieve the readable `event_name`. It then groups the results by both event type and name and counts the total number of events (`COUNT(e.event_type)`) in each group. 'Page View' is the most common event.
 
----
-
 #### **5. What is the percentage of visits which have a purchase event?**
 
 **Query:**
@@ -211,8 +203,6 @@ This query calculates the percentage of visits that resulted in a purchase.
 3.  The purchase count is divided by the total visit count and multiplied by 100 to get the percentage.
 4.  The `::NUMERIC` cast is used to ensure the division results in a decimal value rather than an integer.
 Almost half (49.86%) of all visits include a purchase event.
-
----
 
 #### **6. What is the percentage of visits which view the checkout page but do not have a purchase event?**
 
@@ -256,8 +246,6 @@ This query calculates the percentage of visits where a user went to the checkout
 2.  The outer query calculates `SUM(purchased) / SUM(checked_out)`, which is the proportion of visits that reached checkout *and* made a purchase.
 3.  Subtracting this proportion from 1 and multiplying by 100 gives the percentage of visits that reached checkout but were abandoned. 15.50% of visits that reach the checkout page do not result in a purchase.
 
----
-
 #### **7. What are the top 3 pages by number of views?**
 
 **Query:**
@@ -293,8 +281,6 @@ This is a standard "Top N" query to find the most viewed pages.
 3.  It groups by page and counts the views for each.
 4.  `ORDER BY n_page DESC` sorts the pages from most to least viewed.
 5.  `LIMIT 3` restricts the output to the top three results.
-
----
 
 #### **8. Which product categories contribute the most to page views and cart adds?**
 *Note: The original question asked for `age_band` and `demographic`, but the provided query analyzes `product_category`. The explanation below follows the provided query.*
@@ -333,8 +319,6 @@ This query aggregates key metrics for each product category.
     *   It counts `page_views` by summing 1 for each event of type 1.
     *   It counts `add_to_cart` by summing 1 for each event of type 2.
 3.  The results are grouped by `product_category` to show the total counts for each, with Shellfish being the most popular category.
-
----
 
 #### **9. What are the top 3 products by purchases?**
 
@@ -379,8 +363,6 @@ This query identifies the top 3 most purchased products. The logic is to count h
 2.  The main query joins `events` and `page_hierarchy` with this `get_purchases` list. This effectively filters for events that are part of a purchasing journey.
 3.  It then counts the "Add to Cart" events (`event_type = 2`) within these successful visits.
 4.  The final result is grouped by product `page_name` and ordered to show the top 3 products.
-
----
 
 ### **3. Product Funnel Analysis**
 
@@ -447,9 +429,7 @@ This query creates a temporary table `product_info` that summarizes the entire s
 2.  **`product_purchased` CTE:** Counts cart adds that occurred during a visit that was eventually completed with a purchase. It uses `EXISTS` to check for a purchase event (`event_type = 3`) within the same `visit_id`.
 3.  **`product_abandoned` CTE:** Counts cart adds where the visit was *not* completed with a purchase. It uses `NOT EXISTS` to find visits without a purchase event.
 4.  **Final `SELECT`:** Joins these CTEs with the `page_hierarchy` table to combine all the metrics (views, adds, purchases, abandonments) for each product into a single, comprehensive table.
-
----
-
+   
 #### **Task 2: Create a product category performance table.**
 
 **Query:**
@@ -478,8 +458,6 @@ SELECT * FROM category_info;
 
 **Explanation:**
 This query aggregates the data from the `product_info` table to a higher level. It groups the detailed product data by `product_category` and sums up the views, cart adds, purchases, and abandonments to provide a category-level overview of the sales funnel.
-
----
 
 #### **1. Which product had the most views, cart adds and purchases?**
 
@@ -512,8 +490,6 @@ This query uses the `RANK()` window function to identify the top product for thr
 1.  The `rankings` CTE calculates a rank for each product based on its page views, cart adds, and purchases. `RANK() OVER (ORDER BY ... DESC)` assigns a rank of 1 to the product with the highest value.
 2.  The final query uses `UNION` to combine three separate `SELECT` statements, each pulling the product with a rank of 1 for one of the metrics.
 
----
-
 #### **2. Which product was most likely to be abandoned?**
 
 **Explanation:**
@@ -541,8 +517,6 @@ LIMIT
 **Explanation:**
 This query correctly identifies the product most *likely* to be abandoned. It calculates the abandonment ratio for each product by dividing the number of abandoned carts (`abandoned_in_cart`) by the total number of times it was added to a cart (`n_added_to_cart`). The product with the highest ratio, Russian Caviar, is the one a customer is most likely to remove or leave behind after considering it.
 
----
-
 #### **3. Which product had the highest view-to-purchase percentage?**
 
 **Query:**
@@ -568,8 +542,6 @@ LIMIT
 **Explanation:**
 This query calculates the conversion rate from a page view to a final purchase. For each product, it divides the total number of purchases (`purchased_from_cart`) by the total number of page views (`n_page_views`) and orders the results to find the highest ratio. Lobster is the most effective product at converting an initial view into a sale.
 
----
-
 #### **4. What is the average conversion rate from view to cart add?**
 
 **Query:**
@@ -589,8 +561,6 @@ FROM
 
 **Explanation:**
 This query calculates the average "view-to-cart" conversion rate across all products. For each product, it first calculates the ratio of cart adds to page views. Then, it uses `AVG()` to find the average of these individual product ratios. On average, about 61% of page views lead to the item being added to the cart.
-
----
 
 #### **5. What is the average conversion rate from cart add to purchase?**
 
@@ -613,8 +583,6 @@ FROM
 
 **Explanation:**
 This query calculates the average "cart-to-purchase" conversion rate across all products. For each product, it calculates the ratio of successful purchases to cart adds. Then, it uses `AVG()` to find the average of these ratios. On average, nearly 76% of items added to a cart are successfully purchased.
-
----
 
 ### **4. Campaigns Analysis**
 
