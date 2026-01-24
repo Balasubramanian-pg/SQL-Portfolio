@@ -6,8 +6,6 @@ As analysts supporting Danny's vision, our primary objective is to dive deep int
 
 Fallout rates represent the percentage of users who drop off at each stage of the funnel. By identifying where and why customers are abandoning their journey, we can provide Danny with actionable insights to optimize the user experience, improve conversion rates, and ultimately drive revenue growth. This analysis will transform raw data into a strategic roadmap for Clique Bait's success.
 
----
-
 ### **Dataset**
 
 To conduct this analysis, we will utilize five interconnected datasets that capture all aspects of user interaction on the Clique Bait website. Understanding the role of each table is crucial for building accurate and meaningful queries.
@@ -31,8 +29,6 @@ To conduct this analysis, we will utilize five interconnected datasets that capt
 5.  **`campaign_identifier`**
     *   **Purpose:** This table contains information about marketing campaigns, including their names and active dates. It allows us to attribute user visits to specific marketing efforts.
     *   **Key Columns:** `campaign_id`, `campaign_name`, `start_date`, `end_date`.
-
----
 
 ### **Entity Relationship Diagram (ERD)**
 
