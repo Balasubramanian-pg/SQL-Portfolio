@@ -1,4 +1,7 @@
-# Electronic Health Records (EHR) Optimization: Project Bible
+# Electronic Health Records (EHR) Optimization
+
+<img width="965" height="642" alt="image" src="https://github.com/user-attachments/assets/3304ecb9-08c2-4a35-905a-403914a3023b" />
+
 
 ## 1. Introduction
 
