@@ -14,6 +14,8 @@ I just finished a project where we took an Electronic Health Records system that
 
 This is the playbook.
 
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/afcbc203-5a01-4dc3-b00d-a7e5dec14fd0" />
+
 ## The Silent Revenue Killer Nobody Talks About
 
 Picture this:
