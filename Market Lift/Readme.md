@@ -1,238 +1,391 @@
-This is a more advanced request that moves from operational data (EHR) to **Analytical Data (OLAP)**. To analyze "Market Lift," we need a Star Schema design.
+# Market Lift Analytics Platform
 
-Market Lift is the difference between **Actual Sales** (influenced by marketing/campaigns) and **Baseline Sales** (what would have happened naturally).
+## 1. Introduction
 
-### Part 1: The Data Warehouse Schema (Star Schema)
+Market Lift analytics sits at the intersection of commercial strategy, data engineering, and business intelligence. This project formalizes a complete analytical framework to quantify how marketing interventions influence sales performance across geographies, products, and time. The focus is not operational reporting but analytical truth. The system is designed to answer a deceptively simple question that most organizations struggle to answer with confidence: did the campaign actually work?
 
-We will design a schema optimized for BI tools (Tableau, PowerBI, Looker).
+Unlike transactional systems that record what happened, this project is concerned with why it happened. It separates organic demand from campaign-driven demand and makes that distinction auditable, explainable, and measurable at scale.
 
-#### 1. Fact Table: `Fact_Market_Sales`
-This is the central table containing the daily performance metrics.
-*   **FactID** (PK)
-*   **DateKey** (FK to Dim_Date)
-*   **LocationID** (FK to Dim_Location)
-*   **ProductID** (FK to Dim_Product)
-*   **CampaignID** (FK to Dim_Campaign) - *Null if no campaign active*
-*   **Baseline_Units** (Integer) - *Predicted sales without marketing*
-*   **Actual_Units** (Integer) - *Real sales numbers*
-*   **Lift_Units** (Integer) - *Actual - Baseline*
-*   **Revenue_USD** (Float)
+This document is a full project bible. It explains the business problem, analytical philosophy, data modeling approach, governance rules, metrics definitions, and downstream analytical use cases. It intentionally excludes data generation or scripting logic and focuses entirely on the project as a real-world analytical system.
 
-#### 2. Dimension Tables
-*   **Dim_Location**: Hierarchical data for USA, Mexico, Canada.
-    *   *Columns:* LocationID, Country, State_Province, City, Region_Tier.
-*   **Dim_Product**: The medicines.
-    *   *Columns:* ProductID, BrandName, GenericName, TherapeuticArea (e.g., Diabetes, Cardio), Price_USD.
-*   **Dim_Campaign**: The marketing interventions.
-    *   *Columns:* CampaignID, CampaignName, Channel (TV, Digital, Rep), StartDate, EndDate, TargetCountry.
+Relevant visual reference:
 
----
+* [https://miro.medium.com/max/1400/1*8JmT2pKX5pYQx0P0r6xR7A.png](https://miro.medium.com/max/1400/1*8JmT2pKX5pYQx0P0r6xR7A.png)
 
-### Part 2: The Python Script
+## 2. Business Problem Statement
 
-This script simulates **2 years** of data. It mathematically injects "Lift" (spikes in sales) during specific campaign windows so your dashboard will show obvious, actionable insights.
+Marketing spend is one of the largest discretionary expenses for consumer and healthcare-adjacent organizations. Despite this, most companies rely on proxy metrics such as impressions, clicks, or survey recall to judge effectiveness. These metrics do not answer the core financial question: how many additional units were sold because of this campaign?
 
-```python
-import pandas as pd
-import numpy as np
-import random
-from datetime import datetime, timedelta
-from faker import Faker
+The Market Lift project addresses the following core business problems:
 
-fake = Faker()
+* Inability to distinguish baseline demand from campaign-influenced demand
+* Overreliance on vanity metrics instead of revenue-linked outcomes
+* Fragmented reporting across regions, channels, and products
+* Lack of historical comparability between campaigns
+* No standardized definition of lift across the organization
 
-# --- CONFIGURATION ---
-START_DATE = datetime(2023, 1, 1)
-DAYS = 730  # 2 Years
-BASE_DAILY_SALES = 50  # Average units sold per day per location baseline
+By formalizing lift as a first-class analytical metric, this project enables leadership to evaluate campaigns on incremental value rather than activity volume.
 
-# --- 1. SETUP DIMENSIONS ---
+Relevant visual reference:
 
-# A. Locations (USA, Mexico, Canada)
-# We focus on major states/provinces to keep data manageable but realistic
-LOCATIONS = [
-    {'Country': 'USA', 'State': 'California', 'City': 'Los Angeles'},
-    {'Country': 'USA', 'State': 'New York', 'City': 'New York City'},
-    {'Country': 'USA', 'State': 'Texas', 'City': 'Houston'},
-    {'Country': 'USA', 'State': 'Florida', 'City': 'Miami'},
-    {'Country': 'Canada', 'State': 'Ontario', 'City': 'Toronto'},
-    {'Country': 'Canada', 'State': 'Quebec', 'City': 'Montreal'},
-    {'Country': 'Canada', 'State': 'British Columbia', 'City': 'Vancouver'},
-    {'Country': 'Mexico', 'State': 'CDMX', 'City': 'Mexico City'},
-    {'Country': 'Mexico', 'State': 'Jalisco', 'City': 'Guadalajara'},
-    {'Country': 'Mexico', 'State': 'Nuevo Leon', 'City': 'Monterrey'},
-]
+* [https://cdn.sanity.io/images/5p2wh2ny/production/5f9c0e8d9b2cba0c5e0b8c7cbb8cba6b9f4e3f62-1600x900.png](https://cdn.sanity.io/images/5p2wh2ny/production/5f9c0e8d9b2cba0c5e0b8c7cbb8cba6b9f4e3f62-1600x900.png)
 
-# B. Products (Therapeutic Areas)
-PRODUCTS = [
-    {'ID': 101, 'Brand': 'CardioFlow', 'Area': 'Cardiology', 'Price': 120.00},
-    {'ID': 102, 'Brand': 'GlucoDown', 'Area': 'Diabetes', 'Price': 85.50},
-    {'ID': 103, 'Brand': 'DermaClear', 'Area': 'Dermatology', 'Price': 45.00},
-    {'ID': 104, 'Brand': 'NeuroCalm', 'Area': 'Neurology', 'Price': 210.00},
-    {'ID': 105, 'Brand': 'ImmunoBoost', 'Area': 'Immunology', 'Price': 150.00},
-]
+## 3. Analytical Philosophy
 
-# C. Campaigns (The Drivers of Lift)
-# We define specific windows where sales should spike
-CAMPAIGNS = [
-    {
-        'ID': 1, 'Name': 'USA SuperBowl Launch', 'Channel': 'TV', 
-        'Start': datetime(2023, 2, 1), 'End': datetime(2023, 2, 28), 
-        'TargetCountry': 'USA', 'TargetProduct': 101, 'LiftFactor': 1.8  # 80% Lift
-    },
-    {
-        'ID': 2, 'Name': 'Canada Winter Wellness', 'Channel': 'Digital', 
-        'Start': datetime(2023, 11, 1), 'End': datetime(2024, 1, 31), 
-        'TargetCountry': 'Canada', 'TargetProduct': 105, 'LiftFactor': 1.4 # 40% Lift
-    },
-    {
-        'ID': 3, 'Name': 'Mexico Cardio Push', 'Channel': 'Rep Visit', 
-        'Start': datetime(2024, 5, 1), 'End': datetime(2024, 7, 30), 
-        'TargetCountry': 'Mexico', 'TargetProduct': 101, 'LiftFactor': 1.5 # 50% Lift
-    },
-    {
-        'ID': 4, 'Name': 'Global Diabetes Awareness', 'Channel': 'Social Media', 
-        'Start': datetime(2024, 6, 1), 'End': datetime(2024, 6, 30), 
-        'TargetCountry': 'All', 'TargetProduct': 102, 'LiftFactor': 1.3 # 30% Lift
-    }
-]
+At the heart of this project is a strict analytical separation between baseline and actual performance. Baseline represents an informed estimate of what sales would have been in the absence of marketing activity. Actual represents observed performance. Lift is the delta between the two.
 
-# --- HELPER FUNCTIONS ---
+This philosophy enforces several important principles:
 
-def get_seasonality(date_obj):
-    """Adds a slight sine wave to simulate natural seasonal trends"""
-    day_of_year = date_obj.timetuple().tm_yday
-    # Peak in winter (end/start of year), trough in summer
-    return 1 + 0.2 * np.cos((day_of_year - 1) * 2 * np.pi / 365)
+* Marketing does not create all sales, only incremental sales
+* Lift must be computed at the lowest possible grain
+* Aggregations must always preserve baseline and actual independently
+* Lift is not a ratio by default, it is a measurable volume difference
 
-def generate_data():
-    fact_rows = []
-    
-    print("Generating Daily Sales Data for 3 Countries...")
-    
-    # Iterate through every day of the 2 years
-    for d in range(DAYS):
-        current_date = START_DATE + timedelta(days=d)
-        seasonal_factor = get_seasonality(current_date)
-        
-        # Iterate through every location
-        for loc_id, loc in enumerate(LOCATIONS, 1):
-            
-            # Iterate through every product
-            for prod in PRODUCTS:
-                
-                # 1. Calculate Baseline (Natural Sales)
-                # Random noise + Seasonality
-                noise = random.uniform(0.8, 1.2)
-                baseline = int(BASE_DAILY_SALES * seasonal_factor * noise)
-                
-                # 2. Check for Active Campaigns (The Lift)
-                active_campaign_id = None
-                lift_multiplier = 1.0
-                
-                for camp in CAMPAIGNS:
-                    # Check Date Range
-                    if camp['Start'] <= current_date <= camp['End']:
-                        # Check Geography and Product Match
-                        country_match = (camp['TargetCountry'] == 'All' or camp['TargetCountry'] == loc['Country'])
-                        prod_match = (camp['TargetProduct'] == prod['ID'])
-                        
-                        if country_match and prod_match:
-                            active_campaign_id = camp['ID']
-                            lift_multiplier = camp['LiftFactor']
-                            break # Assume only one major campaign per product per day
-                
-                # 3. Calculate Actuals
-                # Actual = Baseline * Lift
-                actual_units = int(baseline * lift_multiplier)
-                
-                # Add some randomness to the lift execution (not perfect every day)
-                if active_campaign_id:
-                    actual_units = int(actual_units * random.uniform(0.9, 1.1))
+This approach prevents common analytical errors such as attributing all sales during a campaign window to the campaign itself.
 
-                revenue = round(actual_units * prod['Price'], 2)
-                lift_units = actual_units - baseline
-                
-                fact_rows.append({
-                    'Date': current_date.date(),
-                    'Country': loc['Country'],
-                    'State': loc['State'],
-                    'City': loc['City'],
-                    'BrandName': prod['Brand'],
-                    'TherapeuticArea': prod['Area'],
-                    'CampaignID': active_campaign_id if active_campaign_id else 0,
-                    'Baseline_Units': baseline,
-                    'Actual_Units': actual_units,
-                    'Lift_Units': lift_units,
-                    'Revenue_USD': revenue
-                })
-        
-        if d % 100 == 0:
-            print(f"Processed {d}/{DAYS} days...")
+Relevant visual reference:
 
-    return pd.DataFrame(fact_rows)
+* [https://www.tableau.com/sites/default/files/2021-06/LO_MarketingAnalytics_hero.png](https://www.tableau.com/sites/default/files/2021-06/LO_MarketingAnalytics_hero.png)
 
-# --- EXECUTION ---
+## 4. Stakeholders and Users
 
-def main():
-    # 1. Create Dimensions (For export reference)
-    df_loc = pd.DataFrame(LOCATIONS)
-    df_prod = pd.DataFrame(PRODUCTS)
-    df_camp = pd.DataFrame(CAMPAIGNS)
-    
-    # Drop complex objects from Campaign DF for CSV export
-    df_camp_clean = df_camp.drop(columns=['Start', 'End']).copy()
-    df_camp_clean['StartDate'] = df_camp['Start'].dt.date
-    df_camp_clean['EndDate'] = df_camp['End'].dt.date
+The Market Lift platform is designed to serve multiple stakeholder groups with a single source of analytical truth.
 
-    # 2. Generate Facts
-    df_fact = generate_data()
-    
-    # 3. Export
-    print("\nSaving Data...")
-    df_fact.to_csv('Fact_Market_Sales.csv', index=False)
-    df_camp_clean.to_csv('Dim_Campaigns.csv', index=False)
-    df_prod.to_csv('Dim_Products.csv', index=False)
-    
-    print(f"\nSuccessfully generated {len(df_fact)} rows of market data.")
-    print("Files created: Fact_Market_Sales.csv, Dim_Campaigns.csv, Dim_Products.csv")
+Primary stakeholders include:
 
-if __name__ == "__main__":
-    main()
-```
+* Commercial leadership evaluating ROI
+* Marketing teams optimizing channel mix
+* Finance teams validating revenue attribution
+* Business intelligence teams building dashboards
+* Data engineers maintaining analytical models
 
-### Part 3: The Insights for your Dashboard
+Each group consumes the same metrics but through different analytical lenses. The model must therefore be stable, transparent, and extensible.
 
-Since you mentioned you want "Awesome Insights" for SQL tweaks and visualizations, here is exactly what you should build with this data:
+Relevant visual reference:
 
-#### Insight 1: The "Lift" Waterfall Chart
-*   **Query logic:** Compare `Baseline_Units` vs `Actual_Units` where `CampaignID` is NOT NULL.
-*   **The Story:** "Our 'USA SuperBowl Launch' campaign generated a **180% lift** in CardioFlow sales in February 2023 compared to the baseline forecast."
-*   **Visual:** A dual-axis line chart. One dotted line for Baseline, one solid bold line for Actuals. The space between them is shaded green to represent "Lift."
+* [https://cdn.prod.website-files.com/63f5d1d3b1f5e04f6a4c6c6a/63f5d1d3b1f5e04f6a4c6c8d_data-stakeholders.png](https://cdn.prod.website-files.com/63f5d1d3b1f5e04f6a4c6c6a/63f5d1d3b1f5e04f6a4c6c8d_data-stakeholders.png)
 
-#### Insight 2: Cross-Border Performance Heatmap
-*   **Query logic:** `Sum(Lift_Units)` grouped by `Country` and `TherapeuticArea`.
-*   **The Story:** "While the US responds well to TV campaigns for Cardiology, Mexico shows higher ROI on 'Rep Visits' (In-person sales) for the same drug."
-*   **Visual:** A Map visual where the color intensity represents the Lift % (Actual / Baseline).
+## 5. Scope Definition
 
-#### Insight 3: Campaign Efficiency (ROI)
-*   **Query logic:** Calculate Total Revenue during campaign periods vs. Non-campaign periods.
-*   **The Story:** "The 'Global Diabetes Awareness' campaign had a lower lift factor (1.3x) but because it ran in all 3 countries simultaneously, it generated the highest total net revenue."
+### In Scope
 
-#### SQL Query Example to try on this data:
-Once you load this CSV into your SQL DB, run this to calculate the exact percentage lift per campaign:
+* Analytical modeling of market lift
+* Star schema optimized for BI consumption
+* Campaign attribution at daily granularity
+* Cross-country, cross-product analysis
+* Historical trend analysis
+* Comparative campaign performance
 
-```sql
-SELECT 
-    c.CampaignName,
-    c.TargetCountry,
-    SUM(f.Baseline_Units) as Total_Baseline,
-    SUM(f.Actual_Units) as Total_Actual,
-    (SUM(f.Actual_Units) - SUM(f.Baseline_Units)) as Net_Lift_Units,
-    ROUND(((SUM(f.Actual_Units) * 1.0 / SUM(f.Baseline_Units)) - 1) * 100, 2) as Lift_Percentage
-FROM Fact_Market_Sales f
-JOIN Dim_Campaigns c ON f.CampaignID = c.ID
-WHERE f.CampaignID != 0
-GROUP BY c.CampaignName, c.TargetCountry
-ORDER BY Lift_Percentage DESC;
-```
+### Out of Scope
+
+* Real-time bidding optimization
+* Marketing automation execution
+* Predictive modeling beyond baseline estimation
+* Customer-level attribution
+* External ad platform integrations
+
+This scope ensures the project remains analytically rigorous without drifting into operational tooling.
+
+Relevant visual reference:
+
+* [https://www.datasciencecentral.com/wp-content/uploads/2021/10/data-warehouse-architecture.png](https://www.datasciencecentral.com/wp-content/uploads/2021/10/data-warehouse-architecture.png)
+
+## 6. Data Warehouse Design Overview
+
+The Market Lift platform is built on a dimensional modeling approach optimized for analytical workloads. A star schema is used to balance query performance, clarity, and extensibility.
+
+The design emphasizes:
+
+* Clear grain definition
+* Conformed dimensions
+* Additive facts
+* BI tool friendliness
+
+The central fact table records daily sales performance at the intersection of date, location, product, and campaign.
+
+Relevant visual reference:
+
+* [https://www.kimballgroup.com/wp-content/uploads/2013/08/StarSchema.png](https://www.kimballgroup.com/wp-content/uploads/2013/08/StarSchema.png)
+
+## 7. Fact Table Design: Market Sales
+
+The fact table represents the atomic unit of analysis. Each row corresponds to a single product sold in a specific location on a specific day, with or without campaign influence.
+
+Key characteristics:
+
+* Daily grain
+* One row per product-location-date
+* Campaign foreign key nullable
+* Baseline and actual stored separately
+
+Core metrics include:
+
+* Baseline Units
+* Actual Units
+* Lift Units
+* Revenue
+
+This separation allows analysts to recompute lift under alternative assumptions without reprocessing raw data.
+
+Relevant visual reference:
+
+* [https://learn.microsoft.com/en-us/power-bi/guidance/media/star-schema/star-schema-example.png](https://learn.microsoft.com/en-us/power-bi/guidance/media/star-schema/star-schema-example.png)
+
+## 8. Dimension Design: Date
+
+The date dimension is foundational to all time-based analysis. It enables seasonality analysis, campaign window alignment, and period-over-period comparisons.
+
+Attributes include:
+
+* Calendar date
+* Day of week
+* Week number
+* Month
+* Quarter
+* Year
+* Fiscal periods
+
+A fully populated date dimension avoids expensive runtime date calculations in BI tools.
+
+Relevant visual reference:
+
+* [https://www.sqlshack.com/wp-content/uploads/2020/02/date-dimension-table.png](https://www.sqlshack.com/wp-content/uploads/2020/02/date-dimension-table.png)
+
+## 9. Dimension Design: Location
+
+Location modeling supports geographic performance analysis and regional strategy evaluation.
+
+The hierarchy supports rollups from city to country while preserving regional segmentation.
+
+Attributes include:
+
+* Country
+* State or Province
+* City
+* Regional tier or market classification
+
+This structure enables cross-border comparisons and regional performance clustering.
+
+Relevant visual reference:
+
+* [https://www.guru99.com/images/1/020819_1032_DataWareh4.png](https://www.guru99.com/images/1/020819_1032_DataWareh4.png)
+
+## 10. Dimension Design: Product
+
+Products are modeled to support therapeutic, brand, and pricing analysis.
+
+Key attributes include:
+
+* Brand name
+* Generic name
+* Therapeutic area
+* List price
+
+This enables lift analysis by category, portfolio contribution analysis, and price sensitivity exploration.
+
+Relevant visual reference:
+
+* [https://www.researchgate.net/profile/Dimensional-Modeling/publication/331588233/figure/fig2/AS:733289366093824@1551864935753/Star-schema-for-product-sales.png](https://www.researchgate.net/profile/Dimensional-Modeling/publication/331588233/figure/fig2/AS:733289366093824@1551864935753/Star-schema-for-product-sales.png)
+
+## 11. Dimension Design: Campaign
+
+The campaign dimension captures the intent and scope of marketing interventions.
+
+Attributes include:
+
+* Campaign name
+* Channel
+* Start and end dates
+* Target geography
+* Target product
+
+Campaigns are treated as descriptive entities rather than performance containers. Performance always lives in the fact table.
+
+Relevant visual reference:
+
+* [https://cdn.analyticsvidhya.com/wp-content/uploads/2020/07/star-schema-marketing.png](https://cdn.analyticsvidhya.com/wp-content/uploads/2020/07/star-schema-marketing.png)
+
+## 12. Metric Definitions and Governance
+
+Clear metric definitions are essential to prevent analytical drift.
+
+### Baseline Units
+
+Baseline units represent expected sales absent marketing intervention. They are not historical averages but modeled expectations.
+
+### Actual Units
+
+Actual units represent recorded sales volume.
+
+### Lift Units
+
+Lift units equal actual units minus baseline units. Negative lift is allowed and meaningful.
+
+### Revenue
+
+Revenue is calculated from actual units multiplied by unit price. Baseline revenue can be derived analytically.
+
+Relevant visual reference:
+
+* [https://www.datapine.com/blog/wp-content/uploads/2018/10/marketing-analytics-dashboard-example.png](https://www.datapine.com/blog/wp-content/uploads/2018/10/marketing-analytics-dashboard-example.png)
+
+## 13. Campaign Attribution Logic
+
+Campaign attribution follows deterministic rules:
+
+* Campaigns apply only within defined date windows
+* Campaigns apply only to defined geographies and products
+* Only one campaign may influence a product-location-day
+
+This avoids double counting and ensures interpretability.
+
+Relevant visual reference:
+
+* [https://www.segment.com/wp-content/uploads/2021/01/marketing-attribution-models.png](https://www.segment.com/wp-content/uploads/2021/01/marketing-attribution-models.png)
+
+## 14. Analytical Use Cases
+
+### Executive Performance Review
+
+Executives can assess which campaigns generated true incremental revenue.
+
+### Channel Effectiveness
+
+Marketing teams can compare channel efficiency across regions.
+
+### Portfolio Strategy
+
+Product leaders can identify categories most responsive to promotion.
+
+Relevant visual reference:
+
+* [https://www.sisense.com/wp-content/uploads/2021/03/marketing-dashboard-example.png](https://www.sisense.com/wp-content/uploads/2021/03/marketing-dashboard-example.png)
+
+## 15. Visualization Strategy
+
+Dashboards are designed to tell stories, not just display numbers.
+
+Recommended visuals include:
+
+* Baseline vs Actual trend lines
+* Lift contribution waterfalls
+* Geographic heatmaps
+* Campaign ROI ranking tables
+
+Visual design emphasizes contrast between baseline and actual to make lift immediately visible.
+
+Relevant visual reference:
+
+* [https://public.tableau.com/static/images/Ma/MarketingAnalyticsDashboard/MarketingDashboard/4_3.png](https://public.tableau.com/static/images/Ma/MarketingAnalyticsDashboard/MarketingDashboard/4_3.png)
+
+## 16. Data Quality and Validation
+
+Quality controls include:
+
+* Non-negative baseline enforcement
+* Referential integrity across dimensions
+* Campaign window validation
+* Outlier detection on lift values
+
+These controls ensure analytical trust.
+
+Relevant visual reference:
+
+* [https://www.gartner.com/imagesrv/insights/data-quality.png](https://www.gartner.com/imagesrv/insights/data-quality.png)
+
+## 17. Performance Considerations
+
+The star schema enables:
+
+* Efficient aggregation
+* Predicate pushdown
+* Minimal join complexity
+
+This ensures responsiveness even with multi-year data.
+
+Relevant visual reference:
+
+* [https://learn.microsoft.com/en-us/azure/architecture/data-guide/images/star-schema.png](https://learn.microsoft.com/en-us/azure/architecture/data-guide/images/star-schema.png)
+
+## 18. Security and Access Control
+
+Access is controlled at the warehouse and BI layer.
+
+* Row-level security by geography if required
+* Metric-level governance via semantic models
+
+Relevant visual reference:
+
+* [https://www.snowflake.com/wp-content/uploads/2022/08/security-architecture.png](https://www.snowflake.com/wp-content/uploads/2022/08/security-architecture.png)
+
+## 19. Extensibility and Future Enhancements
+
+The model supports future extensions such as:
+
+* Additional countries
+* New product lines
+* New campaign channels
+* Scenario modeling
+
+No structural redesign is required for moderate growth.
+
+Relevant visual reference:
+
+* [https://www.databricks.com/wp-content/uploads/2021/10/lakehouse-architecture.png](https://www.databricks.com/wp-content/uploads/2021/10/lakehouse-architecture.png)
+
+## 20. Risks and Mitigations
+
+Key risks include:
+
+* Poor baseline estimation
+* Misaligned campaign metadata
+* Overinterpretation of lift
+
+Mitigations include governance, documentation, and stakeholder education.
+
+Relevant visual reference:
+
+* [https://www.projectmanager.com/wp-content/uploads/2022/05/project-risk-management.png](https://www.projectmanager.com/wp-content/uploads/2022/05/project-risk-management.png)
+
+## 21. Implementation Roadmap
+
+Phases include:
+
+* Model deployment
+* Historical data loading
+* Dashboard development
+* Stakeholder training
+
+Relevant visual reference:
+
+* [https://www.productplan.com/uploads/roadmap-example.png](https://www.productplan.com/uploads/roadmap-example.png)
+
+## 22. Maintenance Strategy
+
+Ongoing activities include:
+
+* Periodic metric audits
+* Campaign metadata reviews
+* Performance monitoring
+
+Relevant visual reference:
+
+* [https://www.redhat.com/cms/managed-files/data-maintenance-automation.png](https://www.redhat.com/cms/managed-files/data-maintenance-automation.png)
+
+## 23. Success Criteria
+
+The project is successful when:
+
+* Campaign ROI is quantifiable
+* Baseline assumptions are trusted
+* Decision-making shifts from intuition to evidence
+
+Relevant visual reference:
+
+* [https://www.strategyzer.com/assets/resources/business-model-canvas-example.png](https://www.strategyzer.com/assets/resources/business-model-canvas-example.png)
+
+## 24. Conclusion
+
+The Market Lift Analytics Platform transforms marketing analysis from descriptive reporting into causal insight. By formalizing baseline, actual, and lift as first-class analytical entities, it enables organizations to invest with confidence, cut waste, and scale what truly works.
+
+This project is not just a data model. It is an analytical contract between data, marketing, and finance. It defines how success is measured and how truth is established.
