@@ -10,7 +10,7 @@ This document is a full project bible. It explains the business problem, analyti
 
 Relevant visual reference:
 
-* [https://miro.medium.com/max/1400/1*8JmT2pKX5pYQx0P0r6xR7A.png](https://miro.medium.com/max/1400/1*8JmT2pKX5pYQx0P0r6xR7A.png)
+<img width="1170" height="780" alt="image" src="https://github.com/user-attachments/assets/96b7ac13-9aa7-4089-ac97-46c9ed5a9948" />
 
 ## 2. Business Problem Statement
 
