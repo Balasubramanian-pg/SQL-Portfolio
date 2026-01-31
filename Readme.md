@@ -6,8 +6,7 @@
 ---
 
 ## 📂 Complete File Structure
-
-- 📁 [1. Data Engineering & Warehousing]([url](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing))
+[1. Data Engineering & Warehousing]([url](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing))
   - 📁 **[1.1 Balanced Tree Sales](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales)**
     - 📁 **[1.1.1 Schema](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema)**
       - 📄 [Data Dictionary.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema/Data Dictionary.md)
@@ -177,4 +176,5 @@
 
 *Generated automatically using GitHub API*  
 *Last updated: 2026-01-31 15:11:06*
+
 
