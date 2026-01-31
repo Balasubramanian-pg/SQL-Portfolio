@@ -1,181 +1,177 @@
-# 📚 Repository Structure: SQL-Portfolio
+# Repository Structure: SQL-Portfolio
 
-> **Repository:** [Balasubramanian-pg/SQL-Portfolio](https://github.com/Balasubramanian-pg/SQL-Portfolio)  
-> **Branch:** main
+**Repository:** [Balasubramanian-pg/SQL-Portfolio](https://github.com/Balasubramanian-pg/SQL-Portfolio)  
+**Branch:** main
 
----
+## Complete File Structure
 
-## 📂 Complete File Structure
-[1. Data Engineering & Warehousing](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing)
-  - 📁 **[1.1 Balanced Tree Sales](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales)**
-    - 📁 **[1.1.1 Schema](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema)**
-      - 📄 [Data Dictionary.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema/Data Dictionary.md)
-      - 📄 [ER Diagram.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema/ER Diagram.md)
-      - 📄 [Indexing Strategy.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema/Indexing Strategy.md)
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.1 Schema/Readme.md)
-    - 📁 **[1.1.2 Tests](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.2 Tests)**
-      - 📄 [Anomaly Detection Over Time.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.2 Tests/Anomaly Detection Over Time.md)
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.2 Tests/Readme.md)
-      - 📄 [White Tests.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.2 Tests/White Tests.md)
-      - 📄 [dbt Test Automation.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.2 Tests/dbt Test Automation.md)
-    - 📄 [1.1.3 Query Efficiency.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.3 Query Efficiency.md)
-    - 📄 [1.1.4 Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.4 Readme.md)
-    - 📄 [1.1.5 Solution.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.1 Balanced Tree Sales/1.1.5 Solution.md)
-  - 📁 **[1.2 Market Lift](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.2 Market Lift)**
-    - 📄 [1.2.2 Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.2 Market Lift/1.2.2 Readme.md)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.2 Market Lift/Readme.md)
-  - 📁 **[1.3 Meta Database Blueprints](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints)**
-    - 📄 [Facebook Users.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Facebook Users.md)
-    - 📄 [Full Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Full Database.md)
-    - 📄 [Instagram Clone Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Instagram Clone Database.md)
-    - 📄 [Post Identification.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Post Identification.md)
-    - 📄 [Product Diversification.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Product Diversification.md)
-    - 📄 [Relationship.png](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Relationship.png)
-    - 📄 [Users.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.3 Meta Database Blueprints/Users.md)
-  - 📁 **[1.4 Database Creation Scripts](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1. Data Engineering & Warehousing/1.4 Database Creation Scripts)**
-    - 📄 [Create Databases.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.4 Database Creation Scripts/Create Databases.sql)
-    - 📄 [Create Db Hr.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.4 Database Creation Scripts/Create Db Hr.sql)
-    - 📄 [Create Db Inventory.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.4 Database Creation Scripts/Create Db Inventory.sql)
-    - 📄 [Create Db Store.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1. Data Engineering & Warehousing/1.4 Database Creation Scripts/Create Db Store.sql)
-- 📁 **[10. Repository Index And Governance](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/10. Repository Index And Governance)**
-  - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/10. Repository Index And Governance/Readme.md)
-- 📁 **[2. Healthcare & Life Sciences Analytics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics)**
-  - 📁 **[2.1 Hospital Systems & Management](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management)**
-    - 📁 **[Hospital Inventory Management](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Hospital Inventory Management)**
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Hospital Inventory Management/Readme.md)
-    - 📁 **[Hospital Management System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Hospital Management System)**
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Hospital Management System/Readme.md)
-    - 📁 **[Patient Data Management System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Patient Data Management System)**
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Patient Data Management System/Readme.md)
-    - 📄 [Healthcare Analytics Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.1 Hospital Systems & Management/Healthcare Analytics Readme.md)
-  - 📁 **[2.2 Clinical Projects & Optimization](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization)**
-    - 📁 **[Electronic Health Records Optimization](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization)**
-      - 📁 **[Data Integrity.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Data Integrity.md)**
-        - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Data Integrity.md/Readme.md)
-      - 📁 **[Performance Tuning.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Performance Tuning.md)**
-        - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Performance Tuning.md/Readme.md)
-      - 📁 **[SQL Queries.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/SQL Queries.md)**
-        - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/SQL Queries.md/Readme.md)
-      - 📄 [Database Schema Design.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Database Schema Design.md)
-      - 📄 [Implementation Plan.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Implementation Plan.md)
-      - 📄 [Introduction.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Introduction.md)
-      - 📄 [Maintenance And Optimization.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Maintenance And Optimization.md)
-      - 📄 [Methodology.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Methodology.md)
-      - 📄 [Objectives.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Objectives.md)
-      - 📄 [Project Overview.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Project Overview.md)
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Readme.md)
-      - 📄 [Scope.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/Scope.md)
-      - 📄 [The 9000000 Dollar Problem Hiding In Your Hospitals Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.2 Clinical Projects & Optimization/Electronic Health Records Optimization/The 9000000 Dollar Problem Hiding In Your Hospitals Database.md)
-  - 📁 **[2.3 Disease Surveillance & Public Health](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health)**
-    - 📁 **[Covid 19 Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health/Covid 19 Analysis)**
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health/Covid 19 Analysis/Readme.md)
-      - 📄 [covid_19_data.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health/Covid 19 Analysis/covid_19_data.csv)
-    - 📁 **[Disease Surveillance System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health/Disease Surveillance System)**
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2. Healthcare & Life Sciences Analytics/2.3 Disease Surveillance & Public Health/Disease Surveillance System/Readme.md)
-- 📁 **[3. Education & Public Sector Data](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3. Education & Public Sector Data)**
-  - 📁 **[3.1 Computer Science Universities A Comprehensive Data Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis)**
-    - 📄 [Computer Science Universities (Cleaned).csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis/Computer Science Universities (Cleaned).csv)
-    - 📄 [Computer Science Universities (Cleaned).xlsx](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis/Computer Science Universities (Cleaned).xlsx)
-    - 📄 [Data Dictionary.xlsx](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis/Data Dictionary.xlsx)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis/Readme.md)
-    - 📄 [universities (Raw data).csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.1 Computer Science Universities A Comprehensive Data Analysis/universities (Raw data).csv)
-  - 📁 **[3.2 NYC Public School Test](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3. Education & Public Sector Data/3.2 NYC Public School Test)**
-    - 📁 **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3. Education & Public Sector Data/3.2 NYC Public School Test/Dataset)**
-      - 📄 [NYC Public School Test Data Analysis - Data.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.2 NYC Public School Test/Dataset/NYC Public School Test Data Analysis - Data.csv)
-    - 📄 [Data Dictionary.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.2 NYC Public School Test/Data Dictionary.md)
-    - 📄 [NYC Public School Test Data Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.2 NYC Public School Test/NYC Public School Test Data Analysis.md)
-  - 📁 **[3.3 Nashville Data Cleaning](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3. Education & Public Sector Data/3.3 Nashville Data Cleaning)**
-    - 📄 [Nashville Data Cleaning.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3. Education & Public Sector Data/3.3 Nashville Data Cleaning/Nashville Data Cleaning.md)
-- 📁 **[4. Retail, Sales & Customer Analytics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics)**
-  - 📁 **[4.2 Car Price](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.2 Car Price)**
-    - 📁 **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.2 Car Price/Dataset)**
-      - 📄 [Car Price.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.2 Car Price/Dataset/Car Price.csv)
-    - 📄 [Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.2 Car Price/Analysis.md)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.2 Car Price/Readme.md)
-  - 📁 **[4.3 Runner And Customer Experience](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.3 Runner And Customer Experience)**
-    - 📄 [Read Me.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.3 Runner And Customer Experience/Read Me.md)
-  - 📁 **[4.4 Company Department](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.4 Company Department)**
-    - 📁 **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Dataset)**
-      - 📄 [HR Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Dataset/HR Department.csv)
-      - 📄 [Marketing Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Dataset/Marketing Department.csv)
-      - 📄 [Sales Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Dataset/Sales Department.csv)
-    - 📁 **[Queries](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Queries)**
-      - 📄 [1. Average Salary Per Department.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Queries/1. Average Salary Per Department.md)
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Queries/Readme.md)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4. Retail, Sales & Customer Analytics/4.4 Company Department/Readme.md)
-- 📁 **[5. Exploratory Analyses & Case Studies](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies)**
-  - 📁 **[5.1 Chicago Crime Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies/5.1 Chicago Crime Analysis)**
-    - 📄 [Chicago Crime And Weather 2021 Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.1 Chicago Crime Analysis/Chicago Crime And Weather 2021 Analysis.md)
-    - 📄 [Chicago Crime And Weather 2021.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.1 Chicago Crime Analysis/Chicago Crime And Weather 2021.md)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.1 Chicago Crime Analysis/Readme.md)
-  - 📁 **[5.2 Danny's Diner Case Study](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study)**
-    - 📁 **[Dannys Diner Exploratory Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Dannys Diner Exploratory Analysis)**
-      - 📄 [Danny's Diner](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Dannys Diner Exploratory Analysis/Danny's Diner)
-      - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Dannys Diner Exploratory Analysis/Readme.md)
-    - 📄 [Business Requirement Gathering Document.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Business Requirement Gathering Document.md)
-    - 📄 [Contextual Pre Read.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Contextual Pre Read.md)
-    - 📄 [Dannys Diner.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Dannys Diner.md)
-    - 📄 [Pizza Metrics.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Pizza Metrics.md)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.2 Danny's Diner Case Study/Readme.md)
-  - 📁 **[5.3 Sao Paulo Invoice Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies/5.3 Sao Paulo Invoice Analysis)**
-    - 📄 [Invoicing Db Blueprint.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.3 Sao Paulo Invoice Analysis/Invoicing Db Blueprint.md)
-  - 📁 **[5.4 World Cup Exploratory Data Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5. Exploratory Analyses & Case Studies/5.4 World Cup Exploratory Data Analysis)**
-    - 📄 [Goals.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.4 World Cup Exploratory Data Analysis/Goals.csv)
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5. Exploratory Analyses & Case Studies/5.4 World Cup Exploratory Data Analysis/Readme.md)
-- 📁 **[6. Applications, Blueprints & System Templates](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/6. Applications, Blueprints & System Templates)**
-  - 📁 **[6.3 Maven Movies Projects](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects)**
-    - 📄 [Create Mavenmovies.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects/Create Mavenmovies.sql)
-    - 📄 [MavenMovies Final Course Project Solution.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects/MavenMovies Final Course Project Solution.sql)
-    - 📄 [MavenMovies Final Course Project.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects/MavenMovies Final Course Project.sql)
-    - 📄 [MavenMovies Mid Course Project Solution.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects/MavenMovies Mid Course Project Solution.sql)
-    - 📄 [MavenMovies Mid Course Project.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6. Applications, Blueprints & System Templates/6.3 Maven Movies Projects/MavenMovies Mid Course Project.sql)
-- 📁 **[7. Interview Preparation, Exercises & Training](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7. Interview Preparation, Exercises & Training)**
-  - 📁 **[7.1 Exercise Files](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files)**
-    - 📄 [Amazon Interview Questions.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Amazon Interview Questions.sql)
-    - 📄 [Approved And Declined Transactions.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Approved And Declined Transactions.sql)
-    - 📄 [Article Viewership.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Article Viewership.sql)
-    - 📄 [Books With Low Demand.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Books With Low Demand.sql)
-    - 📄 [Business Activity.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Business Activity.sql)
-    - 📄 [Candidates With Most Votes.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Candidates With Most Votes.sql)
-    - 📄 [Deloitte Interview Question.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Deloitte Interview Question.sql)
-    - 📄 [Deloitte Interview Swapping Product Id.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Deloitte Interview Swapping Product Id.sql)
-    - 📄 [Employee With Second Biggest Salary In Each Department.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Employee With Second Biggest Salary In Each Department.sql)
-    - 📄 [Games Played So Far.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Games Played So Far.sql)
-    - 📄 [Highest Answer Rate.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Highest Answer Rate.sql)
-    - 📄 [Median Salary.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Median Salary.sql)
-    - 📄 [Restaurant.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Restaurant.db)
-    - 📄 [Sales Cogs Opex.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Sales Cogs Opex.db)
-    - 📄 [Swapping Departments.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Swapping Departments.md)
-    - 📄 [Unique SQL Prep Questions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.1 Exercise Files/Unique SQL Prep Questions.md)
-  - 📁 **[7.2 Test Practices And Topics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics)**
-    - 📄 [Amazon Interview Questions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics/Amazon Interview Questions.md)
-    - 📄 [Customer Behavior Analysis Case Study.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics/Customer Behavior Analysis Case Study.md)
-    - 📄 [Data Cleaning And Transforming.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics/Data Cleaning And Transforming.md)
-    - 📄 [Interview.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics/Interview.md)
-    - 📄 [Joins And Window Functions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.2 Test Practices And Topics/Joins And Window Functions.md)
-  - 📁 **[7.3 SQL 101 Course Materials](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7. Interview Preparation, Exercises & Training/7.3 SQL 101 Course Materials)**
-    - 📄 [30 Days Of SQL.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL 101 Course Materials/30 Days Of SQL.pdf)
-    - 📄 [Data Wrangling With SQL By Raghav Kandappa & Shivangi Saxena.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL 101 Course Materials/Data Wrangling With SQL By Raghav Kandappa & Shivangi Saxena.pdf)
-    - 📄 [Screenshot 2025 10 26 063107.png](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL 101 Course Materials/Screenshot 2025 10 26 063107.png)
-  - 📁 **[7.3 SQL Murder Mystery](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7. Interview Preparation, Exercises & Training/7.3 SQL Murder Mystery)**
-    - 📄 [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL Murder Mystery/Readme.md)
-    - 📄 [SQLite Studio.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL Murder Mystery/SQLite Studio.pdf)
-    - 📄 [sql murder mystery.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7. Interview Preparation, Exercises & Training/7.3 SQL Murder Mystery/sql murder mystery.db)
-- 📁 **[8. Tools, Conversions And Vendor Specifics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8. Tools, Conversions And Vendor Specifics)**
-  - 📁 **[8.1 MongoDB And NoSQL](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8. Tools, Conversions And Vendor Specifics/8.1 MongoDB And NoSQL)**
-    - 📄 [MongoDB Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.1 MongoDB And NoSQL/MongoDB Readme.md)
-    - 📄 [Sql To Mongodb Cheat Sheet Duplicate.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.1 MongoDB And NoSQL/Sql To Mongodb Cheat Sheet Duplicate.pdf)
-  - 📁 **[8.3 Stored Procedures Triggers Views](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views)**
-    - 📄 [Stored Procedure Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views/Stored Procedure Readme.md)
-    - 📄 [Table Setup.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views/Table Setup.md)
-    - 📄 [Tables And Schema.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views/Tables And Schema.md)
-    - 📄 [Triggers Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views/Triggers Readme.md)
-    - 📄 [Views Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8. Tools, Conversions And Vendor Specifics/8.3 Stored Procedures Triggers Views/Views Readme.md)
-
----
+- **[1. Data Engineering & Warehousing](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing)**
+  - **[1.1 Balanced Tree Sales](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales)**
+    - **[1.1.1 Schema](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.1%20Schema)**
+      - [Data Dictionary.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.1%20Schema/Data%20Dictionary.md)
+      - [ER Diagram.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.1%20Schema/ER%20Diagram.md)
+      - [Indexing Strategy.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.1%20Schema/Indexing%20Strategy.md)
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.1%20Schema/Readme.md)
+    - **[1.1.2 Tests](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.2%20Tests)**
+      - [Anomaly Detection Over Time.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.2%20Tests/Anomaly%20Detection%20Over%20Time.md)
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.2%20Tests/Readme.md)
+      - [White Tests.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.2%20Tests/White%20Tests.md)
+      - [dbt Test Automation.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.2%20Tests/dbt%20Test%20Automation.md)
+    - [1.1.3 Query Efficiency.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.3%20Query%20Efficiency.md)
+    - [1.1.4 Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.4%20Readme.md)
+    - [1.1.5 Solution.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.1%20Balanced%20Tree%20Sales/1.1.5%20Solution.md)
+  - **[1.2 Market Lift](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.2%20Market%20Lift)**
+    - [1.2.2 Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.2%20Market%20Lift/1.2.2%20Readme.md)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.2%20Market%20Lift/Readme.md)
+  - **[1.3 Meta Database Blueprints](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints)**
+    - [Facebook Users.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Facebook%20Users.md)
+    - [Full Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Full%20Database.md)
+    - [Instagram Clone Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Instagram%20Clone%20Database.md)
+    - [Post Identification.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Post%20Identification.md)
+    - [Product Diversification.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Product%20Diversification.md)
+    - [Relationship.png](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Relationship.png)
+    - [Users.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.3%20Meta%20Database%20Blueprints/Users.md)
+  - **[1.4 Database Creation Scripts](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/1.%20Data%20Engineering%20%26%20Warehousing/1.4%20Database%20Creation%20Scripts)**
+    - [Create Databases.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.4%20Database%20Creation%20Scripts/Create%20Databases.sql)
+    - [Create Db Hr.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.4%20Database%20Creation%20Scripts/Create%20Db%20Hr.sql)
+    - [Create Db Inventory.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.4%20Database%20Creation%20Scripts/Create%20Db%20Inventory.sql)
+    - [Create Db Store.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/1.%20Data%20Engineering%20%26%20Warehousing/1.4%20Database%20Creation%20Scripts/Create%20Db%20Store.sql)
+- **[10. Repository Index And Governance](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/10.%20Repository%20Index%20And%20Governance)**
+  - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/10.%20Repository%20Index%20And%20Governance/Readme.md)
+- **[2. Healthcare & Life Sciences Analytics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics)**
+  - **[2.1 Hospital Systems & Management](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management)**
+    - **[Hospital Inventory Management](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Hospital%20Inventory%20Management)**
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Hospital%20Inventory%20Management/Readme.md)
+    - **[Hospital Management System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Hospital%20Management%20System)**
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Hospital%20Management%20System/Readme.md)
+    - **[Patient Data Management System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Patient%20Data%20Management%20System)**
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Patient%20Data%20Management%20System/Readme.md)
+    - [Healthcare Analytics Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.1%20Hospital%20Systems%20%26%20Management/Healthcare%20Analytics%20Readme.md)
+  - **[2.2 Clinical Projects & Optimization](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization)**
+    - **[Electronic Health Records Optimization](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization)**
+      - **[Data Integrity.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Data%20Integrity.md)**
+        - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Data%20Integrity.md/Readme.md)
+      - **[Performance Tuning.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Performance%20Tuning.md)**
+        - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Performance%20Tuning.md/Readme.md)
+      - **[SQL Queries.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/SQL%20Queries.md)**
+        - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/SQL%20Queries.md/Readme.md)
+      - [Database Schema Design.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Database%20Schema%20Design.md)
+      - [Implementation Plan.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Implementation%20Plan.md)
+      - [Introduction.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Introduction.md)
+      - [Maintenance And Optimization.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Maintenance%20And%20Optimization.md)
+      - [Methodology.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Methodology.md)
+      - [Objectives.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Objectives.md)
+      - [Project Overview.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Project%20Overview.md)
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Readme.md)
+      - [Scope.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/Scope.md)
+      - [The 9000000 Dollar Problem Hiding In Your Hospitals Database.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.2%20Clinical%20Projects%20%26%20Optimization/Electronic%20Health%20Records%20Optimization/The%209000000%20Dollar%20Problem%20Hiding%20In%20Your%20Hospitals%20Database.md)
+  - **[2.3 Disease Surveillance & Public Health](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health)**
+    - **[Covid 19 Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health/Covid%2019%20Analysis)**
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health/Covid%2019%20Analysis/Readme.md)
+      - [covid_19_data.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health/Covid%2019%20Analysis/covid_19_data.csv)
+    - **[Disease Surveillance System](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health/Disease%20Surveillance%20System)**
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/2.%20Healthcare%20%26%20Life%20Sciences%20Analytics/2.3%20Disease%20Surveillance%20%26%20Public%20Health/Disease%20Surveillance%20System/Readme.md)
+- **[3. Education & Public Sector Data](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3.%20Education%20%26%20Public%20Sector%20Data)**
+  - **[3.1 Computer Science Universities A Comprehensive Data Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis)**
+    - [Computer Science Universities (Cleaned).csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis/Computer%20Science%20Universities%20%28Cleaned%29.csv)
+    - [Computer Science Universities (Cleaned).xlsx](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis/Computer%20Science%20Universities%20%28Cleaned%29.xlsx)
+    - [Data Dictionary.xlsx](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis/Data%20Dictionary.xlsx)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis/Readme.md)
+    - [universities (Raw data).csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.1%20Computer%20Science%20Universities%20A%20Comprehensive%20Data%20Analysis/universities%20%28Raw%20data%29.csv)
+  - **[3.2 NYC Public School Test](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3.%20Education%20%26%20Public%20Sector%20Data/3.2%20NYC%20Public%20School%20Test)**
+    - **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3.%20Education%20%26%20Public%20Sector%20Data/3.2%20NYC%20Public%20School%20Test/Dataset)**
+      - [NYC Public School Test Data Analysis - Data.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.2%20NYC%20Public%20School%20Test/Dataset/NYC%20Public%20School%20Test%20Data%20Analysis%20-%20Data.csv)
+    - [Data Dictionary.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.2%20NYC%20Public%20School%20Test/Data%20Dictionary.md)
+    - [NYC Public School Test Data Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.2%20NYC%20Public%20School%20Test/NYC%20Public%20School%20Test%20Data%20Analysis.md)
+  - **[3.3 Nashville Data Cleaning](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/3.%20Education%20%26%20Public%20Sector%20Data/3.3%20Nashville%20Data%20Cleaning)**
+    - [Nashville Data Cleaning.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/3.%20Education%20%26%20Public%20Sector%20Data/3.3%20Nashville%20Data%20Cleaning/Nashville%20Data%20Cleaning.md)
+- **[4. Retail, Sales & Customer Analytics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics)**
+  - **[4.2 Car Price](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.2%20Car%20Price)**
+    - **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.2%20Car%20Price/Dataset)**
+      - [Car Price.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.2%20Car%20Price/Dataset/Car%20Price.csv)
+    - [Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.2%20Car%20Price/Analysis.md)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.2%20Car%20Price/Readme.md)
+  - **[4.3 Runner And Customer Experience](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.3%20Runner%20And%20Customer%20Experience)**
+    - [Read Me.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.3%20Runner%20And%20Customer%20Experience/Read%20Me.md)
+  - **[4.4 Company Department](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department)**
+    - **[Dataset](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Dataset)**
+      - [HR Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Dataset/HR%20Department.csv)
+      - [Marketing Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Dataset/Marketing%20Department.csv)
+      - [Sales Department.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Dataset/Sales%20Department.csv)
+    - **[Queries](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Queries)**
+      - [1. Average Salary Per Department.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Queries/1.%20Average%20Salary%20Per%20Department.md)
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Queries/Readme.md)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/4.%20Retail%2C%20Sales%20%26%20Customer%20Analytics/4.4%20Company%20Department/Readme.md)
+- **[5. Exploratory Analyses & Case Studies](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies)**
+  - **[5.1 Chicago Crime Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.1%20Chicago%20Crime%20Analysis)**
+    - [Chicago Crime And Weather 2021 Analysis.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.1%20Chicago%20Crime%20Analysis/Chicago%20Crime%20And%20Weather%202021%20Analysis.md)
+    - [Chicago Crime And Weather 2021.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.1%20Chicago%20Crime%20Analysis/Chicago%20Crime%20And%20Weather%202021.md)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.1%20Chicago%20Crime%20Analysis/Readme.md)
+  - **[5.2 Danny's Diner Case Study](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study)**
+    - **[Dannys Diner Exploratory Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Dannys%20Diner%20Exploratory%20Analysis)**
+      - [Danny's Diner](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Dannys%20Diner%20Exploratory%20Analysis/Danny%27s%20Diner)
+      - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Dannys%20Diner%20Exploratory%20Analysis/Readme.md)
+    - [Business Requirement Gathering Document.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Business%20Requirement%20Gathering%20Document.md)
+    - [Contextual Pre Read.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Contextual%20Pre%20Read.md)
+    - [Dannys Diner.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Dannys%20Diner.md)
+    - [Pizza Metrics.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Pizza%20Metrics.md)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.2%20Danny%27s%20Diner%20Case%20Study/Readme.md)
+  - **[5.3 Sao Paulo Invoice Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.3%20Sao%20Paulo%20Invoice%20Analysis)**
+    - [Invoicing Db Blueprint.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.3%20Sao%20Paulo%20Invoice%20Analysis/Invoicing%20Db%20Blueprint.md)
+  - **[5.4 World Cup Exploratory Data Analysis](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.4%20World%20Cup%20Exploratory%20Data%20Analysis)**
+    - [Goals.csv](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.4%20World%20Cup%20Exploratory%20Data%20Analysis/Goals.csv)
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/5.%20Exploratory%20Analyses%20%26%20Case%20Studies/5.4%20World%20Cup%20Exploratory%20Data%20Analysis/Readme.md)
+- **[6. Applications, Blueprints & System Templates](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates)**
+  - **[6.3 Maven Movies Projects](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects)**
+    - [Create Mavenmovies.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects/Create%20Mavenmovies.sql)
+    - [MavenMovies Final Course Project Solution.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects/MavenMovies%20Final%20Course%20Project%20Solution.sql)
+    - [MavenMovies Final Course Project.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects/MavenMovies%20Final%20Course%20Project.sql)
+    - [MavenMovies Mid Course Project Solution.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects/MavenMovies%20Mid%20Course%20Project%20Solution.sql)
+    - [MavenMovies Mid Course Project.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/6.%20Applications%2C%20Blueprints%20%26%20System%20Templates/6.3%20Maven%20Movies%20Projects/MavenMovies%20Mid%20Course%20Project.sql)
+- **[7. Interview Preparation, Exercises & Training](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training)**
+  - **[7.1 Exercise Files](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files)**
+    - [Amazon Interview Questions.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Amazon%20Interview%20Questions.sql)
+    - [Approved And Declined Transactions.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Approved%20And%20Declined%20Transactions.sql)
+    - [Article Viewership.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Article%20Viewership.sql)
+    - [Books With Low Demand.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Books%20With%20Low%20Demand.sql)
+    - [Business Activity.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Business%20Activity.sql)
+    - [Candidates With Most Votes.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Candidates%20With%20Most%20Votes.sql)
+    - [Deloitte Interview Question.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Deloitte%20Interview%20Question.sql)
+    - [Deloitte Interview Swapping Product Id.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Deloitte%20Interview%20Swapping%20Product%20Id.sql)
+    - [Employee With Second Biggest Salary In Each Department.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Employee%20With%20Second%20Biggest%20Salary%20In%20Each%20Department.sql)
+    - [Games Played So Far.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Games%20Played%20So%20Far.sql)
+    - [Highest Answer Rate.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Highest%20Answer%20Rate.sql)
+    - [Median Salary.sql](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Median%20Salary.sql)
+    - [Restaurant.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Restaurant.db)
+    - [Sales Cogs Opex.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Sales%20Cogs%20Opex.db)
+    - [Swapping Departments.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Swapping%20Departments.md)
+    - [Unique SQL Prep Questions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.1%20Exercise%20Files/Unique%20SQL%20Prep%20Questions.md)
+  - **[7.2 Test Practices And Topics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics)**
+    - [Amazon Interview Questions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics/Amazon%20Interview%20Questions.md)
+    - [Customer Behavior Analysis Case Study.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics/Customer%20Behavior%20Analysis%20Case%20Study.md)
+    - [Data Cleaning And Transforming.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics/Data%20Cleaning%20And%20Transforming.md)
+    - [Interview.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics/Interview.md)
+    - [Joins And Window Functions.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.2%20Test%20Practices%20And%20Topics/Joins%20And%20Window%20Functions.md)
+  - **[7.3 SQL 101 Course Materials](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20101%20Course%20Materials)**
+    - [30 Days Of SQL.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20101%20Course%20Materials/30%20Days%20Of%20SQL.pdf)
+    - [Data Wrangling With SQL By Raghav Kandappa & Shivangi Saxena.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20101%20Course%20Materials/Data%20Wrangling%20With%20SQL%20By%20Raghav%20Kandappa%20%26%20Shivangi%20Saxena.pdf)
+    - [Screenshot 2025 10 26 063107.png](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20101%20Course%20Materials/Screenshot%202025%2010%2026%20063107.png)
+  - **[7.3 SQL Murder Mystery](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20Murder%20Mystery)**
+    - [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20Murder%20Mystery/Readme.md)
+    - [SQLite Studio.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20Murder%20Mystery/SQLite%20Studio.pdf)
+    - [sql murder mystery.db](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/7.%20Interview%20Preparation%2C%20Exercises%20%26%20Training/7.3%20SQL%20Murder%20Mystery/sql%20murder%20mystery.db)
+- **[8. Tools, Conversions And Vendor Specifics](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics)**
+  - **[8.1 MongoDB And NoSQL](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.1%20MongoDB%20And%20NoSQL)**
+    - [MongoDB Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.1%20MongoDB%20And%20NoSQL/MongoDB%20Readme.md)
+    - [Sql To Mongodb Cheat Sheet Duplicate.pdf](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.1%20MongoDB%20And%20NoSQL/Sql%20To%20Mongodb%20Cheat%20Sheet%20Duplicate.pdf)
+  - **[8.3 Stored Procedures Triggers Views](https://github.com/Balasubramanian-pg/SQL-Portfolio/tree/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views)**
+    - [Stored Procedure Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views/Stored%20Procedure%20Readme.md)
+    - [Table Setup.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views/Table%20Setup.md)
+    - [Tables And Schema.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views/Tables%20And%20Schema.md)
+    - [Triggers Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views/Triggers%20Readme.md)
+    - [Views Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/8.%20Tools%2C%20Conversions%20And%20Vendor%20Specifics/8.3%20Stored%20Procedures%20Triggers%20Views/Views%20Readme.md)
+- [MASTER_README.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/MASTER_README.md)
+- [Readme.md](https://github.com/Balasubramanian-pg/SQL-Portfolio/blob/main/Readme.md)
 
 *Generated automatically using GitHub API*  
-*Last updated: 2026-01-31 15:11:06*
-
-
-
+*Last updated: 2026-01-31 15:23:35*
