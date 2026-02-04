@@ -162,4 +162,3 @@ In plain terms, this project exists to prove that:
 * Healthcare data demands discipline
 
 If these objectives are met, the EHR stops being something people work around and starts being something they can rely on.
-
