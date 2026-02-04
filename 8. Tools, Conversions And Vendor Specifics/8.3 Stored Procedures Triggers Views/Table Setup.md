@@ -1,6 +1,5 @@
 # PostgreSQL Triggers: Complete Guide with Examples
 
----
 ## **Table of Contents**
 1. [Trigger Fundamentals](#fundamentals)
 2. [Setup: Tables for Examples](#setup-tables)
@@ -13,7 +12,6 @@
 9. [Security Considerations](#security)
 10. [Complete Example: Audit System](#audit-system)
 
----
 ## **1. Trigger Fundamentals** <a name="fundamentals"></a>
 
 ### **Trigger Components**
@@ -47,7 +45,6 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
----
 ## **2. Setup: Tables for Examples** <a name="setup-tables"></a>
 
 ```sql
@@ -151,7 +148,6 @@ CREATE INDEX idx_products_category ON products(category);
 CREATE INDEX idx_order_items_product ON order_items(product_id);
 ```
 
----
 ## **3. Basic Trigger Examples** <a name="basic-triggers"></a>
 
 ### **1. Automatic Timestamp Update**
@@ -259,7 +255,6 @@ FOR EACH ROW
 EXECUTE FUNCTION validate_email_format();
 ```
 
----
 ## **4. Advanced Trigger Types** <a name="advanced-triggers"></a>
 
 ### **1. Statement-Level Trigger**
@@ -416,7 +411,6 @@ $$ LANGUAGE plpgsql;
 -- EXECUTE FUNCTION cascade_department_changes();
 ```
 
----
 ## **5. Trigger Management** <a name="trigger-management"></a>
 
 ### **List All Triggers**
@@ -484,7 +478,6 @@ ON employees RENAME TO trigger_employee_timestamp_update;
 DROP TRIGGER IF EXISTS trigger_update_employee_timestamp ON employees;
 ```
 
----
 ## **6. Performance Considerations** <a name="performance"></a>
 
 ### **Trigger Performance Tips**
@@ -558,7 +551,6 @@ ALTER TABLE trigger_test DISABLE TRIGGER trigger_update_timestamp_test;
 UPDATE trigger_test SET data = 'test' WHERE id < 10000;
 ```
 
----
 ## **7. Debugging Triggers** <a name="debugging"></a>
 
 ### **Debugging Techniques**
@@ -641,7 +633,6 @@ WHERE funcname LIKE '%trigger%';
 | `null value violates constraint` | Trigger sets NULL in NOT NULL column | Add NULL checks in trigger |
 | `cache lookup failed` | Missing referenced table | Verify all referenced objects exist |
 
----
 ## **8. Real-World Use Cases** <a name="use-cases"></a>
 
 ### **1. Audit Trail System**
@@ -907,7 +898,6 @@ WHEN (NEW.salary IS DISTINCT FROM OLD.salary)
 EXECUTE FUNCTION notify_salary_change();
 ```
 
----
 ## **9. Security Considerations** <a name="security"></a>
 
 ### **Secure Trigger Practices**
@@ -981,7 +971,6 @@ AFTER UPDATE ON employees
 FOR EACH ROW EXECUTE FUNCTION log_sensitive_operations();
 ```
 
----
 ## **10. Complete Example: Audit System** <a name="audit-system"></a>
 
 ### **Enhanced Audit System Implementation**
@@ -1231,7 +1220,6 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
----
 ## **Sample Data for Testing Triggers**
 
 ```sql
@@ -1344,7 +1332,6 @@ SET total_amount = (
 );
 ```
 
----
 ## **Testing the Triggers**
 
 ```sql
@@ -1423,7 +1410,6 @@ SELECT * FROM get_record_history('employees',
     (SELECT employee_id::TEXT FROM employees WHERE email = 'john.smith@example.com' LIMIT 1));
 ```
 
----
 ## **Trigger Best Practices Summary**
 
 1. **Keep triggers simple**: Complex business logic belongs in application code
@@ -1437,7 +1423,6 @@ SELECT * FROM get_record_history('employees',
 9. **Consider alternatives**: Sometimes constraints, rules, or application logic are better
 10. **Version control**: Include trigger definitions in your database version control
 
----
 ## **Complete Trigger Reference Table**
 
 | Trigger Type | Timing | Event | Use Case |
@@ -1452,7 +1437,6 @@ SELECT * FROM get_record_history('employees',
 | BEFORE TRUNCATE | Before truncate | TRUNCATE | Validate truncate operation |
 | AFTER TRUNCATE | After truncate | TRUNCATE | Log truncate operation |
 
----
 ## **Final Notes**
 
 This comprehensive guide provides:
