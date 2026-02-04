@@ -63,7 +63,6 @@ You are provided with two tables: `CustomerDemographics` and `Orders`. Your task
 | Mumbai | 1326 |
 | Jaipur | 1874 |
 
----
 
 ## SQL Solution Approach:
 
@@ -138,11 +137,9 @@ This should give us:
 
 The key is the JOIN to map customer IDs to regions, filtering by September 2024 dates, and then GROUP BY region with SUM aggregation.
 
----
 
 ### Netflix Question
 
----
 
 **Question:**
 
@@ -187,7 +184,6 @@ Given a table `user_flags` containing information about users flagging videos, d
 | jNQXAC9IVRw | 3 |
 | y6120QOlsfU | 5 |
 
----
 
 Okay, here's a common SQL solution to achieve the desired output.
 
@@ -229,11 +225,9 @@ ORDER BY -- Optional: To match the example output order if it's based on somethi
 
 This query will produce a table with `video_id` and the corresponding count of unique users who flagged it, excluding flags without a `flag_id`.
 
----
 
 ### Microsoft Question
 
----
 
 **Question:**
 
@@ -297,15 +291,11 @@ c. Count the number of *distinct* `product_category` values from which this cust
 - A list of `customer_id`s who are Supercloud customers.
 - **Column:**Column Namecustomer_id
     
-    ---
     
-    ---
     
 - **Example Output:**customer_id1
     
-    ---
     
-    ---
     
 
 **Explanation (based on example data):**
@@ -321,7 +311,6 @@ c. Count the number of *distinct* `product_category` values from which this cust
 
 *(Note: The example explanation implies Customer 1 made purchases across all three categories. The provided `customer_contracts` for Customer 1 shows product IDs 1 and 5. Product 1 is 'Analytics', Product 5 is 'Containers'. For the explanation to hold, Customer 1 must also have a contract for a 'Compute' product category, or product_id 3 (which is not in the `products` example) belongs to 'Compute'.)*
 
----
 
 ```sql
 SELECT customer_id
@@ -340,11 +329,9 @@ WHERE categories_purchased = (
 ORDER BY customer_id;
 ```
 
----
 
 ### PWC Question
 
----
 
 **Question:**
 
@@ -438,13 +425,10 @@ b. If no products in a `category` meet the rating criteria, assign a `lowest_pri
     - Toy Car (ID 6, Price 10): Rating 1. Does *not* qualify.
     - No products in 'Toys' category received a 4-star or above rating. Lowest price = 0.
 
----
 
----
 
 ### Uber Question
 
----
 
 **Question:**
 
@@ -485,13 +469,9 @@ You are given a table of Uber transactions made by users. Your task is to write 
 - The output should only include users who have at least three transactions.
 - **Columns:**Column Nameuser_idspendtransaction_date
     
-    ---
     
-    ---
     
-    ---
     
-    ---
     
 - **Example Output:**
     
@@ -516,13 +496,10 @@ You are given a table of Uber transactions made by users. Your task is to write 
 
 *(Note: The dataset you are querying against may have different input & output - this is just an example!)*
 
----
 
----
 
 ### Amazon Question
 
----
 
 **Question:**
 
@@ -567,13 +544,9 @@ You are given a table `product_spend` containing data on Amazon customers and th
 - **Columns:**
     - Column Name category product total_spend
     
-    ---
     
-    ---
     
-    ---
     
-    ---
     
 - **Example Output:**
     
@@ -598,13 +571,10 @@ You are given a table `product_spend` containing data on Amazon customers and th
 
 *(Note: The dataset you are querying against may have different input & output - this is just an example!)*
 
----
 
----
 
 ### Walmart Question
 
----
 
 **Question:**
 
@@ -648,13 +618,9 @@ The output should include the user's most recent `transaction_date`, their `user
 
 - **Columns:**Column Nametransaction_dateuser_idpurchase_count
     
-    ---
     
-    ---
     
-    ---
     
-    ---
     
 - **Example Output:**
     
@@ -681,13 +647,10 @@ The output is then sorted by `transaction_date`.
 
 *(Note: The dataset you are querying against may have different input & output - this is just an example!)*
 
----
 
----
 
 ### Zomato Question
 
----
 
 **Question:**
 
@@ -768,13 +731,10 @@ There's a specific condition: If the item with the highest `order_id` in the dat
 
 *(Note: The dataset you are querying against may have different input & output - this is just an example!)*
 
----
 
----
 
 ### Deloitte Question
 
----
 
 **Question:**
 
@@ -878,13 +838,10 @@ b. Determine the `on_time_flag`.
     - Total paid by 2023-01-20: 0.
     - `on_time_flag` = 0 (0 < 750 by due date, even though eventually fully paid).
 
----
 
----
 
 ### FAANG Question
 
----
 
 **Question:**
 
@@ -958,13 +915,9 @@ You are tasked with writing a SQL query to identify these high earners across al
 
 - **Columns:**Column Namedepartment_namenamesalary
     
-    ---
     
-    ---
     
-    ---
     
-    ---
     
 - **Example Output:**
     
@@ -991,6 +944,3 @@ You are tasked with writing a SQL query to identify these high earners across al
 
 *(Note: The dataset you are querying against may have different input & output - this is just an example! Department ID 3 from the `employee` table is not in the `department` example input, so its employees do not appear in the example output.)*
 
----
-
----
