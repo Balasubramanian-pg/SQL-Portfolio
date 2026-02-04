@@ -131,4 +131,3 @@ Instead, there is a relentless focus on **fundamentals:**
 
 This is the unglamorous, essential work of building a foundation that doesn’t just hold up under a demo load, but that remains solid, fast, and trustworthy as the relentless tide of healthcare data rises year after year. It is the difference between a system that works on the day it launches and one that is still working—effectively, reliably, and simply—a decade later, when it holds not just data, but the institutional memory of care delivered to a community. That is the ultimate measure of success.
 
-
