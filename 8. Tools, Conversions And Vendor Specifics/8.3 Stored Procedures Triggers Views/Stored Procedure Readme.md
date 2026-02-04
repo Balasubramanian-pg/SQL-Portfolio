@@ -103,7 +103,6 @@ psql -U your_username -d your_database
 \df *proc*
 ```
 
----
 ## **Method 3: Information Schema (Standard Compliant)**
 ```sql
 -- SQL standard compliant view
@@ -248,7 +247,6 @@ ORDER BY
    \x off
    ```
 
----
 ## **Key Differences: Procedures vs Functions**
 | Feature        | Procedure                     | Function                     |
 |----------------|-------------------------------|------------------------------|
@@ -257,7 +255,6 @@ ORDER BY
 | Transaction    | Can control transactions      | Runs in caller's transaction |
 | Created in     | PostgreSQL 11+                | All versions                 |
 
----
 ## **Best Practices**
 1. **Schema organization**: Use schemas to group related procedures
    ```sql
