@@ -107,7 +107,6 @@ This query calculates the average number of cookies per user.
 3.  `ROUND(..., 2)` formats the result to two decimal places.
 On average, each user has approximately 3.56 cookies.
 
----
 
 #### **3. What is the unique number of visits by all users per month?**
 
