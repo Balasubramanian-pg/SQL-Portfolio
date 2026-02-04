@@ -195,4 +195,3 @@ In simple terms, this project is responsible for:
 Everything else is intentionally excluded.
 
 That clarity is what makes the project realistic, maintainable, and explainable in real engineering conversations.
-
