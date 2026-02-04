@@ -150,7 +150,6 @@ CREATE TABLE NPS_Surveys (
 );
 ```
 
----
 
 Now, let's answer each question:
 
