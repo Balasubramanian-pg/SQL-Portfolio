@@ -114,4 +114,3 @@ Future enhancements to this project could include:
 ## Conclusion
 
 This project demonstrates how structured SQL analysis can be used to extract meaningful insights from public crime and weather data. By examining crime through geographic, temporal, and environmental lenses, the analysis provides a nuanced view of public safety dynamics in Chicago during 2021. The findings serve as a strong foundation for deeper analytical work, policy evaluation, and data-driven decision-making in urban crime prevention.
-
