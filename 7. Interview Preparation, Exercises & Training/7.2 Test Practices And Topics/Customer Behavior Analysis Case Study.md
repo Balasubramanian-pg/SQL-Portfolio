@@ -1,6 +1,5 @@
 # **Marketing Analytics Case Study: DVD Rental Co. Customer Email Campaign**  
 
----
 
 ## **1.0 Overview**  
 
@@ -17,7 +16,6 @@ The **Marketing Team** has shared a draft email with **7 key data points** to pe
 | 3 & 6 | **Category Film Recommendations** | Recommend **3 most popular films** in each top category that the customer **has not watched**. | Flag if no recommendations exist. |
 | 7, 8 | **Favourite Actor Recommendation** | Identify **favourite actor** with **3 film recommendations** (not already watched). | Flag if no recommendations exist. |
 
----
 
 ## **2.0 Entity Relationship Diagram (ERD)**  
 *(Visual representation of database tables and relationships)*  
@@ -30,7 +28,6 @@ The **Marketing Team** has shared a draft email with **7 key data points** to pe
 - `category` (film genres)
 - `actor` & `film_actor` (actor details and film associations)
 
----
 
 ## **3.0 Data Exploration**  
 
@@ -47,7 +44,6 @@ SELECT COUNT(inventory_id) FROM dvd_rentals.inventory; -- 4,581
 **Finding**:  
 - **1 extra `inventory_id` in `inventory` table** → A film was never rented.  
 
----
 
 #### **Hypothesis 2**:  
 *"There are multiple rentals per `inventory_id` in the `rental` table."*  
@@ -67,7 +63,6 @@ ORDER BY inventory_id_count;
 **Finding**:  
 - Some films have **multiple rentals** (e.g., 1 film had 4 rentals).  
 
----
 
 #### **Hypothesis 3**:  
 *"There are multiple `inventory_id` records per `film_id` in the `inventory` table."*  
@@ -87,7 +82,6 @@ ORDER BY inventory_records_count;
 **Finding**:  
 - Some films have **multiple copies** (e.g., 1 film has 8 inventory copies).  
 
----
 
 ### **3.2 Foreign Key Overlap Analysis**  
 
@@ -99,7 +93,6 @@ ORDER BY inventory_records_count;
 - **958 films** have inventory records.  
 - **42 films** are not in stock.  
 
----
 
 ## **4.0 Joining Tables for Analysis**  
 
@@ -121,7 +114,6 @@ JOIN dvd_rentals.film_category AS fc ON f.film_id = fc.film_id
 JOIN dvd_rentals.category AS c ON fc.category_id = c.category_id;
 ```
 
----
 
 ### **Step 2: Calculate `category_rental_counts` (Films Watched per Category per Customer)**  
 ```sql
@@ -136,7 +128,6 @@ FROM joint_table
 GROUP BY customer_id, category_name;
 ```
 
----
 
 ### **Step 3: Compute `customer_total_rentals` (Total Films Watched per Customer)**  
 ```sql
@@ -149,7 +140,6 @@ FROM category_rental_counts
 GROUP BY customer_id;
 ```
 
----
 
 ### **Step 4: Calculate `average_category_rental_counts` (Avg Rentals per Category)**  
 ```sql
@@ -162,7 +152,6 @@ FROM category_rental_counts
 GROUP BY category_name;
 ```
 
----
 
 ### **Step 5: Compute `customer_category_percentiles` (Customer Ranking in Each Category)**  
 ```sql
@@ -175,7 +164,6 @@ SELECT
 FROM category_rental_counts;
 ```
 
----
 
 ### **Step 6: Join All Temporary Tables for Final Insights**  
 ```sql
@@ -194,7 +182,6 @@ JOIN average_category_rental_counts AS t3 ON t1.category_name = t3.category_name
 JOIN customer_category_percentiles AS t4 ON t1.customer_id = t4.customer_id AND t1.category_name = t4.category_name;
 ```
 
----
 
 ## **✅ Key Learning Outcomes**  
 1. **Data Validation** – Confirmed hypotheses about inventory and rental behavior.  
@@ -202,7 +189,6 @@ JOIN customer_category_percentiles AS t4 ON t1.customer_id = t4.customer_id AND 
 3. **Personalized Recommendations** – Generated film and actor recommendations.  
 4. **Performance Metrics** – Calculated percentiles and averages for benchmarking.  
 
----
 
 ### **Next Steps**  
 - **Generate email content** using the final dataset.  
