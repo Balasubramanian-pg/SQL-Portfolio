@@ -6,8 +6,6 @@ This project involves a comprehensive data audit of the **Maven Movies** rental 
 
 The following requirements represent the core business questions that must be answered using the `mavenmovies` database schema.
 
----
-
 ### 1. Human Resources: Staff Directory
 
 To streamline internal communications and ensure organizational transparency, we require a master list of all current employees. The output should facilitate a quick reference for corporate management to identify which personnel are assigned to specific retail branches.
