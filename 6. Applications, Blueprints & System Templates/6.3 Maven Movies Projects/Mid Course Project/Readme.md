@@ -57,3 +57,25 @@ Identifying our "Power Users" is essential for the upcoming loyalty rewards prog
 
 * **Requirements:** A comprehensive list of all customer IDs paired with their total lifetime rental counts, ordered from the highest volume of rentals to the lowest.
 
+### Data Dictionary: `mavenmovies` Core Tables
+
+To support the requirements outlined in the Project Specification, the development team will need to reference the following primary tables. This dictionary ensures that the data extraction remains consistent with the business logic.
+
+---
+
+| Table Name | Key Columns for Analysis | Description |
+| --- | --- | --- |
+| **`staff`** | `first_name`, `last_name`, `email`, `store_id` | Contains personnel details and their primary work location. |
+| **`inventory`** | `inventory_id`, `film_id`, `store_id` | Tracks individual physical copies of films and where they are shelved. |
+| **`customer`** | `customer_id`, `email`, `store_id`, `active` | Stores client contact info and their current membership status (1 = Active). |
+| **`film`** | `film_id`, `title`, `replacement_cost` | The master catalog of movies, including their individual insurance/replacement value. |
+| **`category`** | `category_id`, `name` | Defines the genres (e.g., Action, Sci-Fi) available in the library. |
+| **`payment`** | `payment_id`, `amount` | Records every financial transaction processed by the staff. |
+| **`rental`** | `rental_id`, `customer_id` | Tracks the transaction history between customers and specific inventory items. |
+
+### Implementation Guidelines for Developers
+
+* **Aggregation:** Use `COUNT()` and `DISTINCT` carefully, especially when calculating unique titles versus total inventory count.
+* **Filtering:** For the Customer Engagement requirement, ensure the `WHERE` clause explicitly filters for `active = 1`.
+* **Ordering:** The CRM requirement must utilize `ORDER BY ... DESC` to ensure the highest-volume customers appear at the top of the dataset.
+* **Averages:** When calculating replacement costs or payments, provide the results rounded to two decimal places to match financial reporting standards.
