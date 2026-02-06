@@ -61,8 +61,6 @@ Identifying our "Power Users" is essential for the upcoming loyalty rewards prog
 
 To support the requirements outlined in the Project Specification, the development team will need to reference the following primary tables. This dictionary ensures that the data extraction remains consistent with the business logic.
 
----
-
 | Table Name | Key Columns for Analysis | Description |
 | --- | --- | --- |
 | **`staff`** | `first_name`, `last_name`, `email`, `store_id` | Contains personnel details and their primary work location. |
