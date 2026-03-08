@@ -1,7 +1,6 @@
-# Repository Structure: SQL-Portfolio
-
-**Repository:** [Balasubramanian-pg/SQL-Portfolio](https://github.com/Balasubramanian-pg/SQL-Portfolio)  
-**Branch:** main
+# SQL-Portfolio
+Welcome to My SQL Portfolio 
+<img width="736" height="981" alt="image" src="https://github.com/user-attachments/assets/c1cefc73-786c-4789-8fb6-7ac800478859" />
 
 ## Complete File Structure
 
