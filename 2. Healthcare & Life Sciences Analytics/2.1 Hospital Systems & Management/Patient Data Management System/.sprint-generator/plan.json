@@ -1,0 +1,191 @@
+{
+  "project_title": "Patient Data Management System",
+  "project_summary": "The Patient Data Management System project aims to design and implement a comprehensive database schema for managing patient information efficiently using Snowflake. This system will ensure data integrity, security, and enable efficient retrieval and reporting for healthcare providers, ultimately supporting better decision-making and operational efficiency.",
+  "source_readme_sha256": "2ebc717045b73786b3b97f22842e2bc4003fc128c894ded3e7fc0b640a0ebc69",
+  "generated_at": "2026-03-27T06:52:56+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "ProjectInitiationAndPlanning",
+      "sprint_objective": "Establish the project foundation, define scope, and outline the core methodology for the Patient Data Management System.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "ProjectContextDefinition",
+          "description": "Define the project's significance within healthcare data management, its purpose, and the benefits of the Patient Data Management System.",
+          "deliverable": "Detailed Introduction and Project Overview sections of the Project Bible."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "GoalAndScopeDefinition",
+          "description": "List specific project objectives and clearly define what is included and excluded from the system's functionalities and components.",
+          "deliverable": "Documented Objectives and Scope sections, including system components like patients, doctors, appointments, and treatments."
+        },
+        {
+          "mini_sprint_id": "0.3",
+          "mini_sprint_name": "MethodologyOutline",
+          "description": "Describe the methods and approaches to be used for system design and implementation, covering data modeling, database design principles, and query optimization.",
+          "deliverable": "Comprehensive Methodology section outlining project steps from requirements gathering to deployment."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "CoreDatabaseSchemaDesign",
+      "sprint_objective": "Design the detailed and normalized database schema for efficient patient data management within Snowflake.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "EntityRelationshipModeling",
+          "description": "Develop entity-relationship diagrams to identify key entities (Patients, Doctors, Appointments, Treatments) and their relationships.",
+          "deliverable": "ERD documentation for the Patient Data Management System."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "TableAndColumnDefinition",
+          "description": "Define detailed table structures, including column names, data types, and descriptions for all identified entities.",
+          "deliverable": "Detailed table schemas for Patients, Doctors, Appointments, and Treatments."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "ConstraintAndIndexDesign",
+          "description": "Specify primary keys, foreign keys, unique constraints, and appropriate indexes to ensure data integrity and optimize query performance.",
+          "deliverable": "Database Schema Design section with defined constraints and indexes."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "SQLQueryDevelopment",
+      "sprint_objective": "Develop and document efficient SQL queries for all data manipulation and retrieval needs of the system.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "DataManipulationQueries",
+          "description": "Write SQL queries for inserting new records, updating existing information, and deleting data across all tables.",
+          "deliverable": "Set of DML (INSERT, UPDATE, DELETE) SQL scripts for patient, doctor, appointment, and treatment data."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "DataRetrievalQueries",
+          "description": "Develop SQL queries to retrieve specific patient information, appointment schedules, and treatment histories.",
+          "deliverable": "Set of DQL (SELECT) SQL scripts for various data retrieval scenarios."
+        },
+        {
+          "mini_sprint_id": "2.3",
+          "mini_sprint_name": "ReportingAndAnalyticsQueries",
+          "description": "Create SQL queries designed to generate reports and support basic data analytics for decision-making.",
+          "deliverable": "SQL scripts for generating common reports (e.g., appointments by doctor, treatments by patient)."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "SnowflakeEnvironmentSetupAndSchemaDeployment",
+      "sprint_objective": "Set up the Snowflake environment and deploy the designed database schema and objects.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "SnowflakeResourceProvisioning",
+          "description": "Provision necessary Snowflake resources, including warehouses, databases, and schemas, and configure user access.",
+          "deliverable": "Configured Snowflake environment with appropriate roles and access controls."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "SchemaDDLGeneration",
+          "description": "Generate Data Definition Language (DDL) scripts for creating all tables, constraints, and indexes in Snowflake.",
+          "deliverable": "Complete DDL script for the entire database schema."
+        },
+        {
+          "mini_sprint_id": "3.3",
+          "mini_sprint_name": "SchemaDeployment",
+          "description": "Execute the generated DDL scripts in the Snowflake environment to create the database schema.",
+          "deliverable": "Deployed database schema in Snowflake, ready for data."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "DataLoadingAndInitialTesting",
+      "sprint_objective": "Load initial sample data and perform comprehensive functional testing of the deployed schema and developed queries.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "SampleDataGeneration",
+          "description": "Create realistic sample data for patients, doctors, appointments, and treatments to populate the database.",
+          "deliverable": "CSV or SQL insert scripts containing sample data."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "InitialDataLoading",
+          "description": "Load the generated sample data into the respective tables in the Snowflake environment.",
+          "deliverable": "Populated database tables with sample data."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "FunctionalQueryTesting",
+          "description": "Execute all developed SQL queries (DML and DQL) against the loaded sample data to verify correctness and expected output.",
+          "deliverable": "Test reports confirming functional correctness of all SQL queries."
+        },
+        {
+          "mini_sprint_id": "4.4",
+          "mini_sprint_name": "DataIntegrityValidation",
+          "description": "Verify that all defined constraints (primary keys, foreign keys, unique constraints) are correctly enforced.",
+          "deliverable": "Validation report confirming data integrity rules are active and functioning."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "PerformanceAndSecurityReview",
+      "sprint_objective": "Evaluate the system's performance and implement security measures to protect patient data.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "QueryPerformanceOptimization",
+          "description": "Analyze and optimize SQL queries for performance and efficiency, leveraging Snowflake's capabilities.",
+          "deliverable": "Optimized SQL queries with documented performance improvements."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "SecurityControlImplementation",
+          "description": "Implement appropriate security measures such as role-based access controls, data encryption, and auditing.",
+          "deliverable": "Configured security policies and access controls in Snowflake."
+        },
+        {
+          "mini_sprint_id": "5.3",
+          "mini_sprint_name": "RiskAssessmentAndMitigation",
+          "description": "Identify potential risks (e.g., data security, performance issues) and describe strategies for mitigating them.",
+          "deliverable": "Risks and Mitigation section of the Project Bible."
+        }
+      ]
+    },
+    {
+      "sprint_number": 6,
+      "sprint_name": "DocumentationAndProjectFinalization",
+      "sprint_objective": "Complete all project documentation, summarize outcomes, and outline future enhancements.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "6.1",
+          "mini_sprint_name": "ProjectBibleCompilation",
+          "description": "Compile all drafted sections (Introduction, Overview, Objectives, Scope, Methodology, Database Schema Design, SQL Queries, Implementation Plan, Expected Outcomes, Risks and Mitigation, Conclusion) into the final Project Bible.",
+          "deliverable": "Complete 'Patient Data Management System' Project Bible document."
+        },
+        {
+          "mini_sprint_id": "6.2",
+          "mini_sprint_name": "OutcomeAndBenefitReporting",
+          "description": "Document the expected outcomes and benefits of the project, such as improved efficiency and enhanced reporting capabilities.",
+          "deliverable": "Expected Outcomes section of the Project Bible."
+        },
+        {
+          "mini_sprint_id": "6.3",
+          "mini_sprint_name": "FutureEnhancementsPlanning",
+          "description": "Summarize the project's impact and outline potential future enhancements and scalability options.",
+          "deliverable": "Conclusion section of the Project Bible, including future considerations."
+        }
+      ]
+    }
+  ]
+}
