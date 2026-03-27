@@ -1,0 +1,197 @@
+{
+  "project_title": "Hospital Inventory Management",
+  "project_summary": "The Hospital Inventory Management project aims to design and implement a comprehensive database schema for tracking medical supplies, equipment, and their usage within healthcare providers. Leveraging Snowflake for its scalability and performance, this project will create a robust and scalable solution to optimize stock levels, reduce costs, and ensure the availability of critical medical items. It will cover requirements gathering, data modeling, database design, SQL query development for managing and retrieving inventory information, and strategies for data integrity and security, providing a foundational system for efficient inventory oversight.",
+  "source_readme_sha256": "f8f83aeebd410d4fffe6f4bd4c2b2171e21813d1ff4c4529a66c9f55b5cd0b80",
+  "generated_at": "2026-03-27T10:19:56+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "ProjectInitiationAndSetup",
+      "sprint_objective": "Establish the foundational environment and gather initial requirements for the Hospital Inventory Management System.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "SnowflakeEnvironmentSetup",
+          "description": "Configure the dedicated Snowflake workspace, including database, schema, and warehouse setup, to host the inventory management system.",
+          "deliverable": "Configured Snowflake database, schema, and compute warehouse."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "RequirementsGathering",
+          "description": "Conduct interviews and review existing processes to identify key data entities, functionalities, and reporting needs for inventory management.",
+          "deliverable": "Documented list of functional and non-functional requirements."
+        },
+        {
+          "mini_sprint_id": "0.3",
+          "mini_sprint_name": "InitialDataModeling",
+          "description": "Develop preliminary Entity-Relationship Diagrams (ERDs) to visualize the core data entities and their relationships based on gathered requirements.",
+          "deliverable": "Draft Entity-Relationship Diagram (ERD) for core entities."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "CoreSchemaDesign",
+      "sprint_objective": "Design and implement the foundational database tables for inventory items, suppliers, and locations, including their relationships.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "InventoryItemsTable",
+          "description": "Define and create the 'InventoryItems' table with columns for ItemID, Name, Description, Category, and UnitOfMeasure.",
+          "deliverable": "Created 'InventoryItems' table in Snowflake with defined columns and primary key."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "SuppliersAndLocationsTables",
+          "description": "Define and create the 'Suppliers' and 'Locations' tables, including their respective primary keys and relevant attributes.",
+          "deliverable": "Created 'Suppliers' and 'Locations' tables in Snowflake."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "CoreRelationshipsAndConstraints",
+          "description": "Establish foreign key relationships between 'InventoryItems', 'Suppliers', and 'Locations' tables, and implement necessary constraints.",
+          "deliverable": "SQL DDL scripts for table relationships and integrity constraints."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "TransactionalSchemaDesign",
+      "sprint_objective": "Design and implement tables for tracking stock levels and usage records, ensuring data integrity and performance.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "StockLevelsTable",
+          "description": "Define and create the 'StockLevels' table, including ItemID, LocationID, CurrentStockLevel, and ReorderLevel.",
+          "deliverable": "Created 'StockLevels' table with foreign keys to 'InventoryItems' and 'Locations'."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "UsageRecordsTable",
+          "description": "Define and create the 'UsageRecords' table, including ItemID, LocationID, UsageDate, and QuantityUsed.",
+          "deliverable": "Created 'UsageRecords' table with foreign keys to 'InventoryItems' and 'Locations'."
+        },
+        {
+          "mini_sprint_id": "2.3",
+          "mini_sprint_name": "PerformanceIndexing",
+          "description": "Implement appropriate indexes on frequently queried columns in all tables to optimize data retrieval performance.",
+          "deliverable": "SQL DDL scripts for creating indexes on relevant table columns."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "BasicDataManipulationQueries",
+      "sprint_objective": "Develop and test fundamental SQL queries for inserting, retrieving, updating, and deleting data across all tables.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "InsertQueries",
+          "description": "Develop SQL queries for inserting new records into 'InventoryItems', 'Suppliers', 'Locations', 'StockLevels', and 'UsageRecords' tables.",
+          "deliverable": "Set of SQL INSERT statements for all tables."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "RetrieveQueries",
+          "description": "Develop SQL queries for retrieving specific inventory item information, supplier details, location data, stock levels, and usage records.",
+          "deliverable": "Set of SQL SELECT statements for individual table data retrieval."
+        },
+        {
+          "mini_sprint_id": "3.3",
+          "mini_sprint_name": "UpdateAndDeleteQueries",
+          "description": "Develop SQL queries for updating existing records and deleting records from all tables, ensuring data integrity.",
+          "deliverable": "Set of SQL UPDATE and DELETE statements for all tables."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "ReportingAndAnalyticsQueries",
+      "sprint_objective": "Develop and optimize SQL queries for generating reports and supporting decision-making based on inventory data.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "StockLevelReports",
+          "description": "Develop SQL queries to generate reports on current stock levels for specific items or locations, including reorder alerts.",
+          "deliverable": "SQL queries for stock level reports (e.g., 'all stock levels for a location')."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "UsageRecordsReports",
+          "description": "Develop SQL queries to generate reports on usage patterns for specific inventory items over time.",
+          "deliverable": "SQL queries for usage records reports (e.g., 'usage records for a specific item')."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "CrossTableReports",
+          "description": "Develop complex SQL queries that join multiple tables to provide comprehensive insights, such as supplier-item relationships or location-specific inventory summaries.",
+          "deliverable": "Advanced SQL queries joining multiple tables for comprehensive reporting."
+        },
+        {
+          "mini_sprint_id": "4.4",
+          "mini_sprint_name": "QueryOptimization",
+          "description": "Review and optimize all developed SQL queries for performance and efficiency, utilizing Snowflake-specific best practices.",
+          "deliverable": "Optimized SQL queries with performance tuning recommendations."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "TestingAndValidation",
+      "sprint_objective": "Thoroughly test the database schema and all SQL queries to ensure they meet project requirements for correctness, integrity, and performance.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "UnitTesting",
+          "description": "Conduct unit tests for individual SQL queries and database objects to validate their functionality and expected output.",
+          "deliverable": "Unit test scripts and documented test results for all queries."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "IntegrationTesting",
+          "description": "Perform integration testing to ensure that the database schema and all developed queries work together seamlessly as a cohesive system.",
+          "deliverable": "Integration test plan and documented test results."
+        },
+        {
+          "mini_sprint_id": "5.3",
+          "mini_sprint_name": "DataIntegrityAndSecurityTesting",
+          "description": "Verify that all primary keys, foreign keys, and other constraints correctly enforce data integrity and test basic access controls.",
+          "deliverable": "Report on data integrity validation and basic security checks."
+        }
+      ]
+    },
+    {
+      "sprint_number": 6,
+      "sprint_name": "DeploymentAndDocumentation",
+      "sprint_objective": "Deploy the finalized database schema and SQL queries to a production-ready Snowflake environment and complete project documentation.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "6.1",
+          "mini_sprint_name": "DeploymentPlanning",
+          "description": "Develop a detailed deployment plan outlining the steps, dependencies, and rollback procedures for implementing the solution in Snowflake.",
+          "deliverable": "Comprehensive deployment plan document."
+        },
+        {
+          "mini_sprint_id": "6.2",
+          "mini_sprint_name": "InitialDeployment",
+          "description": "Execute the deployment of the database schema and all SQL queries into the target Snowflake environment.",
+          "deliverable": "Deployed Snowflake database schema and functional SQL queries."
+        },
+        {
+          "mini_sprint_id": "6.3",
+          "mini_sprint_name": "PostDeploymentMonitoring",
+          "description": "Monitor the deployed system for initial performance, data consistency, and any unexpected issues.",
+          "deliverable": "Initial monitoring report and issue log (if any)."
+        },
+        {
+          "mini_sprint_id": "6.4",
+          "mini_sprint_name": "ProjectDocumentationFinalization",
+          "description": "Finalize all project documentation, including the project bible, detailed schema diagrams, and comprehensive query documentation.",
+          "deliverable": "Complete project documentation package."
+        }
+      ]
+    }
+  ]
+}
