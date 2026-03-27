@@ -1,0 +1,173 @@
+{
+  "project_title": "Maven Analytics Data Warehouse Transition",
+  "project_summary": "This project aims to transition the existing transactional database into a structured Data Warehouse using a Star Schema. By centralizing facts and dimensions, the new system will enable high-performance querying for business analysts, supporting critical requirements like Lifetime Value and Replacement Costs through a robust ETL process.",
+  "source_readme_sha256": "bd7d32f1679870962f5d7d7561afab0259b6dec11629b70295f8438a71d1e84c",
+  "generated_at": "2026-03-27T11:25:09+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "ProjectKickoffAndFoundationSetup",
+      "sprint_objective": "Establish project understanding, define the architectural blueprint, and set up the initial database environment for the Data Warehouse.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "ProjectScopingAndArchitectureDesign",
+          "description": "Review business requirements, finalize the Star Schema design, and document the architectural approach for the Data Warehouse.",
+          "deliverable": "Approved Star Schema design document and architectural blueprint."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "EnvironmentProvisioning",
+          "description": "Create the dedicated `maven_analytics_dw` database instance to host the new Data Warehouse.",
+          "deliverable": "Empty `maven_analytics_dw` database instance."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "CoreDimensionsSchemaDevelopment",
+      "sprint_objective": "Define and implement the schema for the foundational dimension tables, which provide descriptive attributes.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "LocationDimensionSchema",
+          "description": "Create the `dim_location` table to consolidate address, city, and country information.",
+          "deliverable": "`dim_location` table schema implemented in `maven_analytics_dw`."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "FilmDimensionSchema",
+          "description": "Create the `dim_film` table to store film details, category, and award status.",
+          "deliverable": "`dim_film` table schema implemented in `maven_analytics_dw`."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "CustomerDimensionSchema",
+          "description": "Create the `dim_customer` table to track customer profiles, including loyalty metadata and a foreign key to `dim_location`.",
+          "deliverable": "`dim_customer` table schema implemented in `maven_analytics_dw`."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "FactTablesAndReferenceSchemaDevelopment",
+      "sprint_objective": "Define and implement the schema for the core fact tables and the independent stakeholder registry.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "InventoryFactSchema",
+          "description": "Create the `fact_inventory` table to support inventory counts and valuation requests.",
+          "deliverable": "`fact_inventory` table schema implemented in `maven_analytics_dw`."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "TransactionFactSchema",
+          "description": "Create the `fact_transactions` table to support payment averages, maximums, and Lifetime Value (LTV) requests.",
+          "deliverable": "`fact_transactions` table schema implemented in `maven_analytics_dw`."
+        },
+        {
+          "mini_sprint_id": "2.3",
+          "mini_sprint_name": "StakeholderRegistrySchema",
+          "description": "Create the `stakeholder_registry` table as a standalone entity for board and investor information.",
+          "deliverable": "`stakeholder_registry` table schema implemented in `maven_analytics_dw`."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "ETLStrategyAndInitialDimensionLoading",
+      "sprint_objective": "Outline the conceptual ETL logic and load the initial dimension data into the Data Warehouse.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "ETLConceptualDesign",
+          "description": "Document the conceptual ETL logic, including flattening, aggregation, and snapshotting strategies for data transformation from source to DWH.",
+          "deliverable": "ETL conceptual design document outlining data transformation rules."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "LocationDimensionETL",
+          "description": "Implement and execute the ETL process to populate the `dim_location` table from source data.",
+          "deliverable": "`dim_location` table populated with validated data."
+        },
+        {
+          "mini_sprint_id": "3.3",
+          "mini_sprint_name": "FilmDimensionETL",
+          "description": "Implement and execute the ETL process to populate the `dim_film` table, including the calculation of the 'award_tier'.",
+          "deliverable": "`dim_film` table populated with validated data."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "CustomerAndCoreFactDataLoading",
+      "sprint_objective": "Load the customer dimension and the primary fact tables, completing the core data population for analytical use.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "CustomerDimensionETL",
+          "description": "Implement and execute the ETL process to populate the `dim_customer` table, linking customer profiles with their respective location keys.",
+          "deliverable": "`dim_customer` table populated with validated data."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "TransactionFactETL",
+          "description": "Implement and execute the ETL process to populate the `fact_transactions` table, consolidating payment and rental metrics.",
+          "deliverable": "`fact_transactions` table populated with validated data."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "InventoryFactETL",
+          "description": "Implement and execute the ETL process to populate the `fact_inventory` table, capturing inventory valuation snapshots.",
+          "deliverable": "`fact_inventory` table populated with validated data."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "ReferenceDataAndDataValidation",
+      "sprint_objective": "Populate the stakeholder registry and perform initial validation of all loaded data to ensure integrity and accuracy.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "StakeholderRegistryETL",
+          "description": "Implement and execute the ETL process to populate the `stakeholder_registry` table from independent advisor and investor lists.",
+          "deliverable": "`stakeholder_registry` table populated with validated data."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "DataIntegrityValidation",
+          "description": "Perform comprehensive checks for data consistency, completeness, and foreign key relationships across all Data Warehouse tables.",
+          "deliverable": "Data validation report confirming data integrity and accuracy."
+        }
+      ]
+    },
+    {
+      "sprint_number": 6,
+      "sprint_name": "PerformanceOptimizationAndReportingReadiness",
+      "sprint_objective": "Optimize the Data Warehouse for query performance and prepare it for consumption by business analysts and reporting tools.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "6.1",
+          "mini_sprint_name": "IndexingAndPerformanceTuning",
+          "description": "Add necessary indexes to fact and dimension tables to ensure optimal query performance for common analytical requests.",
+          "deliverable": "DWH tables indexed and performance benchmarks met."
+        },
+        {
+          "mini_sprint_id": "6.2",
+          "mini_sprint_name": "SampleReportingQuery",
+          "description": "Develop and test a sample executive dashboard query to demonstrate the simplified SQL and performance benefits of the new Data Warehouse.",
+          "deliverable": "Functional sample executive dashboard query with documented results."
+        },
+        {
+          "mini_sprint_id": "6.3",
+          "mini_sprint_name": "ProjectDocumentationAndHandover",
+          "description": "Finalize all project documentation, including schema definitions, ETL processes, and usage guidelines, for a smooth handover to operations and analytics teams.",
+          "deliverable": "Comprehensive project documentation and successful project handover."
+        }
+      ]
+    }
+  ]
+}
