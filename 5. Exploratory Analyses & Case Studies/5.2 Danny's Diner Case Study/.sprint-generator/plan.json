@@ -1,0 +1,186 @@
+{
+  "project_title": "Danny's Diner Case Study",
+  "project_summary": "This project involves analyzing customer purchase data from Danny's Diner using MS SQL Server. It covers data setup, answering ten specific case study questions about customer behavior and membership impact, and includes bonus questions for advanced data integration and ranking, providing a comprehensive understanding of customer patterns.",
+  "source_readme_sha256": "233eb289031c27528c1d93d95c90a3f72f58b3c92edbed9be987941222a77c27",
+  "generated_at": "2026-03-27T11:18:46+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "PlatformFoundation",
+      "sprint_objective": "Establish the necessary database environment and load initial sample data.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "EnvironmentSetup",
+          "description": "Set up the MS SQL Server environment and create the dedicated database for Danny's Diner.",
+          "deliverable": "Operational SQL Server instance with an empty 'DannyDiner' database."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "TableSchemaDefinition",
+          "description": "Define the schemas for the 'sales', 'menu', and 'members' tables based on the project requirements.",
+          "deliverable": "DDL scripts for creating all three database tables."
+        },
+        {
+          "mini_sprint_id": "0.3",
+          "mini_sprint_name": "InitialDataLoading",
+          "description": "Populate the created tables with the provided sample data for sales, menu items, and member details.",
+          "deliverable": "Database tables ('sales', 'menu', 'members') populated with sample data."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "BasicCustomerInsights",
+      "sprint_objective": "Answer fundamental questions about customer spending and visit frequency.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "CustomerSpendingAnalysis",
+          "description": "Develop a SQL query to calculate the total amount spent by each customer.",
+          "deliverable": "SQL query for total amount spent per customer."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "CustomerVisitFrequency",
+          "description": "Develop a SQL query to determine the number of visits made by each customer.",
+          "deliverable": "SQL query for the number of visits per customer."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "OverallPopularItem",
+          "description": "Develop a SQL query to identify the most purchased menu item across all customers.",
+          "deliverable": "SQL query for the most purchased menu item."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "IndividualCustomerPatterns",
+      "sprint_objective": "Understand specific purchase behaviors for individual customers.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "FirstPurchaseIdentification",
+          "description": "Develop a SQL query to find the very first item purchased by each customer.",
+          "deliverable": "SQL query identifying the first item purchased by each customer."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "PersonalizedPopularItem",
+          "description": "Develop a SQL query to determine the most popular menu item for each individual customer.",
+          "deliverable": "SQL query for the most popular item per customer."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "PreMembershipAnalysis",
+      "sprint_objective": "Analyze customer behavior immediately preceding their membership.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "LastPreMembershipPurchase",
+          "description": "Develop a SQL query to identify the last purchase made by a customer before they became a member.",
+          "deliverable": "SQL query for the last purchase before membership."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "PreMembershipSpendingSummary",
+          "description": "Develop a SQL query to summarize total items and amount spent by customers before their membership.",
+          "deliverable": "SQL query for total items and amount spent before membership."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "PostMembershipAndBasicPoints",
+      "sprint_objective": "Evaluate initial purchases after membership and calculate basic loyalty points.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "FirstPostMembershipPurchase",
+          "description": "Develop a SQL query to identify the first purchase made by a customer after they became a member.",
+          "deliverable": "SQL query for the first purchase after becoming a member."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "BasicPointsCalculation",
+          "description": "Develop a SQL query to calculate points earned based on spending, applying a base points system.",
+          "deliverable": "SQL query for basic points earned based on spending."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "SushiBonusPoints",
+          "description": "Enhance the points calculation to include bonus points for sushi purchases.",
+          "deliverable": "SQL query for points earned, including bonus points for sushi."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "AdvancedMembershipPoints",
+      "sprint_objective": "Calculate loyalty points with specific time-based and product-based rules for new members.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "FirstWeekMembershipPoints",
+          "description": "Develop a SQL query to calculate points earned in the first week of membership, applying double points and excluding sushi.",
+          "deliverable": "SQL query for points earned in the first week of membership with special rules."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "workstream-2",
+          "description": "Define and complete the workstream details.",
+          "deliverable": "Documented implementation notes and task checklist."
+        }
+      ]
+    },
+    {
+      "sprint_number": 6,
+      "sprint_name": "DataIntegrationAndRanking",
+      "sprint_objective": "Combine all relevant data and apply advanced ranking techniques.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "6.1",
+          "mini_sprint_name": "ComprehensiveDataJoin",
+          "description": "Develop a SQL query to combine data from all tables, including customer ID, order date, product details, price, and membership status.",
+          "deliverable": "SQL query joining all 'sales', 'menu', and 'members' tables."
+        },
+        {
+          "mini_sprint_id": "6.2",
+          "mini_sprint_name": "CustomerOrderRanking",
+          "description": "Develop a SQL query to assign a ranking number to customer orders based on order date, within customer and membership status groups.",
+          "deliverable": "SQL query for ranking customer orders based on specified criteria."
+        }
+      ]
+    },
+    {
+      "sprint_number": 7,
+      "sprint_name": "DocumentationAndValidation",
+      "sprint_objective": "Ensure all developed queries are well-documented and validated against expected results.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "7.1",
+          "mini_sprint_name": "QueryDocumentation",
+          "description": "Add comprehensive comments and explanations to all developed SQL queries for clarity and maintainability.",
+          "deliverable": "Single SQL script file containing all documented queries."
+        },
+        {
+          "mini_sprint_id": "7.2",
+          "mini_sprint_name": "ResultValidation",
+          "description": "Verify the outputs of all queries against the sample data and expected results to ensure accuracy.",
+          "deliverable": "Validation report or confirmed accuracy of all query results."
+        },
+        {
+          "mini_sprint_id": "7.3",
+          "mini_sprint_name": "FinalReadMeUpdate",
+          "description": "Update the project README with links to the completed SQL scripts and a summary of findings.",
+          "deliverable": "Updated README.md reflecting project completion and resources."
+        }
+      ]
+    }
+  ]
+}
