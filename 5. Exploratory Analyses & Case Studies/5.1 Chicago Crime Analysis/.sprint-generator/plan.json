@@ -1,0 +1,105 @@
+{
+  "project_title": "Chicago Crime & Weather 2021 Analysis",
+  "project_summary": "This project appears to cover README, Project Overview, Objectives.",
+  "source_readme_sha256": "7880e425b562f4caccd51f8a04a4f6c95c44f45c8b854a735cfc3789312a344b",
+  "generated_at": "2026-03-27T11:14:36+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "foundation",
+      "sprint_objective": "Establish the project baseline and environment.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "planning",
+          "description": "Clarify scope and capture execution steps.",
+          "deliverable": "Agreed sprint plan."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "delivery",
+          "description": "Implement the work, validate outputs, and document decisions.",
+          "deliverable": "Completed work package."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "architecture",
+      "sprint_objective": "Define the data and solution architecture.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "planning",
+          "description": "Clarify scope and capture execution steps.",
+          "deliverable": "Agreed sprint plan."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "delivery",
+          "description": "Implement the work, validate outputs, and document decisions.",
+          "deliverable": "Completed work package."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "implementation",
+      "sprint_objective": "Build the core capabilities and integrations.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "planning",
+          "description": "Clarify scope and capture execution steps.",
+          "deliverable": "Agreed sprint plan."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "delivery",
+          "description": "Implement the work, validate outputs, and document decisions.",
+          "deliverable": "Completed work package."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "validation",
+      "sprint_objective": "Test, QA, and harden the solution.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "planning",
+          "description": "Clarify scope and capture execution steps.",
+          "deliverable": "Agreed sprint plan."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "delivery",
+          "description": "Implement the work, validate outputs, and document decisions.",
+          "deliverable": "Completed work package."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "release",
+      "sprint_objective": "Package documentation and prepare for rollout.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "planning",
+          "description": "Clarify scope and capture execution steps.",
+          "deliverable": "Agreed sprint plan."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "delivery",
+          "description": "Implement the work, validate outputs, and document decisions.",
+          "deliverable": "Completed work package."
+        }
+      ]
+    }
+  ]
+}
