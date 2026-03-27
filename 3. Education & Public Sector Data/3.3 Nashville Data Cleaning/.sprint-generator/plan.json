@@ -1,0 +1,178 @@
+{
+  "project_title": "SQL Data Cleaning Project: Nashville Housing Data",
+  "project_summary": "This SQL script performs comprehensive data cleaning on the Nashville housing dataset, demonstrating various data cleaning techniques and SQL skills including standardizing date formats, populating missing data, splitting columns, handling categorical values, removing duplicates, and dropping unnecessary columns to ensure the data is properly structured, consistent, and ready for analysis.",
+  "source_readme_sha256": "d590dd0cccfcb93a2ab4b6b6ab555f71a2439417c8bf4387b6f35ff825846f79",
+  "generated_at": "2026-03-27T11:00:20+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "ProjectKickoffAndDataIngestion",
+      "sprint_objective": "Establish the project environment and ingest the raw Nashville housing dataset.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "EnvironmentSetup",
+          "description": "Set up the necessary SQL database environment (e.g., MySQL, PostgreSQL) for the project.",
+          "deliverable": "Configured SQL database instance ready for data loading."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "DataIngestion",
+          "description": "Load the raw Nashville housing dataset into the designated database table.",
+          "deliverable": "Raw 'nashville_housing' table populated with initial data."
+        },
+        {
+          "mini_sprint_id": "0.3",
+          "mini_sprint_name": "InitialDataProfiling",
+          "description": "Perform an initial scan of the dataset to understand its structure, data types, and identify obvious inconsistencies or missing values.",
+          "deliverable": "Initial data profiling report or query results highlighting data characteristics."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "CoreDataStandardization",
+      "sprint_objective": "Address fundamental data consistency issues like date formats and missing critical property addresses.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "DateFormatStandardization",
+          "description": "Convert the 'Sale Date' column to a consistent and proper DATE format across all records.",
+          "deliverable": "'Sale Date' column updated to DATE data type with standardized format."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "MissingPropertyAddressIdentification",
+          "description": "Identify all records where the 'Property Address' is NULL and analyze their corresponding 'Parcel ID' for potential matches.",
+          "deliverable": "Query results showing all records with NULL 'Property Address' and their 'Parcel ID'."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "PropertyAddressPopulation",
+          "description": "Populate missing 'Property Address' values by self-joining on 'Parcel ID' where addresses are available for the same parcel.",
+          "deliverable": "All 'Property Address' NULLs filled based on matching 'Parcel ID' entries."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "PropertyAddressDecomposition",
+      "sprint_objective": "Break down the 'Property Address' into more granular and usable street and city components.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "PropertyAddressSplitLogic",
+          "description": "Develop and test SQL logic to accurately split the 'Property Address' into street and city parts using string manipulation functions.",
+          "deliverable": "SQL query demonstrating correct splitting of 'Property Address' into two components."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "PropertyAddressColumnCreation",
+          "description": "Add two new columns, 'Property Split Address' and 'Property City', to the 'nashville_housing' table.",
+          "deliverable": "Table schema updated with new 'Property Split Address' and 'Property City' columns."
+        },
+        {
+          "mini_sprint_id": "2.3",
+          "mini_sprint_name": "PropertyAddressColumnPopulation",
+          "description": "Populate the newly created 'Property Split Address' and 'Property City' columns using the developed splitting logic.",
+          "deliverable": "New address columns populated with extracted street and city information."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "OwnerAddressAndCategoricalStandardization",
+      "sprint_objective": "Decompose the 'Owner Address' into its constituent parts and standardize categorical fields.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "OwnerAddressSplitFunction",
+          "description": "Create a reusable SQL user-defined function (UDF) for splitting delimited strings, specifically for the 'Owner Address'.",
+          "deliverable": "SQL UDF 'SPLIT_STR' created and tested for string splitting."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "OwnerAddressSplitLogicApplication",
+          "description": "Apply the string splitting function to 'Owner Address' to extract street, city, and state components.",
+          "deliverable": "SQL query demonstrating successful extraction of owner address components."
+        },
+        {
+          "mini_sprint_id": "3.3",
+          "mini_sprint_name": "OwnerAddressColumnCreationAndPopulation",
+          "description": "Add and populate new columns: 'Owner Split Address', 'Owner City', and 'Owner State' based on the split 'Owner Address'.",
+          "deliverable": "Table updated with new owner address columns populated with split data."
+        },
+        {
+          "mini_sprint_id": "3.4",
+          "mini_sprint_name": "SoldAsVacantStandardization",
+          "description": "Standardize the 'Sold As Vacant' field to use consistent 'Yes' or 'No' values instead of 'Y'/'N'.",
+          "deliverable": "'Sold As Vacant' column updated with only 'Yes' or 'No' values."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "DataIntegrityAndCleanup",
+      "sprint_objective": "Ensure data uniqueness by removing duplicates and eliminate redundant or unnecessary columns.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "DuplicateIdentification",
+          "description": "Identify duplicate records within the dataset based on a combination of key identifying columns like 'Parcel ID', 'Property Address', 'Sale Price', 'Sale Date', and 'Legal Reference'.",
+          "deliverable": "SQL query or CTE identifying all duplicate rows."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "DuplicateRemoval",
+          "description": "Implement and execute SQL logic to remove all identified duplicate rows, retaining only one unique record per set of duplicates.",
+          "deliverable": "Dataset free of duplicate records based on defined criteria."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "UnusedColumnIdentification",
+          "description": "Determine which original columns are now redundant or no longer needed after the cleaning and splitting processes.",
+          "deliverable": "List of columns identified for deletion (e.g., 'Owner Address', 'Tax District', 'Property Address', 'Sale Date')."
+        },
+        {
+          "mini_sprint_id": "4.4",
+          "mini_sprint_name": "ColumnDeletion",
+          "description": "Execute ALTER TABLE statements to permanently drop the identified unused columns from the 'nashville_housing' table.",
+          "deliverable": "Final 'nashville_housing' table schema without redundant columns."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "FinalReviewAndDocumentation",
+      "sprint_objective": "Validate the cleaned data, review the final schema, and complete project documentation.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "DataValidation",
+          "description": "Perform a comprehensive final review of the cleaned dataset to ensure all cleaning steps were successful and data integrity is maintained.",
+          "deliverable": "Validation report or set of queries confirming data quality and consistency."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "SchemaReview",
+          "description": "Review the final table schema to ensure it is optimized, logical, and meets all analytical requirements.",
+          "deliverable": "Approved final table schema for the 'nashville_housing' dataset."
+        },
+        {
+          "mini_sprint_id": "5.3",
+          "mini_sprint_name": "DocumentationUpdate",
+          "description": "Update the project documentation with the final schema, detailed cleaning steps, and any insights gained during the process.",
+          "deliverable": "Comprehensive and up-to-date project README or documentation."
+        },
+        {
+          "mini_sprint_id": "5.4",
+          "mini_sprint_name": "CodeRefinement",
+          "description": "Review and optimize all SQL scripts for readability, maintainability, and performance.",
+          "deliverable": "Cleaned, commented, and optimized SQL scripts for the entire data cleaning process."
+        }
+      ]
+    }
+  ]
+}
