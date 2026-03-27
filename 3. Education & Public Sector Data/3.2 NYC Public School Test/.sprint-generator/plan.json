@@ -1,0 +1,210 @@
+{
+  "project_title": "Analysis of NYC Public School SAT Performance",
+  "project_summary": "This project analyzes SAT performance data from New York City's public high schools to uncover insights into academic achievement patterns. It identifies top-performing schools, compares performance across boroughs, and highlights specific trends like the strong showing of specialized high schools and disparities in scores across the city, suggesting areas for further investigation into factors influencing educational equity.",
+  "source_readme_sha256": "f0004db8d3771c9aa01fca281dba3a60a730909e2c4d366860381905c2e2af05",
+  "generated_at": "2026-03-27T11:02:42+00:00",
+  "model": "gemini-2.5-flash",
+  "generator_version": "3.0.0",
+  "sprints": [
+    {
+      "sprint_number": 0,
+      "sprint_name": "ProjectSetupAndDataAcquisition",
+      "sprint_objective": "Establish the foundational project environment and acquire the raw SAT performance data.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "0.1",
+          "mini_sprint_name": "EnvironmentSetup",
+          "description": "Set up the development environment, including version control, necessary libraries, and project structure. Ensure all team members have access and can contribute.",
+          "deliverable": "Configured development environment and initialized Git repository."
+        },
+        {
+          "mini_sprint_id": "0.2",
+          "mini_sprint_name": "DataSourceIdentification",
+          "description": "Identify and confirm the primary data sources for NYC public school SAT performance and school metadata. Verify data accessibility and format.",
+          "deliverable": "List of confirmed data sources and access methods."
+        },
+        {
+          "mini_sprint_id": "0.3",
+          "mini_sprint_name": "InitialDataIngestion",
+          "description": "Perform an initial ingestion of the raw SAT performance and school data into the project's data storage. Load data into a suitable format for initial inspection.",
+          "deliverable": "Raw SAT and school data loaded into dataframes/database tables."
+        }
+      ]
+    },
+    {
+      "sprint_number": 1,
+      "sprint_name": "DataExplorationAndCleaning",
+      "sprint_objective": "Understand the structure and quality of the ingested data, identifying and addressing initial data inconsistencies.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "1.1",
+          "mini_sprint_name": "DataProfiling",
+          "description": "Conduct initial data profiling to understand data types, distributions, unique values, and identify potential outliers or anomalies. Focus on key SAT score columns.",
+          "deliverable": "Data profiling report and summary statistics for all key columns."
+        },
+        {
+          "mini_sprint_id": "1.2",
+          "mini_sprint_name": "MissingDataHandling",
+          "description": "Address missing values, particularly for 'percentage of students tested' and SAT scores. Determine appropriate imputation strategies or exclusion criteria.",
+          "deliverable": "Cleaned dataset with missing values handled, documented methodology."
+        },
+        {
+          "mini_sprint_id": "1.3",
+          "mini_sprint_name": "DataStandardization",
+          "description": "Standardize school names, building codes, and other categorical data to ensure consistency across datasets. Resolve issues like multiple schools sharing building codes.",
+          "deliverable": "Standardized school and building identifier columns."
+        }
+      ]
+    },
+    {
+      "sprint_number": 2,
+      "sprint_name": "FeatureEngineeringAndAggregation",
+      "sprint_objective": "Transform raw data into analytical features and aggregate data to support key findings.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "2.1",
+          "mini_sprint_name": "TotalSatScoreCalculation",
+          "description": "Calculate the total SAT score for each school by summing the math, reading, and writing scores. Ensure consistency in score ranges.",
+          "deliverable": "New 'TotalSatScore' column added to the dataset."
+        },
+        {
+          "mini_sprint_id": "2.2",
+          "mini_sprint_name": "BoroughMapping",
+          "description": "Map each school to its respective NYC borough. Verify the accuracy of borough assignments for all schools.",
+          "deliverable": "Dataset with accurate 'Borough' column for each school."
+        },
+        {
+          "mini_sprint_id": "2.3",
+          "mini_sprint_name": "PerformanceMetricCreation",
+          "description": "Create additional performance metrics such as 'percentage of max score' for math, reading, writing, and total SAT scores to allow for standardized comparisons.",
+          "deliverable": "Derived performance metrics added to the dataset."
+        }
+      ]
+    },
+    {
+      "sprint_number": 3,
+      "sprint_name": "TopPerformingSchoolsAnalysis",
+      "sprint_objective": "Identify and analyze the characteristics of the highest-performing schools based on SAT scores.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "3.1",
+          "mini_sprint_name": "OverallTopSchoolsIdentification",
+          "description": "Identify the top 10 schools based on average total SAT scores. Extract their individual math, reading, and writing scores.",
+          "deliverable": "List of top 10 schools with their detailed SAT scores."
+        },
+        {
+          "mini_sprint_id": "3.2",
+          "mini_sprint_name": "SubjectSpecificTopSchools",
+          "description": "Identify schools excelling in specific subjects, such as those with math scores >= 640. Analyze their common characteristics.",
+          "deliverable": "Lists of top schools for Math, Reading, and Writing scores."
+        },
+        {
+          "mini_sprint_id": "3.3",
+          "mini_sprint_name": "EliteSchoolProfile",
+          "description": "Create a detailed profile of the top 4 elite schools, examining their scores and any available demographic or school type information.",
+          "deliverable": "Profile report for the top 4 elite schools."
+        }
+      ]
+    },
+    {
+      "sprint_number": 4,
+      "sprint_name": "BoroughComparisonAnalysis",
+      "sprint_objective": "Compare SAT performance across different NYC boroughs to identify regional disparities.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "4.1",
+          "mini_sprint_name": "BoroughAverageCalculation",
+          "description": "Calculate the average total SAT score for each NYC borough. Include the number of schools per borough in the analysis.",
+          "deliverable": "Table of average SAT scores per borough and school count."
+        },
+        {
+          "mini_sprint_id": "4.2",
+          "mini_sprint_name": "BoroughRankingAndVisualization",
+          "description": "Rank boroughs by their average SAT performance and create visualizations to illustrate the comparison. Highlight the leading and lagging boroughs.",
+          "deliverable": "Ranked list of boroughs and comparative bar charts."
+        },
+        {
+          "mini_sprint_id": "4.3",
+          "mini_sprint_name": "StatenIslandDeepDive",
+          "description": "Investigate Staten Island's performance given its leading position despite fewer schools. Explore potential contributing factors if data allows.",
+          "deliverable": "Summary of Staten Island's performance and hypotheses for its success."
+        }
+      ]
+    },
+    {
+      "sprint_number": 5,
+      "sprint_name": "BrooklynSpecificAnalysis",
+      "sprint_objective": "Conduct a focused analysis on SAT performance within Brooklyn, identifying its top schools and overall trends.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "5.1",
+          "mini_sprint_name": "BrooklynSchoolFiltering",
+          "description": "Filter the dataset to include only schools located in Brooklyn. Analyze the distribution of SAT scores within this borough.",
+          "deliverable": "Filtered dataset containing only Brooklyn schools."
+        },
+        {
+          "mini_sprint_id": "5.2",
+          "mini_sprint_name": "TopBrooklynPerformers",
+          "description": "Identify and list the top-performing schools in Brooklyn, specifically focusing on math scores as highlighted in the findings.",
+          "deliverable": "List of top Brooklyn schools with their math and total SAT scores."
+        },
+        {
+          "mini_sprint_id": "5.3",
+          "mini_sprint_name": "BrooklynPerformanceContext",
+          "description": "Contextualize Brooklyn's performance relative to other boroughs and its own internal disparities. Identify any unique patterns.",
+          "deliverable": "Summary of Brooklyn's SAT performance context and internal variations."
+        }
+      ]
+    },
+    {
+      "sprint_number": 6,
+      "sprint_name": "InsightsAndReporting",
+      "sprint_objective": "Synthesize all findings into a comprehensive report and create compelling visualizations.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "6.1",
+          "mini_sprint_name": "KeyFindingsVisualization",
+          "description": "Develop visualizations for all key findings, including top schools, borough comparisons, and specific Brooklyn highlights. Ensure clarity and impact.",
+          "deliverable": "Set of high-quality data visualizations."
+        },
+        {
+          "mini_sprint_id": "6.2",
+          "mini_sprint_name": "NarrativeReportDrafting",
+          "description": "Draft the narrative report, summarizing the analysis, key findings, observations, and potential implications. Focus on actionable insights.",
+          "deliverable": "First draft of the project's analytical report."
+        },
+        {
+          "mini_sprint_id": "6.3",
+          "mini_sprint_name": "ExecutiveSummaryCreation",
+          "description": "Create a concise executive summary that encapsulates the most important findings and observations for a high-level audience.",
+          "deliverable": "One-page executive summary of the analysis."
+        }
+      ]
+    },
+    {
+      "sprint_number": 7,
+      "sprint_name": "DocumentationAndPresentation",
+      "sprint_objective": "Finalize all project documentation and prepare for presenting the analysis to stakeholders.",
+      "mini_sprints": [
+        {
+          "mini_sprint_id": "7.1",
+          "mini_sprint_name": "CodeDocumentationAndReview",
+          "description": "Ensure all code is well-commented, adheres to best practices, and undergoes a peer review. Refactor as necessary for readability and maintainability.",
+          "deliverable": "Clean, documented, and reviewed codebase."
+        },
+        {
+          "mini_sprint_id": "7.2",
+          "mini_sprint_name": "ReadmeUpdateAndFinalization",
+          "description": "Update the project README.md with a detailed explanation of the analysis, how to run the code, and a summary of the key findings. Ensure it is comprehensive.",
+          "deliverable": "Finalized and updated README.md file."
+        },
+        {
+          "mini_sprint_id": "7.3",
+          "mini_sprint_name": "PresentationPreparation",
+          "description": "Prepare a presentation deck for stakeholders, incorporating the executive summary, key visualizations, and a clear narrative of the findings and observations.",
+          "deliverable": "Stakeholder presentation deck."
+        }
+      ]
+    }
+  ]
+}
