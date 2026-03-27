@@ -1,5 +1,15 @@
 # Disease Surveillance System: Project Bible
 
+## Sprint Overview
+
+| # | Sprint | Objective |
+|---|--------|-----------|
+| Sprint 0 |[foundation](Sprint-0-foundation/README.md) | Establish the project baseline and environment. |
+| Sprint 1 |[architecture](Sprint-1-architecture/README.md) | Define the data and solution architecture. |
+| Sprint 2 |[implementation](Sprint-2-implementation/README.md) | Build the core capabilities and integrations. |
+| Sprint 3 |[validation](Sprint-3-validation/README.md) | Test, QA, and harden the solution. |
+| Sprint 4 |[release](Sprint-4-release/README.md) | Package documentation and prepare for rollout. |
+
 ## Section 1: Introduction
 
 The Disease Surveillance System project aims to create a comprehensive database to track disease outbreaks, patient data, and geographical information. The system will enable healthcare authorities to monitor and analyze disease patterns effectively. This document provides a detailed plan for designing, implementing, and maintaining the system.
