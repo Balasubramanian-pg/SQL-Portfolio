@@ -1,3 +1,17 @@
+
+## Project Summary
+This project appears to cover **Analysis Approach Note (The Game Plan)**, **The Execution: 15 SQL Queries to Win**.
+
+## Sprint Overview
+
+| # | Sprint | Objective |
+|---|--------|-----------|
+| Sprint 0 |[foundation](Sprint-0-foundation/README.md) | Establish the project baseline and environment. |
+| Sprint 1 |[architecture](Sprint-1-architecture/README.md) | Define the data and solution architecture. |
+| Sprint 2 |[implementation](Sprint-2-implementation/README.md) | Build the core capabilities and integrations. |
+| Sprint 3 |[validation](Sprint-3-validation/README.md) | Test, QA, and harden the solution. |
+| Sprint 4 |[release](Sprint-4-release/README.md) | Package documentation and prepare for rollout. |
+
 ### **The Problem Statement**
 
 A team's success isn't an accident. It's a system. Our problem is that we only see the output (the score), not the inputs that create it (the performance metrics). We need to reverse-engineer the "win" by breaking down every goal scored. Who are the assets? Who are the liabilities? What's the highest-leverage action a team can take? We're not here to be sports analysts; we're here to be strategists who use data to get an unfair advantage.
