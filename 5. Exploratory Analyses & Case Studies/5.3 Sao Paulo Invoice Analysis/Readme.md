@@ -1,5 +1,20 @@
 # Invoicing Database Schema Analysis
 
+## Project Summary
+This project involves the analysis, design, and implementation of a comprehensive invoicing database schema. It focuses on creating four core tables: `payment_methods`, `clients`, `invoices`, and `payments`, establishing their relationships through foreign keys, and populating them with sample data. The project also addresses potential improvements such as indexing, adding status fields, implementing data validation rules, and considering soft delete functionality to ensure a robust and maintainable invoicing system.
+
+## Sprint Overview
+
+| # | Sprint | Objective |
+|---|--------|-----------|
+| Sprint 0 |[ProjectKickoffAndEnvironmentSetup](Sprint-0-ProjectKickoffAndEnvironmentSetup/README.md) | Establish the foundational project environment and initial planning for the database schema implementation. |
+| Sprint 1 |[CoreEntitiesSchemaImplementation](Sprint-1-CoreEntitiesSchemaImplementation/README.md) | Implement the foundational `payment_methods` and `clients` tables as per the schema analysis. |
+| Sprint 2 |[TransactionalEntitiesSchemaImplementation](Sprint-2-TransactionalEntitiesSchemaImplementation/README.md) | Implement the `invoices` and `payments` tables, establishing all necessary foreign key relationships. |
+| Sprint 3 |[DataPopulationAndBasicValidation](Sprint-3-DataPopulationAndBasicValidation/README.md) | Populate the database with sample data and perform initial checks for data integrity and consistency. |
+| Sprint 4 |[SchemaOptimizationAndStatusFields](Sprint-4-SchemaOptimizationAndStatusFields/README.md) | Implement performance improvements and add a crucial status field to the invoices table. |
+| Sprint 5 |[DataIntegrityAndBusinessRuleEnforcement](Sprint-5-DataIntegrityAndBusinessRuleEnforcement/README.md) | Enhance data quality by implementing validation rules and ensuring financial consistency. |
+| Sprint 6 |[AdvancedFeaturesAndDocumentation](Sprint-6-AdvancedFeaturesAndDocumentation/README.md) | Explore advanced features like soft delete and finalize comprehensive project documentation. |
+
 ## Database Overview
 This SQL script creates a comprehensive invoicing database with four main tables:
 1. `payment_methods` - Stores different payment options
