@@ -1,3 +1,19 @@
+
+## Project Summary
+This project aims to transition the existing transactional database into a structured Data Warehouse using a Star Schema. By centralizing facts and dimensions, the new system will enable high-performance querying for business analysts, supporting critical requirements like Lifetime Value and Replacement Costs through a robust ETL process.
+
+## Sprint Overview
+
+| # | Sprint | Objective |
+|---|--------|-----------|
+| Sprint 0 |[ProjectKickoffAndFoundationSetup](Sprint-0-ProjectKickoffAndFoundationSetup/README.md) | Establish project understanding, define the architectural blueprint, and set up the initial database environment for the Data Warehouse. |
+| Sprint 1 |[CoreDimensionsSchemaDevelopment](Sprint-1-CoreDimensionsSchemaDevelopment/README.md) | Define and implement the schema for the foundational dimension tables, which provide descriptive attributes. |
+| Sprint 2 |[FactTablesAndReferenceSchemaDevelopment](Sprint-2-FactTablesAndReferenceSchemaDevelopment/README.md) | Define and implement the schema for the core fact tables and the independent stakeholder registry. |
+| Sprint 3 |[ETLStrategyAndInitialDimensionLoading](Sprint-3-ETLStrategyAndInitialDimensionLoading/README.md) | Outline the conceptual ETL logic and load the initial dimension data into the Data Warehouse. |
+| Sprint 4 |[CustomerAndCoreFactDataLoading](Sprint-4-CustomerAndCoreFactDataLoading/README.md) | Load the customer dimension and the primary fact tables, completing the core data population for analytical use. |
+| Sprint 5 |[ReferenceDataAndDataValidation](Sprint-5-ReferenceDataAndDataValidation/README.md) | Populate the stakeholder registry and perform initial validation of all loaded data to ensure integrity and accuracy. |
+| Sprint 6 |[PerformanceOptimizationAndReportingReadiness](Sprint-6-PerformanceOptimizationAndReportingReadiness/README.md) | Optimize the Data Warehouse for query performance and prepare it for consumption by business analysts and reporting tools. |
+
 To transition from a simple transactional database to a structured **Data Warehouse (DWH)**, we need to move from a Normalized (OLTP) structure to a **Dimensional Model (Star Schema)**. This allows the Business Analyst's requirements (like Lifetime Value and Replacement Costs) to be queried with high performance.
 
 Below is the architectural blueprint and the SQL implementation to construct the `maven_analytics_dw` environment.
