@@ -1,6 +1,14 @@
 ## Chicago Crime & Weather 2021 Analysis
 
-### README
+## Sprint Overview
+
+| # | Sprint | Objective |
+|---|--------|-----------|
+| Sprint 0 |[foundation](Sprint-0-foundation/README.md) | Establish the project baseline and environment. |
+| Sprint 1 |[architecture](Sprint-1-architecture/README.md) | Define the data and solution architecture. |
+| Sprint 2 |[implementation](Sprint-2-implementation/README.md) | Build the core capabilities and integrations. |
+| Sprint 3 |[validation](Sprint-3-validation/README.md) | Test, QA, and harden the solution. |
+| Sprint 4 |[release](Sprint-4-release/README.md) | Package documentation and prepare for rollout. |
 
 ## Project Overview
 
