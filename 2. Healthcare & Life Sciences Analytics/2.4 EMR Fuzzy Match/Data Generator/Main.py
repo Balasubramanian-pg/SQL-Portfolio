@@ -292,3 +292,35 @@ df_claims_patients = df_claims_patients[['member_id', 'first_name', 'last_name',
 mask = np.random.rand(len(df_dispenses)) < 0.02
 time_travel_deltas = [datetime.timedelta(days=min(30, np.random.randint(1, 15))) for _ in range(mask.sum())]
 df_dispenses.loc[mask, 'dispense_date'] = df_dispenses.loc[mask, 'dispense_date'] - time_travel_deltas
+
+# ==========================================
+# PHASE 4: VALIDATION & EXPORT TO CSV
+# ==========================================
+print("\n--- Generation Summary ---")
+print(f"Provider Master Table:  {len(df_hcps):,} rows")
+print(f"EMR Patients Table:     {len(df_emr_patients):,} rows")
+print(f"Claims Patients Table:  {len(df_claims_patients):,} rows")
+print(f"EMR Encounters Table:   {len(df_encounters):,} rows")
+print(f"EMR Labs Table:         {len(df_labs):,} rows")
+print(f"EMR Prescriptions Fact: {len(df_rx):,} rows")
+print(f"Claims Dispenses Fact:  {len(df_dispenses):,} rows")
+
+total_rows = len(df_hcps) + len(df_emr_patients) + len(df_claims_patients) + len(df_encounters) + len(df_labs) + len(df_rx) + len(df_dispenses)
+print(f"-> TOTAL ROWS GENERATED: {total_rows:,}")
+
+print("\nExporting dataframes to CSV files...")
+
+# Writing out the Master Reference Data
+df_hcps.to_csv("00_provider_master.csv", index=False)
+
+# Writing out the EMR Clinical System Data (System A)
+df_emr_patients.to_csv("01_emr_patients_raw.csv", index=False)
+df_encounters.to_csv("03_emr_encounters_raw.csv", index=False)
+df_labs.to_csv("04_emr_labs_raw.csv", index=False)
+df_rx.to_csv("05_emr_rx_raw.csv", index=False)
+
+# Writing out the Claims Financial System Data (System B)
+df_claims_patients.to_csv("02_claims_patients_raw.csv", index=False)
+df_dispenses.to_csv("06_claims_dispenses_raw.csv", index=False)
+
+print("\nProcess Complete. The raw ecosystem is now saved to disk and ready for SQL ingestion.")
